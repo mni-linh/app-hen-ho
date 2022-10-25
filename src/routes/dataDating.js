@@ -3,14 +3,14 @@ import Product from "../pages/Product";
 import Safe from "../pages/Safe";
 import Support from "../pages/Support";
 import Download from "../pages/Download";
-import WhatshotIcon from "@mui/icons-material/Whatshot";
 import LearnAbout from "../pages/LearnAbout";
+import ImageLogo from "../Atomic/molecules/ImageLogo";
 
 const dataDating = [
   {
     path: "/",
     element: <Home />,
-    icon: <WhatshotIcon />,
+    icon: <ImageLogo />,
   },
   {
     path: "/product",
