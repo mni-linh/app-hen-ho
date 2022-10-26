@@ -4,7 +4,7 @@ import Safe from "../pages/Safe";
 import Support from "../pages/Support";
 import Download from "../pages/Download";
 import LearnAbout from "../pages/LearnAbout";
-import ImageLogo from "../Atomic/molecules/ImageLogo";
+import ImageLogo from "../Atomic/atoms/AtomImageLogo";
 
 const dataDating = [
   {

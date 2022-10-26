@@ -1,8 +1,8 @@
 import { styled } from "@mui/material/styles";
 
-const ImageLogo = styled("img")({
+const AtomImageLogo = styled("img")({
   width: "65px",
   height: "36px",
 });
 
-export default ImageLogo;
+export default AtomImageLogo;
