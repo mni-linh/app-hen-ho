@@ -1,14 +1,20 @@
 import React from "react";
 import AtomAppBar from "../atoms/AtomAppBar";
-import AtomContainer from "../atoms/AtomContainer";
 import AtomImageLogo from "../atoms/AtomImageLogo";
+import AtomMenuIcon from "../atoms/AtomMenuIcon";
 import AtomToolbar from "../atoms/AtomToolbar";
 import AtomTypography from "../atoms/AtomTypography";
+import AtomWhatshotIcon from "../atoms/AtomWhatshotIcon";
 import DialogChangeLanguage from "../molecules/DialogChangeLanguage";
 import DialogSignIn from "../molecules/DialogSignIn";
 import MenuBar from "../molecules/MenuBar";
 
 const AppBar = () => {
+  // const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  // const handleDrawerToggle = () => {
+  //   setMobileOpen(!mobileOpen);
+  // };
   return (
     <AtomAppBar position="static">
       {/* <AtomContainer
@@ -21,11 +27,19 @@ const AppBar = () => {
       <AtomToolbar
         disableGutters
         sx={{
-          // backgroundColor: "rgb(192,192,192,0.7)",
           backgroundColor: "rgba(117, 117, 117)",
         }}
       >
-        <AtomImageLogo alt="logo" src="/images/logoTinder.png" />
+        {/* <AtomWhatshotIcon
+          aria-label="open drawer"
+          edge="start"
+          onClick={handleDrawerToggle}
+          sx={{ mr: 2, display: { md: "none" } }}
+        >
+          <AtomMenuIcon />
+        </AtomWhatshotIcon> */}
+        <AtomImageLogo alt="logo" src="/images/logoTinder.png"></AtomImageLogo>
+
         <AtomTypography
           variant="h6"
           noWrap

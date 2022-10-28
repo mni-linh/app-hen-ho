@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AtomBox from "../atoms/AtomBox";
 import AtomButton from "../atoms/AtomButton";
 import AtomDialog from "../atoms/AtomDialog";
@@ -16,6 +16,8 @@ import AtomTooltip from "../atoms/AtomTooltip";
 import AtomTypography from "../atoms/AtomTypography";
 import AtomWhatshotIcon from "../atoms/AtomWhatshotIcon";
 import PropTypes from "prop-types";
+import AtomGrid from "../atoms/AtomGrid";
+
 const languages = [
   "English (US)",
   "Tiếng Việt",
@@ -87,61 +89,97 @@ function SimpleDialog(props) {
   const handleListItemClick = (value) => {
     onClose(value);
   };
-
+  const [isHover, setIsHover] = useState(false);
+  const handleMouseEnter = () => {
+    setIsHover(true);
+  };
+  const handleMouseLeave = () => {
+    setIsHover(false);
+  };
+  const boxStyle = {
+    cursor: "pointer",
+    transition: "all 0.2s ease-in-out",
+    backgroundColor: isHover ? "transparent" : "transparent",
+    color: isHover ? "#616161" : "grey",
+    transform: isHover ? "rotate(90deg)" : "default",
+  };
   return (
-    <AtomDialog onClose={handleClose} open={open}>
+    <AtomDialog onClose={handleClose} open={open} xs={{ with: "100px" }}>
       {/* <> */}
       <AtomToolbar>
-        <AtomWhatshotIcon
-          sx={{
-            display: {
-              xs: "none",
-              md: "flex",
-            },
-            marginRight: 1,
-            paddingLeft: 10,
-            paddingRight: 10,
-            color: "red",
-            textAlign: "center",
-          }}
-        />
-        <AtomIconButton edge="end" onClick={handleClose}>
-          <AtomHighlightOffIcon />
-        </AtomIconButton>
+        <AtomGrid container spacing={2}>
+          <AtomGrid item xs={11}>
+            <AtomWhatshotIcon
+              sx={{
+                display: {
+                  xs: "none",
+                  md: "flex",
+                },
+                marginRight: 1,
+                paddingLeft: 34,
+                paddingRight: 25,
+                paddingTop: 3,
+                color: "red",
+                textAlign: "center",
+                size: "large",
+              }}
+            />
+          </AtomGrid>
+          <AtomGrid item>
+            <AtomIconButton
+              edge="end"
+              onClick={handleClose}
+              sx={boxStyle}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <AtomHighlightOffIcon />
+            </AtomIconButton>
+          </AtomGrid>
+        </AtomGrid>
       </AtomToolbar>
 
-      <AtomDialogTitle>Chọn một ngôn ngữ</AtomDialogTitle>
+      <AtomDialogTitle sx={{ textAlign: "center", fontWeight: 700 }}>
+        Chọn một ngôn ngữ
+      </AtomDialogTitle>
       <AtomTypography
         sx={{
-          paddingLeft: 3,
+          textAlign: "center",
+          padding: "5px 34px",
+          fontWeight: 500,
         }}
       >
         {selectedValue}
       </AtomTypography>
       <AtomDivider variant="middle" />
+
       {/*  */}
       <AtomList>
-        {languages.map((language) => (
-          <AtomListItem
-            button
-            onClick={() => handleListItemClick(language)}
-            key={language}
-          >
-            <AtomStack direction="row" spacing={2}>
-              <AtomButton
-                sx={{
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  letterSpacing: ".3rem",
-                  color: "#424242",
-                  textTransform: "capitalize",
-                }}
+        <AtomGrid container>
+          {languages.map((language) => (
+            <AtomGrid item key={language} xs={3}>
+              <AtomListItem
+                button
+                onClick={() => handleListItemClick(language)}
               >
-                <AtomListItemText primary={language} />
-              </AtomButton>
-            </AtomStack>
-          </AtomListItem>
-        ))}
+                <AtomStack direction="row" spacing={2}>
+                  <AtomButton
+                    sx={{
+                      fontFamily: "monospace",
+                      fontWeight: 700,
+                      letterSpacing: ".3rem",
+                      color: "#424242",
+                      textTransform: "capitalize",
+                      width: "150px",
+                    }}
+                  >
+                    <AtomListItemText primary={language} />
+                  </AtomButton>
+                </AtomStack>
+              </AtomListItem>
+            </AtomGrid>
+          ))}
+        </AtomGrid>
       </AtomList>
     </AtomDialog>
   );
@@ -163,6 +201,7 @@ const DialogChangeLanguage = () => {
     setOpen(false);
     setSelectedValue(value);
   };
+
   return (
     <AtomBox sm={{ flexGrow: 0 }}>
       <AtomTooltip title="Change language">

@@ -23,6 +23,7 @@ const MenuBar = () => {
             textAlign: "start",
             lineHeight: "21px",
             letterSpacing: "normal",
+            textTransform: "capitalize",
           }}
         >
           {page.name}
