@@ -1,17 +1,10 @@
-import Home from "../pages/Home";
 import Product from "../pages/Product";
 import Safe from "../pages/Safe";
 import Support from "../pages/Support";
 import Download from "../pages/Download";
 import LearnAbout from "../pages/LearnAbout";
-import ImageLogo from "../Atomic/atoms/AtomImageLogo";
 
 const dataDating = [
-  {
-    path: "/",
-    element: <Home />,
-    icon: <ImageLogo />,
-  },
   {
     path: "/product",
     element: <Product />,

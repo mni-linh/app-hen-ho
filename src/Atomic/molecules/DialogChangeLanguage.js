@@ -104,7 +104,7 @@ function SimpleDialog(props) {
     transform: isHover ? "rotate(90deg)" : "default",
   };
   return (
-    <AtomDialog onClose={handleClose} open={open} xs={{ with: "100px" }}>
+    <AtomDialog onClose={handleClose} open={open} maxWidth="md">
       {/* <> */}
       <AtomToolbar>
         <AtomGrid container spacing={2}>
@@ -160,22 +160,22 @@ function SimpleDialog(props) {
             <AtomGrid item key={language} xs={3}>
               <AtomListItem
                 button
+                sx={{
+                  fontFamily: "monospace",
+                  fontWeight: 700,
+                  letterSpacing: ".3rem",
+                  color: "#424242",
+                  textTransform: "capitalize",
+                  width: "150px",
+                  textAlign: "center",
+                  margin: "0 auto",
+                }}
                 onClick={() => handleListItemClick(language)}
               >
-                <AtomStack direction="row" spacing={2}>
-                  <AtomButton
-                    sx={{
-                      fontFamily: "monospace",
-                      fontWeight: 700,
-                      letterSpacing: ".3rem",
-                      color: "#424242",
-                      textTransform: "capitalize",
-                      width: "150px",
-                    }}
-                  >
-                    <AtomListItemText primary={language} />
-                  </AtomButton>
-                </AtomStack>
+                <AtomListItemText
+                  sx={{ textAlign: "center" }}
+                  primary={language}
+                />
               </AtomListItem>
             </AtomGrid>
           ))}
@@ -207,7 +207,6 @@ const DialogChangeLanguage = () => {
       <AtomTooltip title="Change language">
         <AtomStack direction="row" spacing={2}>
           <AtomButton
-            variant="outlined"
             startIcon={<AtomPublicIcon />}
             sx={{
               display: {

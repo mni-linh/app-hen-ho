@@ -132,9 +132,10 @@ const DialogSignUp = () => {
           </AtomButton>
           <AtomDialog open={openSignUp} onClose={handleCloseSignUp}>
             <AtomToolbar>
-              <AtomGrid container spacing={2}>
-                <AtomGrid item xs={11}>
+              <AtomGrid container justifyContent="space-between">
+                <AtomGrid item xs={10}>
                   <AtomWhatshotIcon
+                    fontSize="large"
                     sx={{
                       display: {
                         xs: "none",
@@ -152,13 +153,14 @@ const DialogSignUp = () => {
                 </AtomGrid>
                 <AtomGrid item>
                   <AtomIconButton
+                    size="large"
                     edge="end"
                     onClick={handleCloseSignUp}
                     sx={boxStyle}
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <AtomHighlightOffIcon />
+                    <AtomHighlightOffIcon fontSize="large" />
                   </AtomIconButton>
                 </AtomGrid>
               </AtomGrid>
@@ -166,14 +168,12 @@ const DialogSignUp = () => {
             <AtomDialogTitle
               sx={{
                 textAlign: "center",
-                textTransform: "UpperCase",
-                fontStyle: "oblique",
+                textTransform: "upperCase",
                 fontWeight: "bold",
                 fontSize: 25,
               }}
             >
-              {" "}
-              Đăng ký{""}
+              Đăng ký
             </AtomDialogTitle>
             <AtomDivider variant="middle" />
             {/* <Grid container spacing={3}>
@@ -181,13 +181,13 @@ const DialogSignUp = () => {
             <AtomDialogContent
               sx={{
                 textAlign: "center",
-                padding: "10px 60px",
+                // padding: "10px 60px",
               }}
             >
               <AtomDialogContentText
                 sx={{ textAlign: "center", padding: "10px 0" }}
               >
-                Khi bấm vào Đăng Nhập, bạn đồng ý với Điều khoản của chúng tôi.
+                Khi bấm vào Đăng Ký, bạn đồng ý với Điều khoản của chúng tôi.
                 Tìm hiểu về cách chúng tôi xử lý dữ liệu của bạn trong Chính
                 sách Quyền Riêng Tư và Chính sách Cookie của chúng tôi.
               </AtomDialogContentText>
@@ -195,7 +195,7 @@ const DialogSignUp = () => {
                 component="form"
                 sx={{
                   "& .MuiTextField-root": {
-                    m: 1,
+                    margin: 1,
                     width: 400,
                     maxWidth: "100%",
                   },
@@ -265,6 +265,7 @@ const DialogSignUp = () => {
                     borderRadius: "2.2rem",
                     backgroundColor: "red",
                     textTransform: "capitalize",
+                    margin: "0 auto",
                   }}
                 >
                   Đăng ký

@@ -3,8 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import DialogSignUp from "../Atomic/molecules/DialogSignUp";
 import AppBar from "../Atomic/organisms/AppBar";
 import "swiper/css";
-import AtomSwiperSlide from "../Atomic/atoms/AtomSwiperSlide";
-import AtomTypography from "../Atomic/atoms/AtomTypography";
+import CommentItem from "../Atomic/molecules/CommentItem";
 
 const Home = () => {
   return (
@@ -17,8 +16,7 @@ const Home = () => {
       {/* Slider comment */}
       <Swiper slidesPerView={3} spaceBetween={30} freeMode={true} height={300}>
         <SwiperSlide>
-
-          <AtomTypography sx={{ color: "red" }}>Comment 1</AtomTypography>
+          <CommentItem />
         </SwiperSlide>
         <SwiperSlide> Comment 2</SwiperSlide>
         <SwiperSlide> Comment 3</SwiperSlide>

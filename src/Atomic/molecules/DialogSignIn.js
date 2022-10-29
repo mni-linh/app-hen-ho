@@ -16,7 +16,6 @@ import AtomInputLabel from "../atoms/AtomInputLabel";
 import AtomOutlinedInput from "../atoms/AtomOutlinedInput";
 import AtomTextField from "../atoms/AtomTextField";
 import AtomToolbar from "../atoms/AtomToolbar";
-import AtomTooltip from "../atoms/AtomTooltip";
 import AtomVisibilityIcon from "../atoms/AtomVisibilityIcon";
 import AtomVisibilityOffIcon from "../atoms/AtomVisibilityOffIcon";
 import AtomWhatshotIcon from "../atoms/AtomWhatshotIcon";
@@ -77,34 +76,37 @@ const DialogSignIn = () => {
           // maxWidth: "100%",
         }}
       >
-        <AtomTooltip title="Sign In">
-          <AtomButton
-            variant="contained"
-            onClick={() => {
-              handleSignIn(true);
-            }}
-            sx={{
-              display: {
-                xs: "none",
-                md: "flex",
-              },
-              fontFamily:
-                "Proxima Nova , Helvetica Neue, Arial, Helvetica, sans-serif",
-              marginRight: 1,
-              // fontSize: "19px",
-              lineHeight: "26px",
-              backgroundColor: "white",
-              color: "#21262e",
-              textAlign: "center",
-              textTransform: "capitalize",
-              borderRadius: "40px",
-              width: "140px",
-              height: "40px",
-            }}
-          >
-            Đăng nhập
-          </AtomButton>
-        </AtomTooltip>
+        {/* <AtomTooltip title="Sign In"> */}
+        <AtomButton
+          variant="contained"
+          onClick={() => {
+            handleSignIn(true);
+          }}
+          sx={{
+            display: {
+              xs: "none",
+              md: "flex",
+            },
+            fontFamily:
+              "Proxima Nova , Helvetica Neue, Arial, Helvetica, sans-serif",
+            marginRight: 1,
+            // fontSize: "19px",
+            lineHeight: "26px",
+            backgroundColor: "white",
+            "&:hover": {
+              backgroundColor: "rgba(255,255,255,0.8)",
+            },
+            color: "#21262e",
+            textAlign: "center",
+            textTransform: "capitalize",
+            borderRadius: "40px",
+            width: "140px",
+            height: "40px",
+          }}
+        >
+          Đăng nhập
+        </AtomButton>
+        {/* </AtomTooltip> */}
         <AtomDialog
           open={openSignIn}
           onClose={handleCloseSignIn}
@@ -144,20 +146,18 @@ const DialogSignIn = () => {
           <AtomDialogTitle
             sx={{
               textAlign: "center",
-              textTransform: "UpperCase",
-              fontStyle: "oblique",
+              textTransform: "upperCase",
               fontWeight: "bold",
               fontSize: 25,
             }}
           >
-            {" "}
-            Đăng nhập{" "}
+            Đăng nhập
           </AtomDialogTitle>
           <AtomDivider variant="middle" />
           <AtomDialogContent
             sx={{
               textAlign: "center",
-              padding: "10px 60px",
+              // padding: "10px 60px",
             }}
           >
             <AtomDialogContentText
@@ -239,6 +239,7 @@ const DialogSignIn = () => {
                   borderRadius: "2.2rem",
                   backgroundColor: "red",
                   textTransform: "capitalize",
+                  margin: "0 auto",
                 }}
               >
                 Đăng nhập

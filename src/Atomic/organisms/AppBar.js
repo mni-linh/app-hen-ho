@@ -1,6 +1,7 @@
 import React from "react";
 import AtomAppBar from "../atoms/AtomAppBar";
 import AtomImageLogo from "../atoms/AtomImageLogo";
+import AtomLink from "../atoms/AtomLink";
 import AtomMenuIcon from "../atoms/AtomMenuIcon";
 import AtomToolbar from "../atoms/AtomToolbar";
 import AtomTypography from "../atoms/AtomTypography";
@@ -43,7 +44,7 @@ const AppBar = () => {
         <AtomTypography
           variant="h6"
           noWrap
-          component="a"
+          component={AtomLink}
           href="/"
           sx={{
             marginRight: 2,
