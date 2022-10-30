@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, Typography } from "@mui/material";
 import React from "react";
-import AtomTypography from "../atoms/AtomTypography";
+import { SwiperSlide, Swiper } from "swiper/react";
 
 const CommentItem = () => {
   const comments = [
@@ -71,22 +71,23 @@ const CommentItem = () => {
     },
   ];
   return (
-    <div>
-      {/* <AtomTypography sx={{ color: "red" }}> */}
-      <Card elevation={1} sx={{ maxWidth: 345 }}>
-        {comments.map((comments) => (
-          <>
-            <CardHeader key={comments}>{comments.header}</CardHeader>
-            <CardContent key={comments}>
+    <Swiper slidesPerView={3} spaceBetween={30} freeMode={true} height={300}>
+      {comments.map((comment) => (
+        <SwiperSlide key={comment.header}>
+          <Card variant="outlined" sx={{ height: "250px" }}>
+            <CardHeader
+              title={comment.header}
+              titleTypographyProps={{ fontWeight: 700 }}
+            />
+            <CardContent>
               <Typography variant="body2" color="text.secondary">
-                {comments.content}
+                {comment.content}
               </Typography>
             </CardContent>
-          </>
-        ))}
-      </Card>
-      {/* </AtomTypography> */}
-    </div>
+          </Card>
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 };
 
