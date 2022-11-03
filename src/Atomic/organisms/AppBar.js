@@ -1,4 +1,3 @@
-import { darken } from "@mui/material";
 import React from "react";
 import AtomAppBar from "../atoms/AtomAppBar";
 import AtomImageLogo from "../atoms/AtomImageLogo";

@@ -7,6 +7,8 @@ import AtomTypography from "../atoms/AtomTypography";
 import AtomCard from "../atoms/AtomCard";
 import AtomCardHeader from "../atoms/AtomCardHeader";
 import AtomCardContent from "../atoms/AtomCardContent";
+import AtomContainer from "../atoms/AtomContainer";
+import { grey } from "@mui/material/colors";
 const CommentItem = () => {
   const comments = [
     {
@@ -15,27 +17,33 @@ const CommentItem = () => {
         <AtomGrid
           container
           justifyContent="space-around"
-          sx={{
-            height: "30px",
-          }}
+          sx={(theme) => ({
+            height: theme.spacing(4),
+          })}
         >
           <AtomGrid item>
             <AtomStack spacing={2}>
-              <AtomTypography sx={{ fontWeight: "bold", fontSize: "18px" }}>
-                {" "}
+              <AtomTypography
+                sx={(theme) => ({
+                  fontWeight: theme.typography.fontWeightBold,
+                  fontSize: theme.typography.fontSize,
+                })}
+              >
                 Victoria và Bayleigh Rodriquez ❤️
               </AtomTypography>
-              <AtomDivider variant="middle" sx={{ width: "350px" }} />
+              <AtomDivider
+                variant="middle"
+                sx={(theme) => ({ width: theme.spacing(47) })}
+              />
             </AtomStack>
           </AtomGrid>
           <AtomGrid item>
-            {/* <AtomFormatQuoteIcon fontSize="large" sx={{ color: "gray" }} /> */}
             <AtomTypography
-              sx={{
+              sx={(theme) => ({
                 fontFamily: "'Secular One', sans-serif;",
-                fontSize: "70px",
-                color: "#dde0e5",
-              }}
+                fontSize: theme.spacing(9),
+                color: grey[300],
+              })}
             >
               "
             </AtomTypography>
@@ -51,26 +59,33 @@ const CommentItem = () => {
         <AtomGrid
           container
           justifyContent="space-around"
-          sx={{
-            height: "30px",
-          }}
+          sx={(theme) => ({
+            height: theme.spacing(4),
+          })}
         >
           <AtomGrid item>
             <AtomStack spacing={2}>
-              <AtomTypography sx={{ fontWeight: "bold", fontSize: "18px" }}>
+              <AtomTypography
+                sx={(theme) => ({
+                  fontWeight: theme.typography.fontWeightBold,
+                  fontSize: theme.typography.fontSize,
+                })}
+              >
                 Ryan và Lindsey Walsh
               </AtomTypography>
-              <AtomDivider variant="middle" sx={{ width: "350px" }} />
+              <AtomDivider
+                variant="middle"
+                sx={(theme) => ({ width: theme.spacing(47) })}
+              />
             </AtomStack>
           </AtomGrid>
           <AtomGrid item>
-            {/* <AtomFormatQuoteIcon fontSize="large"></AtomFormatQuoteIcon> */}
             <AtomTypography
-              sx={{
+              sx={(theme) => ({
                 fontFamily: "'Secular One', sans-serif;",
-                fontSize: "70px",
-                color: "#dde0e5",
-              }}
+                fontSize: theme.spacing(9),
+                color: grey[300],
+              })}
             >
               "
             </AtomTypography>
@@ -86,26 +101,34 @@ const CommentItem = () => {
         <AtomGrid
           container
           justifyContent="space-around"
-          sx={{
-            height: "30px",
-          }}
+          sx={(theme) => ({
+            height: theme.spacing(4),
+          })}
         >
           <AtomGrid item>
             <AtomStack spacing={2}>
-              <AtomTypography sx={{ fontWeight: "bold", fontSize: "18px" }}>
+              <AtomTypography
+                sx={(theme) => ({
+                  fontWeight: theme.typography.fontWeightBold,
+                  fontSize: theme.typography.fontSize,
+                })}
+              >
                 Shannon Escobar
               </AtomTypography>
-              <AtomDivider variant="middle" sx={{ width: "350px" }} />
+              <AtomDivider
+                variant="middle"
+                sx={(theme) => ({ width: theme.spacing(47) })}
+              />
             </AtomStack>
           </AtomGrid>
           <AtomGrid item>
             {/* <AtomFormatQuoteIcon fontSize="large"></AtomFormatQuoteIcon> */}
             <AtomTypography
-              sx={{
+              sx={(theme) => ({
                 fontFamily: "'Secular One', sans-serif;",
-                fontSize: "70px",
-                color: "#dde0e5",
-              }}
+                fontSize: theme.spacing(9),
+                color: grey[300],
+              })}
             >
               "
             </AtomTypography>
@@ -121,26 +144,34 @@ const CommentItem = () => {
         <AtomGrid
           container
           justifyContent="space-around"
-          sx={{
-            height: "30px",
-          }}
+          sx={(theme) => ({
+            height: theme.spacing(4),
+          })}
         >
           <AtomGrid item>
             <AtomStack spacing={2}>
-              <AtomTypography sx={{ fontWeight: "bold", fontSize: "18px" }}>
+              <AtomTypography
+                sx={(theme) => ({
+                  fontWeight: theme.typography.fontWeightBold,
+                  fontSize: theme.typography.fontSize,
+                })}
+              >
                 Rebecca Lawton
               </AtomTypography>
-              <AtomDivider variant="middle" sx={{ width: "350px" }} />
+              <AtomDivider
+                variant="middle"
+                sx={(theme) => ({ width: theme.spacing(47) })}
+              />
             </AtomStack>
           </AtomGrid>
           <AtomGrid item>
             {/* <AtomFormatQuoteIcon fontSize="large"></AtomFormatQuoteIcon> */}
             <AtomTypography
-              sx={{
+              sx={(theme) => ({
                 fontFamily: "'Secular One', sans-serif;",
-                fontSize: "70px",
-                color: "#dde0e5",
-              }}
+                fontSize: theme.spacing(9),
+                color: grey[300],
+              })}
             >
               "
             </AtomTypography>
@@ -156,26 +187,34 @@ const CommentItem = () => {
         <AtomGrid
           container
           justifyContent="space-around"
-          sx={{
-            height: "30px",
-          }}
+          sx={(theme) => ({
+            height: theme.spacing(4),
+          })}
         >
           <AtomGrid item>
             <AtomStack spacing={2}>
-              <AtomTypography sx={{ fontWeight: "bold", fontSize: "18px" }}>
+              <AtomTypography
+                sx={(theme) => ({
+                  fontWeight: theme.typography.fontWeightBold,
+                  fontSize: theme.typography.fontSize,
+                })}
+              >
                 Lauren Delarmente
               </AtomTypography>
-              <AtomDivider variant="middle" sx={{ width: "350px" }} />
+              <AtomDivider
+                variant="middle"
+                sx={(theme) => ({ width: theme.spacing(47) })}
+              />
             </AtomStack>
           </AtomGrid>
           <AtomGrid item>
             {/* <AtomFormatQuoteIcon fontSize="large"></AtomFormatQuoteIcon> */}
             <AtomTypography
-              sx={{
+              sx={(theme) => ({
                 fontFamily: "'Secular One', sans-serif;",
-                fontSize: "70px",
-                color: "#dde0e5",
-              }}
+                fontSize: theme.spacing(9),
+                color: grey[300],
+              })}
             >
               "
             </AtomTypography>
@@ -191,26 +230,34 @@ const CommentItem = () => {
         <AtomGrid
           container
           justifyContent="space-around"
-          sx={{
-            height: "30px",
-          }}
+          sx={(theme) => ({
+            height: theme.spacing(4),
+          })}
         >
           <AtomGrid item>
             <AtomStack spacing={2}>
-              <AtomTypography sx={{ fontWeight: "bold", fontSize: "18px" }}>
+              <AtomTypography
+                sx={(theme) => ({
+                  fontWeight: theme.typography.fontWeightBold,
+                  fontSize: theme.typography.fontSize,
+                })}
+              >
                 Rebecca Stephenson
               </AtomTypography>
-              <AtomDivider variant="middle" sx={{ width: "350px" }} />
+              <AtomDivider
+                variant="middle"
+                sx={(theme) => ({ width: theme.spacing(47) })}
+              />
             </AtomStack>
           </AtomGrid>
           <AtomGrid item>
             {/* <AtomFormatQuoteIcon fontSize="large"></AtomFormatQuoteIcon> */}
             <AtomTypography
-              sx={{
+              sx={(theme) => ({
                 fontFamily: "'Secular One', sans-serif;",
-                fontSize: "70px",
-                color: "#dde0e5",
-              }}
+                fontSize: theme.spacing(9),
+                color: grey[300],
+              })}
             >
               "
             </AtomTypography>
@@ -226,26 +273,34 @@ const CommentItem = () => {
         <AtomGrid
           container
           justifyContent="space-around"
-          sx={{
-            height: "30px",
-          }}
+          sx={(theme) => ({
+            height: theme.spacing(4),
+          })}
         >
           <AtomGrid item>
             <AtomStack spacing={2}>
-              <AtomTypography sx={{ fontWeight: "bold", fontSize: "18px" }}>
+              <AtomTypography
+                sx={(theme) => ({
+                  fontWeight: theme.typography.fontWeightBold,
+                  fontSize: theme.typography.fontSize,
+                })}
+              >
                 Elissa Donahue
               </AtomTypography>
-              <AtomDivider variant="middle" sx={{ width: "350px" }} />
+              <AtomDivider
+                variant="middle"
+                sx={(theme) => ({ width: theme.spacing(47) })}
+              />
             </AtomStack>
           </AtomGrid>
           <AtomGrid item>
             {/* <AtomFormatQuoteIcon fontSize="large"></AtomFormatQuoteIcon> */}
             <AtomTypography
-              sx={{
+              sx={(theme) => ({
                 fontFamily: "'Secular One', sans-serif;",
-                fontSize: "70px",
-                color: "#dde0e5",
-              }}
+                fontSize: theme.spacing(9),
+                color: grey[300],
+              })}
             >
               "
             </AtomTypography>
@@ -261,26 +316,34 @@ const CommentItem = () => {
         <AtomGrid
           container
           justifyContent="space-around"
-          sx={{
-            height: "30px",
-          }}
+          sx={(theme) => ({
+            height: theme.spacing(4),
+          })}
         >
           <AtomGrid item>
             <AtomStack spacing={2}>
-              <AtomTypography sx={{ fontWeight: "bold", fontSize: "18px" }}>
+              <AtomTypography
+                sx={(theme) => ({
+                  fontWeight: theme.typography.fontWeightBold,
+                  fontSize: theme.typography.fontSize,
+                })}
+              >
                 Sean & Marianna Polcha
               </AtomTypography>
-              <AtomDivider variant="middle" sx={{ width: "350px" }} />
+              <AtomDivider
+                variant="middle"
+                sx={(theme) => ({ width: theme.spacing(47) })}
+              />
             </AtomStack>
           </AtomGrid>
           <AtomGrid item>
             {/* <AtomFormatQuoteIcon fontSize="large"></AtomFormatQuoteIcon> */}
             <AtomTypography
-              sx={{
+              sx={(theme) => ({
                 fontFamily: "'Secular One', sans-serif;",
-                fontSize: "70px",
-                color: "#dde0e5",
-              }}
+                fontSize: theme.spacing(9),
+                color: grey[300],
+              })}
             >
               "
             </AtomTypography>
@@ -296,26 +359,34 @@ const CommentItem = () => {
         <AtomGrid
           container
           justifyContent="space-around"
-          sx={{
-            height: "30px",
-          }}
+          sx={(theme) => ({
+            height: theme.spacing(4),
+          })}
         >
           <AtomGrid item>
             <AtomStack spacing={2}>
-              <AtomTypography sx={{ fontWeight: "bold", fontSize: "18px" }}>
+              <AtomTypography
+                sx={(theme) => ({
+                  fontWeight: theme.typography.fontWeightBold,
+                  fontSize: theme.typography.fontSize,
+                })}
+              >
                 Magdalena & Annie
               </AtomTypography>
-              <AtomDivider variant="middle" sx={{ width: "350px" }} />
+              <AtomDivider
+                variant="middle"
+                sx={(theme) => ({ width: theme.spacing(47) })}
+              />
             </AtomStack>
           </AtomGrid>
           <AtomGrid item>
             {/* <AtomFormatQuoteIcon fontSize="large"></AtomFormatQuoteIcon> */}
             <AtomTypography
-              sx={{
+              sx={(theme) => ({
                 fontFamily: "'Secular One', sans-serif;",
-                fontSize: "70px",
-                color: "#dde0e5",
-              }}
+                fontSize: theme.spacing(9),
+                color: grey[300],
+              })}
             >
               "
             </AtomTypography>
@@ -331,26 +402,34 @@ const CommentItem = () => {
         <AtomGrid
           container
           justifyContent="space-around"
-          sx={{
-            height: "30px",
-          }}
+          sx={(theme) => ({
+            height: theme.spacing(4),
+          })}
         >
           <AtomGrid item>
             <AtomStack spacing={2}>
-              <AtomTypography sx={{ fontWeight: "bold", fontSize: "18px" }}>
+              <AtomTypography
+                sx={(theme) => ({
+                  fontWeight: theme.typography.fontWeightBold,
+                  fontSize: theme.typography.fontSize,
+                })}
+              >
                 Shannon & Julian
               </AtomTypography>
-              <AtomDivider variant="middle" sx={{ width: "350px" }} />
+              <AtomDivider
+                variant="middle"
+                sx={(theme) => ({ width: theme.spacing(47) })}
+              />
             </AtomStack>
           </AtomGrid>
           <AtomGrid item>
             {/* <AtomFormatQuoteIcon fontSize="large"></AtomFormatQuoteIcon> */}
             <AtomTypography
-              sx={{
+              sx={(theme) => ({
                 fontFamily: "'Secular One', sans-serif;",
-                fontSize: "70px",
-                color: "#dde0e5",
-              }}
+                fontSize: theme.spacing(9),
+                color: grey[300],
+              })}
             >
               "
             </AtomTypography>
@@ -366,26 +445,29 @@ const CommentItem = () => {
         <AtomGrid
           container
           justifyContent="space-around"
-          sx={{
-            height: "30px",
-          }}
+          sx={(theme) => ({
+            height: theme.spacing(4),
+          })}
         >
           <AtomGrid item>
             <AtomStack spacing={2}>
               <AtomTypography sx={{ fontWeight: "bold", fotnSize: "18px" }}>
                 Courtney & Miranda
               </AtomTypography>
-              <AtomDivider variant="middle" sx={{ width: "350px" }} />
+              <AtomDivider
+                variant="middle"
+                sx={(theme) => ({ width: theme.spacing(47) })}
+              />
             </AtomStack>
           </AtomGrid>
           <AtomGrid item>
             {/* <AtomFormatQuoteIcon fontSize="large"></AtomFormatQuoteIcon> */}
             <AtomTypography
-              sx={{
+              sx={(theme) => ({
                 fontFamily: "'Secular One', sans-serif;",
-                fontSize: "70px",
-                color: "#dde0e5",
-              }}
+                fontSize: theme.spacing(9),
+                color: grey[300],
+              })}
             >
               "
             </AtomTypography>
@@ -401,26 +483,34 @@ const CommentItem = () => {
         <AtomGrid
           container
           justifyContent="space-around"
-          sx={{
-            height: "30px",
-          }}
+          sx={(theme) => ({
+            height: theme.spacing(4),
+          })}
         >
           <AtomGrid item>
             <AtomStack spacing={2}>
-              <AtomTypography sx={{ fontWeight: "bold", fontSize: "18px" }}>
+              <AtomTypography
+                sx={(theme) => ({
+                  fontWeight: theme.typography.fontWeightBold,
+                  fontSize: theme.typography.fontSize,
+                })}
+              >
                 Gabriel & Fiance
               </AtomTypography>
-              <AtomDivider variant="middle" sx={{ width: "350px" }} />
+              <AtomDivider
+                variant="middle"
+                sx={(theme) => ({ width: theme.spacing(47) })}
+              />
             </AtomStack>
           </AtomGrid>
           <AtomGrid item>
             {/* <AtomFormatQuoteIcon fontSize="large"></AtomFormatQuoteIcon> */}
             <AtomTypography
-              sx={{
+              sx={(theme) => ({
                 fontFamily: "'Secular One', sans-serif;",
-                fontSize: "70px",
-                color: "#dde0e5",
-              }}
+                fontSize: theme.spacing(9),
+                color: grey[300],
+              })}
             >
               "
             </AtomTypography>
@@ -436,26 +526,33 @@ const CommentItem = () => {
         <AtomGrid
           container
           justifyContent="space-around"
-          sx={{
-            height: "30px",
-          }}
+          sx={(theme) => ({
+            height: theme.spacing(4),
+          })}
         >
           <AtomGrid item>
             <AtomStack spacing={2}>
-              <AtomTypography sx={{ fontWeight: "bold", fontSize: "18px" }}>
+              <AtomTypography
+                sx={(theme) => ({
+                  fontWeight: theme.typography.fontWeightBold,
+                  fontSize: theme.typography.fontSize,
+                })}
+              >
                 Kenneth & Elliot
               </AtomTypography>
-              <AtomDivider variant="middle" sx={{ width: "350px" }} />
+              <AtomDivider
+                variant="middle"
+                sx={(theme) => ({ width: theme.spacing(47) })}
+              />
             </AtomStack>
           </AtomGrid>
           <AtomGrid item>
-            {/* <AtomFormatQuoteIcon fontSize="large"></AtomFormatQuoteIcon> */}
             <AtomTypography
-              sx={{
+              sx={(theme) => ({
                 fontFamily: "'Secular One', sans-serif;",
-                fontSize: "70px",
-                color: "#dde0e5",
-              }}
+                fontSize: theme.spacing(9),
+                color: grey[300],
+              })}
             >
               "
             </AtomTypography>
@@ -468,42 +565,59 @@ const CommentItem = () => {
   ];
 
   return (
-    <Swiper slidesPerView={3} freeMode={true} height={300}>
-      {comments.map((comment) => (
-        <SwiperSlide key={comment.id}>
-          <AtomCard
-            variant="outlined"
-            sx={{
-              height: "250px",
-              width: "450px",
-              margin: "30px 20px",
-              boxShadow: "0 2px 6px 0 #656e7b1f",
-              border: "1px solid #e5e5e5",
-              borderRadius: "20px",
-            }}
-          >
-            <AtomCardHeader
-              title={comment.header}
-              titleTypographyProps={{ fontWeight: "bold" }}
-            />
+    <AtomContainer maxWidth="xl">
+      <Swiper
+        slidesPerView={3}
+        freeMode={true}
+        height={300}
+        // justifyContent="space-between"
+      >
+        {comments.map((comment) => (
+          <SwiperSlide key={comment.id}>
+            <AtomCard
+              // variant="outlined"
+              elevation={3}
+              sx={(theme) => ({
+                height: theme.spacing(31.25),
+                width: theme.spacing(57.5),
+                marginX: theme.spacing(2.5),
+                marginY: theme.spacing(3.5),
+                // boxShadow: "0 2px 6px 0 #e5e5e5",
+                boxShadow:
+                  theme.spacing(0.2) +
+                  " " +
+                  theme.spacing(0.2) +
+                  " " +
+                  theme.spacing(0.2) +
+                  " " +
+                  theme.spacing(0.2) +
+                  " " +
+                  "#e5e5e5",
+                borderRadius: theme.spacing(3),
+              })}
+            >
+              <AtomCardHeader
+                title={comment.header}
+                titleTypographyProps={{ fontWeight: "bold" }}
+              />
 
-            <AtomCardContent>
-              <AtomTypography
-                variant="body2"
-                color="text.secondary"
-                sx={{
-                  fontSize: "15px",
-                  lineHeight: "21px",
-                  fontFamily: "'Libre Franklin', sans-serif",
-                }}
-              >
-                {comment.content}
-              </AtomTypography>
-            </AtomCardContent>
-          </AtomCard>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+              <AtomCardContent>
+                <AtomTypography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={(theme) => ({
+                    fontSize: theme.spacing(1.875),
+                    lineHeight: theme.spacing(2.7),
+                  })}
+                >
+                  {comment.content}
+                </AtomTypography>
+              </AtomCardContent>
+            </AtomCard>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </AtomContainer>
   );
 };
 

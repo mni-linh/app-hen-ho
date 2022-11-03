@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import dataDating from "../../routes/dataDating";
 import AtomBox from "../atoms/AtomBox";
 import AtomButton from "../atoms/AtomButton";
 import { useNavigate } from "react-router-dom";
+import { Menu, MenuItem } from "@mui/material";
+import { spacing } from "@mui/system";
 
 const MenuBar = () => {
   const navigate = useNavigate();
@@ -24,7 +26,7 @@ const MenuBar = () => {
             navigate(`${page.path}`);
           }}
           sx={(theme) => ({
-            my: 2,
+            marginY: theme.spacing(2),
             color: theme.typography.color,
             "&:hover": {
               color: theme.palette.primary.main,
