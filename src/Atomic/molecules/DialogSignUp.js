@@ -21,7 +21,9 @@ import AtomIconButton from "../atoms/AtomIconButton";
 import AtomVisibilityIcon from "../atoms/AtomVisibilityIcon";
 import AtomVisibilityOffIcon from "../atoms/AtomVisibilityOffIcon";
 import AtomWhatshotIcon from "../atoms/AtomWhatshotIcon";
-
+import AtomIconHover from "../atoms/AtomIconHover";
+import AtomStyledButton from "../atoms/AtomStyleButton";
+import AtomStyleDialogTitle from "../atoms/AtomStyleDialogTitle";
 const DialogSignUp = () => {
   const [openSignUp, setOpenSignUp] = React.useState(false);
   const [values, setValues] = React.useState({
@@ -55,34 +57,21 @@ const DialogSignUp = () => {
     event.preventDefault();
   };
 
-  //
-
-  const [isHover, setIsHover] = useState(false);
-  const handleMouseEnter = () => {
-    setIsHover(true);
-  };
-  const handleMouseLeave = () => {
-    setIsHover(false);
-  };
-  const boxStyle = {
-    cursor: "pointer",
-    transition: "all 0.2s ease-in-out",
-    backgroundColor: isHover ? "transparent" : "transparent",
-    color: isHover ? "#616161" : "grey",
-    transform: isHover ? "rotate(90deg)" : "default",
-  };
-  // const buttonStyle = {
-  //   cursor: "pointer",
-  //   transition: "all 0.2s ease-in-out",
-  //   backgoundColor: isHover ? "pink" : "red",
-  //   textTransform: "capitalize",
-  //   color: isHover ? "white" : "white",
-  //   width: "139px",
-  //   height: "44px",
-  //   borderRadius: "2.2rem",
-  // };
   return (
     <>
+      <AtomBox
+        sx={{
+          // background: "rgba(158, 158, 158,0.5)",
+          background: "rgba(33, 38, 46,0.5)",
+          position: "absolute",
+          top: "0",
+          left: "0",
+          right: "0",
+          width: "100%",
+          height: "100%",
+        }}
+      />
+      {/* Quẹt phải & Tạo tài khoản */}
       <AtomGrid
         container
         alignItems="center"
@@ -91,116 +80,80 @@ const DialogSignUp = () => {
         sx={{
           minHeight: "100vh",
           opacity: 0.9,
-          backgroundImage:
-            "url('https://tinder.com/static/build/744fe6d80266616aba687006b7d764ad.webp')",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          // opacity: 0.5,
         }}
       >
-        {/* <Grid item xs container direction="column" spacing={2}> */}
-
+        {/* Quẹt Phải */}
         <AtomGrid item>
           <AtomTypography
-            sx={{
-              color: "white",
-              fontSize: "123px",
-              fontFamily: "Noto Sans Vai",
-              fontWeight: 600,
-            }}
+            sx={(theme) => ({
+              color: theme.palette.primary.contrastText,
+              fontSize: theme.spacing(15),
+              // fontFamily: "Noto Sans Vai",
+              fontWeight: theme.typography.fontWeightBold,
+            })}
           >
-            Quẹt phải
+            Quẹt Phải
           </AtomTypography>
         </AtomGrid>
 
+        {/* Tạo tài khoản */}
         {/* Grid button */}
         <AtomGrid item xs={12}>
-          <AtomButton
+          <AtomStyledButton
             variant="contained"
             onClick={() => {
               handleSignUp(true);
             }}
-            sx={{
-              textTransform: "capitalize",
-              backgroundColor: "red",
-              width: "260px",
-              height: "44px",
-              borderRadius: "2.2rem",
-            }}
           >
             Tạo tài khoản
-          </AtomButton>
+          </AtomStyledButton>
           <AtomDialog open={openSignUp} onClose={handleCloseSignUp}>
             <AtomToolbar>
-              <AtomGrid container justifyContent="space-between">
-                <AtomGrid item xs={10}>
+              <AtomGrid container justifyContent="center">
+                <AtomGrid item>
                   <AtomWhatshotIcon
                     fontSize="large"
-                    sx={{
-                      display: {
-                        xs: "none",
-                        md: "flex",
-                      },
-
-                      marginRight: 1,
-                      paddingLeft: 34,
-                      paddingRight: 25,
-                      paddingTop: 3,
-                      color: "red",
-                      textAlign: "center",
-                    }}
+                    sx={(theme) => ({ color: theme.palette.primary.main })}
                   />
                 </AtomGrid>
-                <AtomGrid item>
-                  <AtomIconButton
-                    size="large"
-                    edge="end"
-                    onClick={handleCloseSignUp}
-                    sx={boxStyle}
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <AtomHighlightOffIcon fontSize="large" />
-                  </AtomIconButton>
-                </AtomGrid>
               </AtomGrid>
+
+              <AtomIconHover
+                size="large"
+                edge="end"
+                onClick={handleCloseSignUp}
+                sx={(theme) => ({
+                  position: "absolute",
+                  right: theme.spacing(3),
+                  top: theme.spacing(0),
+                })}
+              >
+                <AtomHighlightOffIcon fontSize="large" />
+              </AtomIconHover>
             </AtomToolbar>
-            <AtomDialogTitle
-              sx={{
-                textAlign: "center",
-                textTransform: "upperCase",
-                fontWeight: "bold",
-                fontSize: 25,
-              }}
-            >
-              Đăng ký
-            </AtomDialogTitle>
+            <AtomStyleDialogTitle>Đăng ký</AtomStyleDialogTitle>
             <AtomDivider variant="middle" />
-            {/* <Grid container spacing={3}>
-              <Grid iteam xs={12}> */}
+
             <AtomDialogContent
               sx={{
                 textAlign: "center",
-                // padding: "10px 60px",
               }}
             >
-              <AtomDialogContentText
-                sx={{ textAlign: "center", padding: "10px 0" }}
-              >
+              <AtomDialogContentText>
                 Khi bấm vào Đăng Ký, bạn đồng ý với Điều khoản của chúng tôi.
                 Tìm hiểu về cách chúng tôi xử lý dữ liệu của bạn trong Chính
                 sách Quyền Riêng Tư và Chính sách Cookie của chúng tôi.
               </AtomDialogContentText>
               <AtomBox
                 component="form"
-                sx={{
+                sx={(theme) => ({
                   "& .MuiTextField-root": {
-                    margin: 1,
-                    width: 400,
-                    maxWidth: "100%",
+                    margin: theme.spacing(1),
+                    width: theme.spacing(50),
                   },
-                  alignItems: "center",
-                }}
+                })}
                 noValidate
                 autoComplete="off"
               >
@@ -221,9 +174,10 @@ const DialogSignUp = () => {
                   margin="dense"
                 />
                 <AtomFormControl
-                  // fullWidth
-                  sx={{ m: 1, width: 400, maxWidth: "100%" }}
-                  // sx={{ m: 1 }}
+                  sx={(theme) => ({
+                    margin: theme.spacing(1),
+                    width: theme.spacing(50),
+                  })}
                   variant="outlined"
                 >
                   <AtomInputLabel htmlFor="outlined-adornment-password">
@@ -257,19 +211,7 @@ const DialogSignUp = () => {
                 </AtomFormControl>
               </AtomBox>
               <AtomDialogActions>
-                <AtomButton
-                  variant="contained"
-                  sx={{
-                    width: "150px",
-                    height: "44px",
-                    borderRadius: "2.2rem",
-                    backgroundColor: "red",
-                    textTransform: "capitalize",
-                    margin: "0 auto",
-                  }}
-                >
-                  Đăng ký
-                </AtomButton>
+                <AtomStyledButton variant="contained">Đăng ký</AtomStyledButton>
               </AtomDialogActions>
             </AtomDialogContent>
           </AtomDialog>

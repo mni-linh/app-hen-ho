@@ -1,61 +1,46 @@
+import { darken } from "@mui/material";
 import React from "react";
 import AtomAppBar from "../atoms/AtomAppBar";
 import AtomImageLogo from "../atoms/AtomImageLogo";
 import AtomLink from "../atoms/AtomLink";
-import AtomMenuIcon from "../atoms/AtomMenuIcon";
 import AtomToolbar from "../atoms/AtomToolbar";
 import AtomTypography from "../atoms/AtomTypography";
-import AtomWhatshotIcon from "../atoms/AtomWhatshotIcon";
 import DialogChangeLanguage from "../molecules/DialogChangeLanguage";
 import DialogSignIn from "../molecules/DialogSignIn";
 import MenuBar from "../molecules/MenuBar";
 
 const AppBar = () => {
-  // const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  // const handleDrawerToggle = () => {
-  //   setMobileOpen(!mobileOpen);
-  // };
   return (
-    <AtomAppBar position="static">
-      {/* <AtomContainer
-        maxWidth="xl"
-        sx={{
-          // backgroundColor: "rgb(192,192,192,0.7)",
-          backgroundColor: "rgba(117, 117, 117)",
-        }}
-      > */}
-      <AtomToolbar
-        disableGutters
-        sx={{
-          backgroundColor: "rgba(117, 117, 117)",
-        }}
-      >
-        {/* <AtomWhatshotIcon
-          aria-label="open drawer"
-          edge="start"
-          onClick={handleDrawerToggle}
-          sx={{ mr: 2, display: { md: "none" } }}
-        >
-          <AtomMenuIcon />
-        </AtomWhatshotIcon> */}
-        <AtomImageLogo alt="logo" src="/images/logoTinder.png"></AtomImageLogo>
-
+    <AtomAppBar
+      position="sticky"
+      sx={{
+        // `linear-gradient(180deg, ${darken(
+        //   "rgba(32,29,28,1)",
+        //   0.2
+        // )} 0%, ${darken("rgba(96,91,90,1, 1)", 0.2)} 69%, ${darken(
+        //   "rgba(153,153,153, 1)",
+        //   0.2
+        // )} 100%)`,
+        background: "rgba(32, 29, 28, 0.8)",
+        backgroundSize: "cover",
+      }}
+      elevation={0}
+    >
+      <AtomToolbar disableGutters>
+        <AtomImageLogo alt="logo" src="/images/logoTinder.png" />
         <AtomTypography
           variant="h6"
           noWrap
           component={AtomLink}
           href="/"
-          sx={{
-            marginRight: 2,
-            display: { xs: "none", md: "flex" },
-            fontFamily: "Noto Sans Warang Citi",
-            fontWeight: 600,
-            letterSpacing: ".0.5rem",
-            color: "white",
+          sx={(theme) => ({
+            marginRight: theme.spacing(2),
+            fontFamily: theme.typography.fontFamily,
+            fontWeight: theme.typography.fontWeightBold,
+            color: theme.typography.color,
             textDecoration: "none",
-            fontSize: "40px",
-          }}
+            fontSize: theme.spacing(5),
+          })}
         >
           tinder
         </AtomTypography>

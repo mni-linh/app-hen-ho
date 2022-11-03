@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import AtomBox from "../atoms/AtomBox";
 import AtomButton from "../atoms/AtomButton";
 import AtomDialog from "../atoms/AtomDialog";
 import AtomDialogTitle from "../atoms/AtomDialogTitle";
 import AtomDivider from "../atoms/AtomDivider";
 import AtomHighlightOffIcon from "../atoms/AtomHighlightOffIcon";
-import AtomIconButton from "../atoms/AtomIconButton";
 import AtomList from "../atoms/AtomList";
 import AtomListItem from "../atoms/AtomListItem";
 import AtomListItemText from "../atoms/AtomListItemText";
@@ -17,6 +16,8 @@ import AtomTypography from "../atoms/AtomTypography";
 import AtomWhatshotIcon from "../atoms/AtomWhatshotIcon";
 import PropTypes from "prop-types";
 import AtomGrid from "../atoms/AtomGrid";
+import AtomStyleIconHover from "../atoms/AtomStyleIconHover";
+import AtomStyleDialogTitle from "../atoms/AtomStyleDialogTitle";
 
 const languages = [
   "English (US)",
@@ -89,65 +90,36 @@ function SimpleDialog(props) {
   const handleListItemClick = (value) => {
     onClose(value);
   };
-  const [isHover, setIsHover] = useState(false);
-  const handleMouseEnter = () => {
-    setIsHover(true);
-  };
-  const handleMouseLeave = () => {
-    setIsHover(false);
-  };
-  const boxStyle = {
-    cursor: "pointer",
-    transition: "all 0.2s ease-in-out",
-    backgroundColor: isHover ? "transparent" : "transparent",
-    color: isHover ? "#616161" : "grey",
-    transform: isHover ? "rotate(90deg)" : "default",
-  };
   return (
     <AtomDialog onClose={handleClose} open={open} maxWidth="md">
       {/* <> */}
       <AtomToolbar>
-        <AtomGrid container spacing={2}>
-          <AtomGrid item xs={11}>
+        <AtomGrid container justifyContent="center">
+          <AtomGrid item>
             <AtomWhatshotIcon
-              sx={{
-                display: {
-                  xs: "none",
-                  md: "flex",
-                },
-                marginRight: 1,
-                paddingLeft: 34,
-                paddingRight: 25,
-                paddingTop: 3,
-                color: "red",
-                textAlign: "center",
-                size: "large",
-              }}
+              fontSize="large"
+              sx={(theme) => ({ color: theme.palette.primary.main })}
             />
           </AtomGrid>
-          <AtomGrid item>
-            <AtomIconButton
-              edge="end"
-              onClick={handleClose}
-              sx={boxStyle}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <AtomHighlightOffIcon />
-            </AtomIconButton>
-          </AtomGrid>
         </AtomGrid>
+
+        <AtomStyleIconHover size="large" edge="end" onClick={handleClose}>
+          <AtomHighlightOffIcon fontSize="large" />
+        </AtomStyleIconHover>
       </AtomToolbar>
 
-      <AtomDialogTitle sx={{ textAlign: "center", fontWeight: 700 }}>
+      <AtomStyleDialogTitle
+        sx={(theme) => ({
+          fontSize: theme.spacing(2),
+        })}
+      >
         Chọn một ngôn ngữ
-      </AtomDialogTitle>
+      </AtomStyleDialogTitle>
       <AtomTypography
-        sx={{
+        sx={(theme) => ({
           textAlign: "center",
-          padding: "5px 34px",
-          fontWeight: 500,
-        }}
+          fontWeight: theme.typography.fontWeightBold,
+        })}
       >
         {selectedValue}
       </AtomTypography>
@@ -160,16 +132,6 @@ function SimpleDialog(props) {
             <AtomGrid item key={language} xs={3}>
               <AtomListItem
                 button
-                sx={{
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  letterSpacing: ".3rem",
-                  color: "#424242",
-                  textTransform: "capitalize",
-                  width: "150px",
-                  textAlign: "center",
-                  margin: "0 auto",
-                }}
                 onClick={() => handleListItemClick(language)}
               >
                 <AtomListItemText
@@ -208,16 +170,13 @@ const DialogChangeLanguage = () => {
         <AtomStack direction="row" spacing={2}>
           <AtomButton
             startIcon={<AtomPublicIcon />}
-            sx={{
-              display: {
-                xs: "none",
-                md: "flex",
-              },
-              marginRight: 1,
-              fontSize: 15,
-              color: "white",
-              textTransform: "capitalize",
-            }}
+            sx={(theme) => ({
+              marginRight: theme.spacing(3),
+              padding: theme.spacing(2),
+              fontSize: theme.spacing(2),
+              color: theme.typography.color,
+              textTransform: theme.typography.textTransform,
+            })}
             onClick={handleClickOpen}
           >
             {selectedValue}
@@ -226,10 +185,7 @@ const DialogChangeLanguage = () => {
             selectedValue={selectedValue}
             open={open}
             onClose={handleClose}
-            sx={{
-              textTransform: "capitalize",
-            }}
-          ></SimpleDialog>
+          />
         </AtomStack>
       </AtomTooltip>
     </AtomBox>

@@ -8,23 +8,33 @@ const MenuBar = () => {
   const navigate = useNavigate();
 
   return (
-    <AtomBox sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+    <AtomBox
+      sx={{
+        flexGrow: 1,
+        display: {
+          xs: "none",
+          md: "flex",
+        },
+      }}
+    >
       {dataDating.map((page, index) => (
         <AtomButton
           key={index}
           onClick={() => {
             navigate(`${page.path}`);
           }}
-          sx={{
+          sx={(theme) => ({
             my: 2,
-            color: "white",
+            color: theme.typography.color,
+            "&:hover": {
+              color: theme.palette.primary.main,
+            },
             display: "block",
-            fontSize: "16px",
+            fontSize: theme.spacing(2),
             textAlign: "start",
-            lineHeight: "21px",
-            letterSpacing: "normal",
-            textTransform: "capitalize",
-          }}
+            lineHeight: theme.spacing(2.6),
+            textTransform: theme.typography.textTransform,
+          })}
         >
           {page.name}
         </AtomButton>
