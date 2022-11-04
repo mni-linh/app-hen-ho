@@ -15,7 +15,7 @@ const AtomStyledButton = styled(AtomButton)(({ theme }) => ({
     )} 100%)`,
   },
   width: theme.spacing(33),
-  height: "44px",
+  height: theme.spacing(5.5),
   borderRadius: "2.2rem",
   margin: "0 auto",
 }));

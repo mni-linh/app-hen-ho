@@ -1,12 +1,10 @@
-import { darken } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import AtomBox from "../atoms/AtomBox";
 import AtomButton from "../atoms/AtomButton";
 import AtomDialog from "../atoms/AtomDialog";
 import AtomDialogActions from "../atoms/AtomDialogActions";
 import AtomDialogContent from "../atoms/AtomDialogContent";
 import AtomDialogContentText from "../atoms/AtomDialogContentText";
-import AtomDialogTitle from "../atoms/AtomDialogTitle";
 import AtomDivider from "../atoms/AtomDivider";
 import AtomFormControl from "../atoms/AtomFormControl";
 import AtomGrid from "../atoms/AtomGrid";
@@ -17,7 +15,6 @@ import AtomInputAdornment from "../atoms/AtomInputAdornment";
 import AtomInputLabel from "../atoms/AtomInputLabel";
 import AtomOutlinedInput from "../atoms/AtomOutlinedInput";
 import AtomStyledButton from "../atoms/AtomStyleButton";
-import AtomStyleIconHover from "../atoms/AtomStyleIconHover";
 import AtomTextField from "../atoms/AtomTextField";
 import AtomToolbar from "../atoms/AtomToolbar";
 import AtomVisibilityIcon from "../atoms/AtomVisibilityIcon";
@@ -25,7 +22,9 @@ import AtomVisibilityOffIcon from "../atoms/AtomVisibilityOffIcon";
 import AtomWhatshotIcon from "../atoms/AtomWhatshotIcon";
 import { grey } from "@mui/material/colors";
 import AtomStyleDialogTitle from "../atoms/AtomStyleDialogTitle";
+
 const DialogSignIn = () => {
+  //.........................................
   const [openSignIn, setOpenSignIn] = React.useState(false);
   const [values, setValues] = React.useState({
     amount: "",
@@ -55,12 +54,27 @@ const DialogSignIn = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+  // ......................................................
+  const account = {
+    email: "email1@gmail.com",
+    password: "pass1",
+  };
+  const [user, setUser] = useState({ name: "", email: "" });
+  const [error, setError] = useState("");
+
+  const Login = (details) => {
+    console.log(details);
+  };
+
+  const Logout = () => {
+    console.log("Logout");
+  };
   return (
     <>
       <AtomBox
-      // sx={{
-      //   flexGrow: 0,
-      // }}
+        sx={{
+          flexGrow: 0,
+        }}
       >
         <AtomButton
           variant="contained"
@@ -99,13 +113,18 @@ const DialogSignIn = () => {
                 />
               </AtomGrid>
             </AtomGrid>
-            <AtomStyleIconHover
+            <AtomIconHover
               size="large"
               edge="end"
               onClick={handleCloseSignIn}
+              sx={(theme) => ({
+                position: "absolute",
+                right: theme.spacing(3.5),
+                top: theme.spacing(0),
+              })}
             >
               <AtomHighlightOffIcon fontSize="large" />
-            </AtomStyleIconHover>
+            </AtomIconHover>
           </AtomToolbar>
           <AtomStyleDialogTitle>Đăng nhập</AtomStyleDialogTitle>
           <AtomDivider variant="middle" />
@@ -130,6 +149,7 @@ const DialogSignIn = () => {
               noValidate
               autoComplete="off"
             >
+              {/* email */}
               <AtomTextField
                 id="outlined-search"
                 label="Email Address *"
@@ -138,7 +158,16 @@ const DialogSignIn = () => {
                 vargiant="outlined"
                 margin="dense"
               />
+              <AtomTextField
+                id="outlined-password-input"
+                label="Password"
+                type="password"
+                autoComplete="current-password"
+                //
+              />
+              {/* password */}
               {/* Grid ở ngoài  */}
+
               <AtomGrid item>
                 <AtomFormControl
                   sx={(theme) => ({

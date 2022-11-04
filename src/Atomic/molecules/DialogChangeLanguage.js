@@ -2,7 +2,6 @@ import React from "react";
 import AtomBox from "../atoms/AtomBox";
 import AtomButton from "../atoms/AtomButton";
 import AtomDialog from "../atoms/AtomDialog";
-import AtomDialogTitle from "../atoms/AtomDialogTitle";
 import AtomDivider from "../atoms/AtomDivider";
 import AtomHighlightOffIcon from "../atoms/AtomHighlightOffIcon";
 import AtomList from "../atoms/AtomList";
@@ -34,7 +33,7 @@ const languages = [
   "Deutsch",
   "Ελληνικά",
   "English(Australia)",
-  "English(United Kingdom)",
+  "English(UK)",
   "Español",
   "Español(Argentina)",
   "Español(España)",
@@ -127,17 +126,14 @@ function SimpleDialog(props) {
 
       {/*  */}
       <AtomList>
-        <AtomGrid container>
+        <AtomGrid container sx={{ padding: "0 61px" }}>
           {languages.map((language) => (
             <AtomGrid item key={language} xs={3}>
               <AtomListItem
                 button
                 onClick={() => handleListItemClick(language)}
               >
-                <AtomListItemText
-                  sx={{ textAlign: "center" }}
-                  primary={language}
-                />
+                <AtomListItemText primary={language} />
               </AtomListItem>
             </AtomGrid>
           ))}
@@ -165,6 +161,7 @@ const DialogChangeLanguage = () => {
   };
 
   return (
+    // <AtomBox sm={{ flexGrow: 0 }}>
     <AtomBox sm={{ flexGrow: 0 }}>
       <AtomTooltip title="Change language">
         <AtomStack direction="row" spacing={2}>

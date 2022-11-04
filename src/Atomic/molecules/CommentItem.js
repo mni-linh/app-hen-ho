@@ -451,7 +451,12 @@ const CommentItem = () => {
         >
           <AtomGrid item>
             <AtomStack spacing={2}>
-              <AtomTypography sx={{ fontWeight: "bold", fotnSize: "18px" }}>
+              <AtomTypography
+                sx={(theme) => ({
+                  fontWeight: theme.typography.fontWeightBold,
+                  fontSize: theme.typography.fontSize,
+                })}
+              >
                 Courtney & Miranda
               </AtomTypography>
               <AtomDivider
@@ -566,31 +571,23 @@ const CommentItem = () => {
 
   return (
     <AtomContainer maxWidth="xl">
-      <Swiper
-        slidesPerView={3}
-        freeMode={true}
-        height={300}
-        // justifyContent="space-between"
-      >
+      <Swiper slidesPerView={3} freeMode={true} height={300}>
         {comments.map((comment) => (
           <SwiperSlide key={comment.id}>
             <AtomCard
-              // variant="outlined"
-              elevation={3}
               sx={(theme) => ({
                 height: theme.spacing(31.25),
                 width: theme.spacing(57.5),
                 marginX: theme.spacing(2.5),
                 marginY: theme.spacing(3.5),
-                // boxShadow: "0 2px 6px 0 #e5e5e5",
                 boxShadow:
                   theme.spacing(0.2) +
                   " " +
                   theme.spacing(0.2) +
                   " " +
-                  theme.spacing(0.2) +
+                  theme.spacing(1) +
                   " " +
-                  theme.spacing(0.2) +
+                  theme.spacing(0.5) +
                   " " +
                   "#e5e5e5",
                 borderRadius: theme.spacing(3),

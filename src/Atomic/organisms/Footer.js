@@ -12,7 +12,7 @@ const Footer = () => {
       <AtomDivider variant="middle" />
       <FooterApp />
       <FooterContent />
-      <AtomDivider variant="middle" sx={{ margin: "30px 16px" }} />
+      <AtomDivider variant="middle" />
       <ShortFooter />
     </div>
   );

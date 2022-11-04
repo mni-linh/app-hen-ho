@@ -1,9 +1,9 @@
 import { styled } from "@mui/material/styles";
 
-const AtomSwiperSlide = styled("swiper-slide")({
+const AtomSwiperSlide = styled("swiper-slide")(({ theme }) => ({
   textAlign: "center",
   color: "red",
-  fontSize: "18px",
+  fontSize: theme.spacing(2.25),
   background: "#fff",
 
   display: "block",
@@ -16,6 +16,6 @@ const AtomSwiperSlide = styled("swiper-slide")({
   msFlexAlign: "center",
   webkitAlignItems: "center",
   alignItems: "center",
-});
+}));
 
 export default AtomSwiperSlide;

@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import AtomBox from "../atoms/AtomBox";
-import AtomButton from "../atoms/AtomButton";
 import AtomDialog from "../atoms/AtomDialog";
 import AtomDialogActions from "../atoms/AtomDialogActions";
 import AtomDialogContent from "../atoms/AtomDialogContent";
 import AtomDialogContentText from "../atoms/AtomDialogContentText";
-import AtomDialogTitle from "../atoms/AtomDialogTitle";
 import AtomDivider from "../atoms/AtomDivider";
 import AtomFormControl from "../atoms/AtomFormControl";
 import AtomGrid from "../atoms/AtomGrid";
@@ -106,6 +104,9 @@ const DialogSignUp = () => {
             onClick={() => {
               handleSignUp(true);
             }}
+            sx={(theme) => ({
+              fontSize: theme.spacing(2),
+            })}
           >
             Tạo tài khoản
           </AtomStyledButton>
@@ -126,7 +127,7 @@ const DialogSignUp = () => {
                 onClick={handleCloseSignUp}
                 sx={(theme) => ({
                   position: "absolute",
-                  right: theme.spacing(3),
+                  right: theme.spacing(3.5),
                   top: theme.spacing(0),
                 })}
               >

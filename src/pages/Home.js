@@ -21,7 +21,6 @@ const Home = () => {
         <AppBar />
         <BanerDating />
       </AtomBox>
-
       <Comment />
       <Footer />
     </>

@@ -29,7 +29,7 @@ const theme = createTheme({
     fontWeightBold: 700,
     fontFamily: "Proxima Nova,Helvetica Neue,Arial,Helvetica,sans-serif",
     textTransform: "capitalize",
-    fontSize: 18,
+    fontSize: 15,
   },
 });
 

@@ -1,12 +1,13 @@
+import { grey } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
 import AtomLink from "./AtomLink";
-const AtomStyleFooter = styled(AtomLink)({
-  color: "#21262e",
+const AtomStyleFooter = styled(AtomLink)(({ theme }) => ({
+  color: grey[800],
   "&:hover": {
-    color: "#d6002f",
+    color: theme.palette.secondary.main,
   },
   textDecoration: "none",
   cursor: "pointer",
-});
+}));
 
 export default AtomStyleFooter;
