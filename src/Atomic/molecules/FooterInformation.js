@@ -66,25 +66,25 @@ const footer = [
         })}
       >
         {/* <AtomStyleFooter> */}
-        <AtomStyleLinkSoc href="https://www.instagram.com/">
+        <AtomStyleLinkSoc href="https://www.instagram.com/tinder/">
           <AtomInstagramIcon />
         </AtomStyleLinkSoc>
 
         {/* </AtomStyleFooter> */}
 
-        <AtomStyleLinkSoc href="https://www.tiktok.com/">
+        <AtomStyleLinkSoc href="https://www.instagram.com/tinder/">
           <AtomMusicNoteIcon />
         </AtomStyleLinkSoc>
 
-        <AtomStyleLinkSoc href="https://www.youtube.com/">
+        <AtomStyleLinkSoc href="https://www.youtube.com/channel/UCnplK_NE54gkEt0VGrUDg1g">
           <AtomYouTubeIcon />
         </AtomStyleLinkSoc>
 
-        <AtomStyleLinkSoc href="https://www.twitter.com/">
+        <AtomStyleLinkSoc href="https://twitter.com/Tinder">
           <AtomTwitterIcon />
         </AtomStyleLinkSoc>
 
-        <AtomStyleLinkSoc href="https://www.facebook.com/">
+        <AtomStyleLinkSoc href="https://www.facebook.com/Tinder-Vietnam-106524054422640">
           <AtomFacebookIcon />
         </AtomStyleLinkSoc>
       </AtomStack>
