@@ -74,6 +74,7 @@ const DialogSignIn = () => {
       <AtomBox
         sx={{
           flexGrow: 0,
+          alignSelf: "center",
         }}
       >
         <AtomButton

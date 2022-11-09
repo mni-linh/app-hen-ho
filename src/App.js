@@ -34,6 +34,7 @@ const theme = createTheme({
     fontFamily: "Proxima Nova,Helvetica Neue,Arial,Helvetica,sans-serif",
     textTransform: "capitalize",
     fontSize: 15,
+    
   },
 });
 

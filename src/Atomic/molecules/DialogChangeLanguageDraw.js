@@ -22,6 +22,7 @@ import AtomTextField from "../atoms/AtomTextField";
 import AtomSearchIcon from "../atoms/AtomSearchIcon";
 import { alpha, styled } from "@mui/material/styles";
 import { Toolbar } from "@mui/material";
+import AtomStyleButtonLanguage from "../atoms/AtomStyleButtonLanguage";
 const languageAndSub = [
   {
     language: "English",
@@ -436,7 +437,7 @@ SimpleDialog.propTypes = {
   selectedValue: PropTypes.string.isRequired,
 };
 
-const DialogChangeLanguage = () => {
+const DialogChangeLanguageDraw = () => {
   const [open, setOpen] = React.useState(false);
   const [selectedValue, setSelectedValue] = React.useState(
     languageAndSub[55].language
@@ -453,20 +454,13 @@ const DialogChangeLanguage = () => {
     // <AtomBox sm={{ flexGrow: 0 }}>
     <AtomBox sm={{ flexGrow: 0 }}>
       <AtomTooltip title="Change language">
-        <AtomStack direction="row" spacing={2}>
-          <AtomButton
+        <AtomStack direction="row">
+          <AtomStyleButtonLanguage
             startIcon={<AtomPublicIcon />}
-            sx={(theme) => ({
-              marginRight: theme.spacing(3),
-              padding: theme.spacing(2),
-              fontSize: theme.spacing(2),
-              color: theme.typography.color,
-              textTransform: theme.typography.textTransform,
-            })}
             onClick={handleClickOpen}
           >
             {selectedValue}
-          </AtomButton>
+          </AtomStyleButtonLanguage>
           <SimpleDialog
             selectedValue={selectedValue}
             open={open}
@@ -478,4 +472,4 @@ const DialogChangeLanguage = () => {
   );
 };
 
-export default DialogChangeLanguage;
+export default DialogChangeLanguageDraw;

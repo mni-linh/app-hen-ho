@@ -18,6 +18,7 @@ const AtomStyledButton = styled(AtomButton)(({ theme }) => ({
   height: theme.spacing(5.5),
   borderRadius: "2.2rem",
   margin: "0 auto",
+  fontSize: theme.spacing(2),
 }));
 
 export default AtomStyledButton;
