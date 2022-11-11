@@ -1,10 +1,5 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
-import { useNavigate } from "react-router-dom";
-
-import DialogChangeLanguage from "../molecules/DialogChangeLanguage";
-import DialogSignIn from "../molecules/DialogSignIn";
-import DialogChangeLanguageDraw from "../molecules/DialogChangeLanguageDraw";
 
 import AtomAppBar from "../atoms/AtomAppBar";
 import AtomImageLogo from "../atoms/AtomImageLogo";
@@ -12,8 +7,6 @@ import AtomLink from "../atoms/AtomLink";
 import AtomToolbar from "../atoms/AtomToolbar";
 import AtomTypography from "../atoms/AtomTypography";
 import AtomBox from "../atoms/AtomBox";
-import dataDating from "../../routes/dataDating";
-import AtomButton from "../atoms/AtomButton";
 import AtomIconButton from "../atoms/AtomIconButton";
 import AtomDrawer from "../atoms/AtomDrawer";
 import AtomHighlightOffIcon from "../atoms/AtomHighlightOffIcon";
@@ -43,6 +36,13 @@ import AtomMenuIcon from "../atoms/AtomMenuIcon";
 import AtomExpandLess from "../atoms/AtomIconExpandLess";
 import AtomIconExpandMore from "../atoms/AtomIconExpandMore";
 import AtomCollapse from "../atoms/AtomCollapse";
+
+import LogoApp from "../molecules/LogoApp";
+import DialogChangeLanguage from "../molecules/DialogChangeLanguage";
+import DialogSignIn from "../molecules/DialogSignIn";
+import DialogChangeLanguageDraw from "../molecules/DialogChangeLanguageDraw";
+import MenuListSm from "../molecules/MenuListSm";
+import BoxLangLogin from "../molecules/BoxLangLogin";
 const listExtend = [
   {
     text: "Sản phẩm",
@@ -69,44 +69,50 @@ const listExtend = [
   },
 ];
 const AppBar = (props) => {
-  const navigate = useNavigate();
+  const drawerWidth = "100%";
   const [extend, setExtend] = React.useState(true);
   const [openSignIn, setOpenSignIn] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
   const [values, setValues] = React.useState({
-    amount: "",
     password: "",
     showPassword: false,
   });
+  // Click chuột mở rộng List
   const handleClick = () => {
     setExtend(!extend);
   };
+  // Click chuột mở Dialog SignIn
   const handleSignIn = (bool) => {
     setOpenSignIn(bool);
   };
-
+  // Click chuột đóng Dialog SignIn
   const handleCloseSignIn = () => {
     handleSignIn(false);
   };
+  // Thay đổi cách hiển thị mật khẩu
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
-
+  // Click chuột hiển thị mật khẩu
   const handleClickShowPassword = () => {
     setValues({
       ...values,
       showPassword: !values.showPassword,
     });
   };
-
+  // Click chuột ẩn mật khẩu
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-  // 240
-  const drawerWidth = "100%";
-  const [open, setOpen] = React.useState(false);
+  // Mở Drawer
   const handleDrawerOpen = () => {
     setOpen(true);
   };
+  // Đóng Drawer
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+  // style DrawerHeader
   const DrawerHeader = styled("div")(({ theme }) => ({
     display: "flex",
     alignItems: "center",
@@ -115,107 +121,28 @@ const AppBar = (props) => {
     ...theme.mixins.toolbar,
     justifyContent: "flex-end",
   }));
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
   return (
     <>
       <AtomAppBar
         position="sticky"
+        elevation={0}
+        open={open}
         sx={{
           background: "rgba(32, 29, 28, 0.8)",
           backgroundSize: "cover",
           display: "flex",
         }}
-        elevation={0}
-        open={open}
       >
-        {/* <AtomBox sx={{ display: "flex", justifyContent: "space-between" }}></> */}
-        {/* <AtomBox> */}
         <AtomToolbar>
-          <AtomBox sx={{ display: "flex" }}>
-            {/* Icon (lúc màn hình lớn) */}
-            <AtomImageLogo
-              alt="logo"
-              src="/images/logoTinder.png"
-              sx={{
-                display: { xs: "flex", md: "flex" },
-                alignSelf: "center",
-              }}
-            />
-            {/* Chữ tinder (lúc màn hình lớn) */}
-            <AtomTypography
-              variant="h6"
-              noWrap
-              component={AtomLink}
-              href="/"
-              sx={(theme) => ({
-                marginRight: theme.spacing(2),
-                fontFamily: theme.typography.fontFamily,
-                fontWeight: theme.typography.fontWeightBold,
-                color: theme.typography.color,
-                textDecoration: "none",
-                fontSize: theme.spacing(5),
-                display: { xs: "flex" },
-              })}
-            >
-              tinder
-            </AtomTypography>
-          </AtomBox>
-          {/* Menu */}
-          {/* <MenuBar /> */}
-          {/* List menu bar lúc màn hình lớn */}
-          <AtomBox
-            sx={{
-              flexGrow: 1,
-              display: {
-                xs: "none",
-                md: "flex",
-              },
-            }}
-          >
-            {dataDating.map((page, index) => (
-              <AtomButton
-                key={index}
-                onClick={() => {
-                  navigate(`${page.path}`);
-                }}
-                sx={(theme) => ({
-                  marginY: theme.spacing(2),
-                  color: theme.typography.color,
-                  "&:hover": {
-                    color: theme.palette.primary.main,
-                  },
-                  display: "block",
-                  fontSize: theme.spacing(2),
-                  textAlign: "start",
-                  lineHeight: theme.spacing(2.6),
-                  textTransform: theme.typography.textTransform,
-                })}
-              >
-                {page.name}
-              </AtomButton>
-            ))}
-          </AtomBox>
-
-          {/* cục ngôn ngữ - đăng nhập */}
-          <AtomBox
-            sx={{
-              // display: "flex",
-              justifyContent: "space-around",
-              display: {
-                xs: "none",
-                md: "flex",
-              },
-            }}
-          >
-            {/* Dialog language */}
-            <DialogChangeLanguage />
-            {/* Button Login */}
-            <DialogSignIn />
-          </AtomBox>
+          {/* Logo + Tinder */}
+          <LogoApp />
+          {/* List menu (màn hình lớn) */}
+          <MenuListSm />
+          {/* Button ngôn ngữ + Đăng nhập (màn hình lớn)*/}
+          <BoxLangLogin />
         </AtomToolbar>
-        {/* List menu lúc màn hình nhỏ */}
+
+        {/* List menu (màn hình nhỏ) */}
         <AtomBox
           sx={{
             flexGrow: 1,

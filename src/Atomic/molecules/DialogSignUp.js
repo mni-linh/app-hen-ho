@@ -116,7 +116,6 @@ const DialogSignUp = () => {
                 fontSize: theme.spacing(8),
                 display: "flex",
                 justifyContent: "center",
-                fontStyle: "italic",
               },
               [theme.breakpoints.up("md")]: {
                 fontSize: theme.spacing(15),
