@@ -258,8 +258,8 @@ const languageAndSub = [
   },
 ];
 const SearchIconWrapper = styled("div")(({ theme }) => ({
-  // padding: theme.spacing(0, 2),
-  // height: "100%",
+  // padding: theme.spacing(0, 1),
+  height: "100%",
   position: "absolute",
   pointerEvents: "none",
   display: "flex",
@@ -273,10 +273,12 @@ const Search = styled("div")(({ theme }) => ({
   "&:hover": {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
-  marginLeft: 0,
+  // marginRight: theme.spacing(2),
+  // marginLeft: 0,
   width: "100%",
+
   [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(1),
+    // marginLeft: theme.spacing(3),
     width: "auto",
   },
 }));
@@ -291,71 +293,80 @@ function SimpleDialog(props) {
     onClose(value);
   };
   return (
-    <AtomBox
+    // <AtomBox
+    //   sx={{
+    //     overflow: "auto",
+    //     scrollbarWidth: "none",
+    //     msOverflowStyle: "none",
+    //     display: {
+    //         xs: "flex",
+    //         sm: "none",
+    //       },
+    //   }}
+    // >
+    <AtomDialog
+      fullScreen
+      onClose={handleClose}
+      open={open}
+      maxWidth="md"
+      scroll="paper"
       sx={{
-        overflow: "auto",
-        scrollbarWidth: "none",
-        msOverflowStyle: "none",
+        display: {
+          xs: "flex",
+          md: "none",
+        },
       }}
     >
-      <AtomDialog
-        onClose={handleClose}
-        open={open}
-        maxWidth="md"
-        scroll="paper"
+      {/* <> */}
+      <AtomToolbar>
+        <AtomGrid container justifyContent="center">
+          <AtomGrid item>
+            <AtomWhatshotIcon
+              fontSize="large"
+              sx={(theme) => ({ color: theme.palette.primary.main })}
+            />
+          </AtomGrid>
+        </AtomGrid>
+
+        <AtomStyleIconHover size="large" edge="end" onClick={handleClose}>
+          <AtomHighlightOffIcon fontSize="large" />
+        </AtomStyleIconHover>
+      </AtomToolbar>
+
+      <AtomStyleDialogTitle
+        sx={(theme) => ({
+          fontSize: theme.spacing(2),
+        })}
+      >
+        Chọn một ngôn ngữ
+      </AtomStyleDialogTitle>
+      <AtomTypography
+        align="center"
+        sx={(theme) => ({
+          fontWeight: theme.typography.fontWeightBold,
+        })}
+      >
+        {selectedValue}
+      </AtomTypography>
+      <AtomBox
         sx={{
-          // overflow: "hidden",
-          // overflowY: "scroll",
-          scrollbarWidth: "none",
-          "&::-webkit-scrollbar": {
-            display: "none",
-            width: " 0 !important",
-          },
-          // msOverflowStyle: "none",
+          flexGrow: 1,
+          display: "flex",
+          justifyContent: "space-around",
         }}
       >
-        {/* <> */}
-        <AtomToolbar>
-          <AtomGrid container justifyContent="center">
-            <AtomGrid item>
-              <AtomWhatshotIcon
-                fontSize="large"
-                sx={(theme) => ({ color: theme.palette.primary.main })}
-              />
-            </AtomGrid>
-          </AtomGrid>
-
-          <AtomStyleIconHover size="large" edge="end" onClick={handleClose}>
-            <AtomHighlightOffIcon fontSize="large" />
-          </AtomStyleIconHover>
-        </AtomToolbar>
-
-        <AtomStyleDialogTitle
-          sx={(theme) => ({
-            fontSize: theme.spacing(2),
-          })}
-        >
-          Chọn một ngôn ngữ
-        </AtomStyleDialogTitle>
-        <AtomTypography
-          align="center"
-          sx={(theme) => ({
-            fontWeight: theme.typography.fontWeightBold,
-          })}
-        >
-          {selectedValue}
-        </AtomTypography>
-        <AtomBox>
-          {/* <Search> */}
-          <Toolbar sx={(theme) => ({ marginX: theme.spacing(25) })}>
+        {/* <Search> */}
+        <AtomToolbar sx={(theme) => ({ marginX: theme.spacing(25) })}>
+          <Search>
             <SearchIconWrapper
               sx={(theme) => ({
                 paddingTop: theme.spacing(2.5),
                 color: theme.palette.text.secondary,
               })}
             >
-              <AtomSearchIcon />
+              <AtomSearchIcon sx={{ color: "#939ba7", position: "absolute" }} />
             </SearchIconWrapper>
+
             <AtomAutocomplete
               id="search-language"
               freeSolo
@@ -373,61 +384,65 @@ function SimpleDialog(props) {
                 alignItems: "center",
               })}
             />
-          </Toolbar>
-          {/* </Search> */}
-        </AtomBox>
-        <AtomDivider variant="middle" />
+          </Search>
+          <AtomBox sx={{ flexGrow: 1 }} />
+        </AtomToolbar>
+        {/* </Search> */}
+      </AtomBox>
+      <AtomDivider variant="middle" />
 
-        {/*  */}
-        <AtomList>
-          <AtomGrid
-            container
-            sx={(theme) => ({
-              paddingY: theme.spacing(0),
-              paddingX: theme.spacing(8),
-            })}
-          >
-            {languageAndSub.map((languages, language) => (
-              <AtomGrid item key={language} xs={3}>
-                <AtomListItem
-                  button
-                  onClick={() => handleListItemClick(languages.language)}
+      {/*  */}
+      <AtomList>
+        <AtomGrid
+          container
+          sx={(theme) => ({
+            paddingY: theme.spacing(0),
+            paddingX: theme.spacing(2),
+          })}
+        >
+          {languageAndSub.map((languages, language) => (
+            <AtomGrid item key={language} xs={3}>
+              <AtomListItem
+                button
+                onClick={() => handleListItemClick(languages.language)}
+                sx={(theme) => ({
+                  marginY: theme.spacing(1),
+                  borderRadius: theme.spacing(2),
+                })}
+              >
+                <AtomListItemText
+                  // primary={languages.language}
+                  // secondary={languages.sub}
                   sx={(theme) => ({
-                    marginY: theme.spacing(1.5),
-                    borderRadius: theme.spacing(2),
+                    fontWeight: theme.typography.fontWeightBold,
                   })}
                 >
-                  <AtomListItemText
-                    // primary={languages.language}
-                    // secondary={languages.sub}
+                  <AtomTypography
                     sx={(theme) => ({
-                      fontWeight: theme.typography.fontWeightBold,
+                      color: theme.palette.text.primary,
+                      fontSize: theme.spacing(2),
                     })}
                   >
-                    <AtomTypography
-                      sx={(theme) => ({
-                        color: theme.palette.text.primary,
-                      })}
-                    >
-                      {languages.language}
-                    </AtomTypography>
-                    <AtomTypography
-                      variant="body2"
-                      sx={(theme) => ({
-                        color: theme.palette.text.secondary,
-                      })}
-                    >
-                      {languages.sub}
-                    </AtomTypography>
-                  </AtomListItemText>
-                  {/* <AtomListItemText secondary={languages.sub}/> */}
-                </AtomListItem>
-              </AtomGrid>
-            ))}
-          </AtomGrid>
-        </AtomList>
-      </AtomDialog>
-    </AtomBox>
+                    {languages.language}
+                  </AtomTypography>
+                  <AtomTypography
+                    variant="body2"
+                    sx={(theme) => ({
+                      fontSize: theme.spacing(1.5),
+                      color: theme.palette.text.secondary,
+                    })}
+                  >
+                    {languages.sub}
+                  </AtomTypography>
+                </AtomListItemText>
+                {/* <AtomListItemText secondary={languages.sub}/> */}
+              </AtomListItem>
+            </AtomGrid>
+          ))}
+        </AtomGrid>
+      </AtomList>
+    </AtomDialog>
+    // </AtomBox>
   );
 }
 
@@ -452,7 +467,12 @@ const DialogChangeLanguageDraw = () => {
 
   return (
     // <AtomBox sm={{ flexGrow: 0 }}>
-    <AtomBox sm={{ flexGrow: 0 }}>
+    <AtomBox
+      sx={{
+        flexGrow: 0,
+        alignSelf: "center",
+      }}
+    >
       <AtomTooltip title="Change language">
         <AtomStack direction="row">
           <AtomStyleButtonLanguage

@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import dataDating from "../../routes/dataDating";
+import React from "react";
+
+import { useNavigate } from "react-router-dom";
+
 import AtomBox from "../atoms/AtomBox";
 import AtomButton from "../atoms/AtomButton";
-import { useNavigate } from "react-router-dom";
-import { Menu, MenuItem } from "@mui/material";
-import { spacing } from "@mui/system";
+
+import dataDating from "../../routes/dataDating";
 
 const MenuBar = () => {
   const navigate = useNavigate();

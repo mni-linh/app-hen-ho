@@ -1,5 +1,7 @@
 import React from "react";
+
 import { SwiperSlide, Swiper } from "swiper/react";
+
 import AtomDivider from "../atoms/AtomDivider";
 import AtomGrid from "../atoms/AtomGrid";
 import AtomStack from "../atoms/AtomStack";
@@ -8,7 +10,10 @@ import AtomCard from "../atoms/AtomCard";
 import AtomCardHeader from "../atoms/AtomCardHeader";
 import AtomCardContent from "../atoms/AtomCardContent";
 import AtomContainer from "../atoms/AtomContainer";
+
 import { grey } from "@mui/material/colors";
+import { styled } from "@mui/material/styles";
+
 const CommentItem = () => {
   const comments = [
     {
@@ -33,7 +38,7 @@ const CommentItem = () => {
               </AtomTypography>
               <AtomDivider
                 variant="middle"
-                sx={(theme) => ({ width: theme.spacing(47) })}
+                sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
           </AtomGrid>
@@ -75,7 +80,7 @@ const CommentItem = () => {
               </AtomTypography>
               <AtomDivider
                 variant="middle"
-                sx={(theme) => ({ width: theme.spacing(47) })}
+                sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
           </AtomGrid>
@@ -117,7 +122,7 @@ const CommentItem = () => {
               </AtomTypography>
               <AtomDivider
                 variant="middle"
-                sx={(theme) => ({ width: theme.spacing(47) })}
+                sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
           </AtomGrid>
@@ -160,7 +165,7 @@ const CommentItem = () => {
               </AtomTypography>
               <AtomDivider
                 variant="middle"
-                sx={(theme) => ({ width: theme.spacing(47) })}
+                sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
           </AtomGrid>
@@ -203,7 +208,7 @@ const CommentItem = () => {
               </AtomTypography>
               <AtomDivider
                 variant="middle"
-                sx={(theme) => ({ width: theme.spacing(47) })}
+                sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
           </AtomGrid>
@@ -246,7 +251,7 @@ const CommentItem = () => {
               </AtomTypography>
               <AtomDivider
                 variant="middle"
-                sx={(theme) => ({ width: theme.spacing(47) })}
+                sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
           </AtomGrid>
@@ -289,7 +294,7 @@ const CommentItem = () => {
               </AtomTypography>
               <AtomDivider
                 variant="middle"
-                sx={(theme) => ({ width: theme.spacing(47) })}
+                sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
           </AtomGrid>
@@ -332,7 +337,7 @@ const CommentItem = () => {
               </AtomTypography>
               <AtomDivider
                 variant="middle"
-                sx={(theme) => ({ width: theme.spacing(47) })}
+                sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
           </AtomGrid>
@@ -375,7 +380,7 @@ const CommentItem = () => {
               </AtomTypography>
               <AtomDivider
                 variant="middle"
-                sx={(theme) => ({ width: theme.spacing(47) })}
+                sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
           </AtomGrid>
@@ -418,7 +423,7 @@ const CommentItem = () => {
               </AtomTypography>
               <AtomDivider
                 variant="middle"
-                sx={(theme) => ({ width: theme.spacing(47) })}
+                sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
           </AtomGrid>
@@ -461,7 +466,7 @@ const CommentItem = () => {
               </AtomTypography>
               <AtomDivider
                 variant="middle"
-                sx={(theme) => ({ width: theme.spacing(47) })}
+                sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
           </AtomGrid>
@@ -504,7 +509,7 @@ const CommentItem = () => {
               </AtomTypography>
               <AtomDivider
                 variant="middle"
-                sx={(theme) => ({ width: theme.spacing(47) })}
+                sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
           </AtomGrid>
@@ -547,7 +552,7 @@ const CommentItem = () => {
               </AtomTypography>
               <AtomDivider
                 variant="middle"
-                sx={(theme) => ({ width: theme.spacing(47) })}
+                sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
           </AtomGrid>
@@ -568,53 +573,140 @@ const CommentItem = () => {
         "Nói thật là tôi đã từng có nhiều bạn hẹn hò từ Tinder và chắc chắn một điều là tôi đã từng gặp gỡ người mới chỉ để vui vẻ và ăn uống miễn phí… 3 năm với rất nhiều lần hẹn hò và không ít những kỷ niệm sau đó, tôi kết hôn với một anh chàng đến từ Tinder, Kenny!",
     },
   ];
-
+  const ResponSwiper = styled(Swiper)(({ theme }) => ({
+    // slidesPerView: 1,
+    // spaceBetween: 10,
+    breakpoints: {
+      600: {
+        slidesPerView: 1,
+        spaceBetween: theme.spacing(10),
+      },
+      900: {
+        slidesPerView: 3,
+        spaceBetween: theme.spacing(10),
+      },
+      1200: {
+        slidesPerView: 3,
+        spaceBetween: theme.spacing(10),
+      },
+      1536: {
+        slidesPerView: 3,
+        spaceBetween: theme.spacing(10),
+      },
+    },
+  }));
   return (
-    <AtomContainer maxWidth="xl">
-      <Swiper slidesPerView={3} freeMode={true} height={300}>
-        {comments.map((comment) => (
-          <SwiperSlide key={comment.id}>
-            <AtomCard
-              sx={(theme) => ({
-                height: theme.spacing(31.25),
-                width: theme.spacing(57.5),
-                marginX: theme.spacing(2.5),
-                marginY: theme.spacing(3.5),
-                boxShadow:
-                  theme.spacing(0.2) +
-                  " " +
-                  theme.spacing(0.2) +
-                  " " +
-                  theme.spacing(1) +
-                  " " +
-                  theme.spacing(0.5) +
-                  " " +
-                  "#e5e5e5",
-                borderRadius: theme.spacing(3),
-              })}
-            >
-              <AtomCardHeader
-                title={comment.header}
-                titleTypographyProps={{ fontWeight: "bold" }}
-              />
+    <>
+      <AtomContainer
+        maxWidth="xl"
+        sx={{
+          display: {
+            xs: "none",
+            sm: "flex",
+          },
+          width: "1450px",
+        }}
+      >
+        <Swiper slidesPerView={3} freeMode={true} height={300}>
+          {comments.map((comment) => (
+            <SwiperSlide key={comment.id}>
+              <AtomCard
+                sx={(theme) => ({
+                  height: theme.spacing(31.25),
+                  width: theme.spacing(55),
+                  marginX: theme.spacing(2.5),
+                  marginY: theme.spacing(3.5),
+                  boxShadow:
+                    theme.spacing(0.2) +
+                    " " +
+                    theme.spacing(0.2) +
+                    " " +
+                    theme.spacing(1) +
+                    " " +
+                    theme.spacing(0.5) +
+                    " " +
+                    "#e5e5e5",
+                  borderRadius: theme.spacing(3),
+                })}
+              >
+                <AtomCardHeader
+                  title={comment.header}
+                  titleTypographyProps={{ fontWeight: "bold" }}
+                />
 
-              <AtomCardContent>
-                <AtomTypography
-                  variant="body2"
-                  color="text.secondary"
-                  sx={(theme) => ({
-                    fontSize: theme.spacing(1.875),
-                    lineHeight: theme.spacing(2.7),
-                  })}
-                >
-                  {comment.content}
-                </AtomTypography>
-              </AtomCardContent>
-            </AtomCard>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </AtomContainer>
+                <AtomCardContent>
+                  <AtomTypography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={(theme) => ({
+                      fontSize: theme.spacing(1.875),
+                      lineHeight: theme.spacing(2.7),
+                    })}
+                  >
+                    {comment.content}
+                  </AtomTypography>
+                </AtomCardContent>
+              </AtomCard>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </AtomContainer>
+
+      <AtomContainer
+        maxWidth="xl"
+        sx={{
+          display: {
+            xs: "flex",
+            sm: "none",
+          },
+        }}
+      >
+        <Swiper slidesPerView={1} freeMode={true} height={300}>
+          {comments.map((comment) => (
+            <SwiperSlide key={comment.id}>
+              <AtomCard
+                sx={(theme) => ({
+                  height: theme.spacing(38),
+                  width: theme.spacing(54),
+                  marginX: theme.spacing(2.5),
+                  marginY: theme.spacing(3.5),
+                  justifyContent: "space-between",
+                  boxShadow:
+                    theme.spacing(0.2) +
+                    " " +
+                    theme.spacing(0.2) +
+                    " " +
+                    theme.spacing(1) +
+                    " " +
+                    theme.spacing(0.5) +
+                    " " +
+                    "#e5e5e5",
+                  borderRadius: theme.spacing(3),
+                })}
+              >
+                <AtomCardHeader
+                  title={comment.header}
+                  titleTypographyProps={{ fontWeight: "bold" }}
+                />
+
+                <AtomCardContent>
+                  <AtomTypography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={(theme) => ({
+                      fontSize: theme.spacing(1.875),
+                      lineHeight: theme.spacing(2.7),
+                    })}
+                  >
+                    {comment.content}
+                  </AtomTypography>
+                </AtomCardContent>
+              </AtomCard>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </AtomContainer>
+    </>
   );
 };
 

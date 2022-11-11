@@ -23,6 +23,7 @@ const theme = createTheme({
     },
     common: {
       black: "#000000",
+      white: "#ffffff",
     },
   },
   typography: {
@@ -34,7 +35,6 @@ const theme = createTheme({
     fontFamily: "Proxima Nova,Helvetica Neue,Arial,Helvetica,sans-serif",
     textTransform: "capitalize",
     fontSize: 15,
-    
   },
 });
 
