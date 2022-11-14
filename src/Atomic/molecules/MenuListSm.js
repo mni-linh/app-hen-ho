@@ -6,6 +6,7 @@ import AtomBox from "../atoms/AtomBox";
 import AtomButton from "../atoms/AtomButton";
 
 import dataDating from "../../routes/dataDating";
+
 const MenuListSm = () => {
   const navigate = useNavigate();
   return (

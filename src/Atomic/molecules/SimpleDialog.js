@@ -1,25 +1,24 @@
 import React from "react";
-import { alpha, styled, useTheme } from "@mui/material/styles";
-import AtomBox from "../atoms/AtomBox";
-import AtomButton from "../atoms/AtomButton";
+
+import { useTheme, styled, alpha } from "@mui/material/styles";
+
+import AtomUseMediaQuery from "../atoms/AtomUseMediaQuery";
 import AtomDialog from "../atoms/AtomDialog";
+import AtomToolbar from "../atoms/AtomToolbar";
+import AtomGrid from "../atoms/AtomGrid";
+import AtomWhatshotIcon from "../atoms/AtomWhatshotIcon";
+import AtomStyleIconHover from "../atoms/AtomStyleIconHover";
+import AtomHighlightOffIcon from "../atoms/AtomHighlightOffIcon";
+import AtomStyleDialogTitle from "../atoms/AtomStyleDialogTitle";
+import AtomTypography from "../atoms/AtomTypography";
+import AtomBox from "../atoms/AtomBox";
+import AtomSearchIcon from "../atoms/AtomSearchIcon";
+import AtomAutocomplete from "../atoms/AtomAutocomplete";
+import AtomTextField from "../atoms/AtomTextField";
 import AtomDivider from "../atoms/AtomDivider";
 import AtomList from "../atoms/AtomList";
 import AtomListItem from "../atoms/AtomListItem";
 import AtomListItemText from "../atoms/AtomListItemText";
-import AtomPublicIcon from "../atoms/AtomPublicIcon";
-import AtomToolbar from "../atoms/AtomToolbar";
-import AtomTypography from "../atoms/AtomTypography";
-import AtomWhatshotIcon from "../atoms/AtomWhatshotIcon";
-import PropTypes from "prop-types";
-import AtomGrid from "../atoms/AtomGrid";
-import AtomStyleIconHover from "../atoms/AtomStyleIconHover";
-import AtomStyleDialogTitle from "../atoms/AtomStyleDialogTitle";
-import AtomAutocomplete from "../atoms/AtomAutocomplete";
-import AtomTextField from "../atoms/AtomTextField";
-import AtomHighlightOffIcon from "../atoms/AtomHighlightOffIcon";
-import AtomSearchIcon from "../atoms/AtomSearchIcon";
-import AtomUseMediaQuery from "../atoms/AtomUseMediaQuery";
 
 const languageAndSub = [
   {
@@ -255,47 +254,7 @@ const languageAndSub = [
     sub: "Tiếng Trung (Phồn thể)",
   },
 ];
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  // marginRight: theme.spacing(2),
-  // marginLeft: 0,
-  width: "100%",
-
-  [theme.breakpoints.up("sm")]: {
-    // marginLeft: theme.spacing(3),
-    width: "auto",
-  },
-}));
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  // padding: theme.spacing(0, 1),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-// const StyledInputBase = styled(InputBase)(({ theme }) => ({
-//   color: "inherit",
-//   "& .MuiInputBase-input": {
-//     padding: theme.spacing(1, 1, 1, 0),
-//     // vertical padding + font size from searchIcon
-//     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-//     transition: theme.transitions.create("width"),
-//     width: "100%",
-
-//     [theme.breakpoints.up("md")]: {
-//       width: "20ch",
-//     },
-//   },
-// }));
-
-function SimpleDialog(props) {
+const SimpleDialog = (props) => {
   const { onClose, selectedValue, open } = props;
   const theme = useTheme();
   const fullScreen = AtomUseMediaQuery(theme.breakpoints.down("sm"));
@@ -307,6 +266,31 @@ function SimpleDialog(props) {
   const handleListItemClick = (value) => {
     onClose(value);
   };
+  const Search = styled("div")(({ theme }) => ({
+    position: "relative",
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    "&:hover": {
+      backgroundColor: alpha(theme.palette.common.white, 0.25),
+    },
+    // marginRight: theme.spacing(2),
+    // marginLeft: 0,
+    width: "100%",
+
+    [theme.breakpoints.up("sm")]: {
+      // marginLeft: theme.spacing(3),
+      width: "auto",
+    },
+  }));
+  const SearchIconWrapper = styled("div")(({ theme }) => ({
+    // padding: theme.spacing(0, 1),
+    height: "100%",
+    position: "absolute",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  }));
   return (
     <>
       {/* <AtomBox
@@ -337,7 +321,7 @@ function SimpleDialog(props) {
           // msOverflowStyle: "none",
         }}
       >
-        {/* <> */}
+        {/* <ToolbarDialog /> */}
         <AtomToolbar>
           <AtomGrid container justifyContent="center">
             <AtomGrid item>
@@ -347,7 +331,6 @@ function SimpleDialog(props) {
               />
             </AtomGrid>
           </AtomGrid>
-
           <AtomStyleIconHover size="large" edge="end" onClick={handleClose}>
             <AtomHighlightOffIcon fontSize="large" />
           </AtomStyleIconHover>
@@ -588,63 +571,8 @@ function SimpleDialog(props) {
           </AtomGrid>
         </AtomList>
       </AtomDialog>
-      {/* // </AtomBox> */}
-      {/* </AtomBox> */}
     </>
   );
-}
-
-SimpleDialog.propTypes = {
-  onClose: PropTypes.func.isRequired,
-  open: PropTypes.bool.isRequired,
-  selectedValue: PropTypes.string.isRequired,
 };
 
-const DialogChangeLanguage = () => {
-  const [open, setOpen] = React.useState(false);
-  const [selectedValue, setSelectedValue] = React.useState(
-    languageAndSub[55].language
-  );
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = (value) => {
-    setOpen(false);
-    setSelectedValue(value);
-  };
-
-  return (
-    // <AtomBox sm={{ flexGrow: 0 }}>
-    <AtomBox
-      sx={{
-        flexGrow: 0,
-        alignSelf: "center",
-      }}
-    >
-      {/* <AtomTooltip title="Change language"> */}
-      {/* <AtomStack direction="row" spacing={2}> */}
-      <AtomButton
-        startIcon={<AtomPublicIcon />}
-        sx={(theme) => ({
-          marginRight: theme.spacing(3),
-          padding: theme.spacing(2),
-          fontSize: theme.spacing(2),
-          color: theme.typography.color,
-          textTransform: theme.typography.textTransform,
-        })}
-        onClick={handleClickOpen}
-      >
-        {selectedValue}
-      </AtomButton>
-      <SimpleDialog
-        selectedValue={selectedValue}
-        open={open}
-        onClose={handleClose}
-      />
-      {/* </AtomStack> */}
-      {/* </AtomTooltip> */}
-    </AtomBox>
-  );
-};
-
-export default DialogChangeLanguage;
+export default SimpleDialog;
