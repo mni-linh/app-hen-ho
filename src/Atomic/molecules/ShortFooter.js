@@ -6,16 +6,21 @@ import AtomTypography from "../atoms/AtomTypography";
 
 const ShortFooter = () => {
   return (
-    <AtomContainer maxWidth="xl">
-      <AtomGrid
-        container
-        spacing={2}
-        justifyContent="space-between"
-        sx={(theme) => ({
-          marginY: theme.spacing(1.8),
-        })}
-      >
-        <AtomGrid item sx={(theme) => ({ fontSize: theme.spacing(1.7) })}>
+    <AtomContainer
+      maxWidth="xl"
+      sx={(theme) => ({
+        padding: theme.spacing(2),
+      })}
+    >
+      <AtomGrid container rowSpacing={3} justifyContent="space-between">
+        {/* short foot */}
+        <AtomGrid
+          item
+          sx={(theme) => ({
+            fontSize: theme.spacing(1.7),
+            textAlign: "center",
+          })}
+        >
           <AtomStyleFooter href="https://tinder.com/vi/faq">
             Câu Hỏi Thường Gặp
           </AtomStyleFooter>{" "}
@@ -36,9 +41,14 @@ const ShortFooter = () => {
             Cài đặt Quyền Riêng Tư
           </AtomStyleFooter>
         </AtomGrid>
-
+        {/* bản quyển */}
         <AtomGrid item>
-          <AtomTypography sx={(theme) => ({ fontSize: theme.spacing(1.7) })}>
+          <AtomTypography
+            sx={(theme) => ({
+              fontSize: theme.spacing(1.7),
+              textAlign: "center",
+            })}
+          >
             © 2022 Match Group, LLC, mọi quyền đã được bảo lưu.
           </AtomTypography>
         </AtomGrid>

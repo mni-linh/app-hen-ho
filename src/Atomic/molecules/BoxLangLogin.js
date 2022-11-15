@@ -1,7 +1,8 @@
 import React from "react";
 import AtomBox from "../atoms/AtomBox";
-import DialogSignIn from "./DialogSignIn";
+import ButtonSignIn from "./ButtonSignIn";
 import ButtonLanguage from "./ButtonLanguage";
+
 const BoxLangLogin = () => {
   return (
     <AtomBox
@@ -13,10 +14,10 @@ const BoxLangLogin = () => {
         },
       }}
     >
-      {/* Button - Dialog language */}
+      {/* Dialog language */}
       <ButtonLanguage />
-      {/* Button - Dialog Login */}
-      <DialogSignIn />
+      {/* Button Login */}
+      <ButtonSignIn />
     </AtomBox>
   );
 };

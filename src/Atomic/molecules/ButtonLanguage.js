@@ -1,13 +1,12 @@
 import React from "react";
 
-import { alpha, styled } from "@mui/material/styles";
-
 import PropTypes from "prop-types";
 
 import AtomBox from "../atoms/AtomBox";
 import AtomButton from "../atoms/AtomButton";
 import AtomPublicIcon from "../atoms/AtomPublicIcon";
-import SimpleDialog from "./SimpleDialog";
+import DialogLanguage from "./DialogLanguage";
+
 const languageAndSub = [
   {
     language: "English",
@@ -243,7 +242,7 @@ const languageAndSub = [
   },
 ];
 
-SimpleDialog.propTypes = {
+DialogLanguage.propTypes = {
   onClose: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
   selectedValue: PropTypes.string.isRequired,
@@ -264,12 +263,7 @@ const ButtonLanguage = () => {
 
   return (
     // <AtomBox sm={{ flexGrow: 0 }}>
-    <AtomBox
-      sx={{
-        flexGrow: 0,
-        alignSelf: "center",
-      }}
-    >
+    <>
       {/* <AtomTooltip title="Change language"> */}
       {/* <AtomStack direction="row" spacing={2}> */}
       <AtomButton
@@ -285,14 +279,12 @@ const ButtonLanguage = () => {
       >
         {selectedValue}
       </AtomButton>
-      <SimpleDialog
+      <DialogLanguage
         selectedValue={selectedValue}
         open={open}
         onClose={handleClose}
       />
-      {/* </AtomStack> */}
-      {/* </AtomTooltip> */}
-    </AtomBox>
+    </>
   );
 };
 

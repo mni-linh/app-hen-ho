@@ -14,6 +14,8 @@ import AtomContainer from "../atoms/AtomContainer";
 import { grey } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
 
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 const CommentItem = () => {
   const comments = [
     {
@@ -37,7 +39,7 @@ const CommentItem = () => {
                 Victoria và Bayleigh Rodriquez ❤️
               </AtomTypography>
               <AtomDivider
-                variant="middle"
+
                 sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
@@ -79,7 +81,6 @@ const CommentItem = () => {
                 Ryan và Lindsey Walsh
               </AtomTypography>
               <AtomDivider
-                variant="middle"
                 sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
@@ -121,7 +122,6 @@ const CommentItem = () => {
                 Shannon Escobar
               </AtomTypography>
               <AtomDivider
-                variant="middle"
                 sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
@@ -164,7 +164,6 @@ const CommentItem = () => {
                 Rebecca Lawton
               </AtomTypography>
               <AtomDivider
-                variant="middle"
                 sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
@@ -207,7 +206,6 @@ const CommentItem = () => {
                 Lauren Delarmente
               </AtomTypography>
               <AtomDivider
-                variant="middle"
                 sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
@@ -250,7 +248,6 @@ const CommentItem = () => {
                 Rebecca Stephenson
               </AtomTypography>
               <AtomDivider
-                variant="middle"
                 sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
@@ -293,7 +290,6 @@ const CommentItem = () => {
                 Elissa Donahue
               </AtomTypography>
               <AtomDivider
-                variant="middle"
                 sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
@@ -336,7 +332,6 @@ const CommentItem = () => {
                 Sean & Marianna Polcha
               </AtomTypography>
               <AtomDivider
-                variant="middle"
                 sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
@@ -379,7 +374,6 @@ const CommentItem = () => {
                 Magdalena & Annie
               </AtomTypography>
               <AtomDivider
-                variant="middle"
                 sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
@@ -422,7 +416,6 @@ const CommentItem = () => {
                 Shannon & Julian
               </AtomTypography>
               <AtomDivider
-                variant="middle"
                 sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
@@ -465,7 +458,6 @@ const CommentItem = () => {
                 Courtney & Miranda
               </AtomTypography>
               <AtomDivider
-                variant="middle"
                 sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
@@ -508,7 +500,6 @@ const CommentItem = () => {
                 Gabriel & Fiance
               </AtomTypography>
               <AtomDivider
-                variant="middle"
                 sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
@@ -551,7 +542,6 @@ const CommentItem = () => {
                 Kenneth & Elliot
               </AtomTypography>
               <AtomDivider
-                variant="middle"
                 sx={(theme) => ({ width: theme.spacing(43) })}
               />
             </AtomStack>
@@ -573,47 +563,42 @@ const CommentItem = () => {
         "Nói thật là tôi đã từng có nhiều bạn hẹn hò từ Tinder và chắc chắn một điều là tôi đã từng gặp gỡ người mới chỉ để vui vẻ và ăn uống miễn phí… 3 năm với rất nhiều lần hẹn hò và không ít những kỷ niệm sau đó, tôi kết hôn với một anh chàng đến từ Tinder, Kenny!",
     },
   ];
-  const ResponSwiper = styled(Swiper)(({ theme }) => ({
-    // slidesPerView: 1,
-    // spaceBetween: 10,
-    breakpoints: {
-      600: {
-        slidesPerView: 1,
-        spaceBetween: theme.spacing(10),
-      },
-      900: {
-        slidesPerView: 3,
-        spaceBetween: theme.spacing(10),
-      },
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: theme.spacing(10),
-      },
-      1536: {
-        slidesPerView: 3,
-        spaceBetween: theme.spacing(10),
-      },
-    },
-  }));
+  const theme = useTheme();
+
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <>
       <AtomContainer
         maxWidth="xl"
-        sx={{
+        sx={(theme) => ({
           display: {
             xs: "none",
             sm: "flex",
           },
-          width: "1450px",
-        }}
+        })}
       >
-        <Swiper slidesPerView={3} freeMode={true} height={300}>
+        <Swiper
+          breakpoints={{
+            600: {
+              slidesPerView: 1,
+            },
+            900: {
+              slidesPerView: 2,
+            },
+            1200: {
+              slidesPerView: 3,
+            },
+          }}
+          slidesPerView={isMobile ? 1 : 2}
+          freeMode={true}
+          height={300}
+        >
           {comments.map((comment) => (
             <SwiperSlide key={comment.id}>
               <AtomCard
                 sx={(theme) => ({
                   height: theme.spacing(31.25),
-                  width: theme.spacing(55),
+                  // width: theme.spacing(55),
                   marginX: theme.spacing(2.5),
                   marginY: theme.spacing(3.5),
                   boxShadow:
@@ -667,7 +652,7 @@ const CommentItem = () => {
               <AtomCard
                 sx={(theme) => ({
                   height: theme.spacing(38),
-                  width: theme.spacing(54),
+                  // width: theme.spacing(54),
                   marginX: theme.spacing(2.5),
                   marginY: theme.spacing(3.5),
                   justifyContent: "space-between",

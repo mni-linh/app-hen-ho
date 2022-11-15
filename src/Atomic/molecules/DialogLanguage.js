@@ -1,7 +1,5 @@
 import React from "react";
-
 import { useTheme, styled, alpha } from "@mui/material/styles";
-
 import AtomUseMediaQuery from "../atoms/AtomUseMediaQuery";
 import AtomDialog from "../atoms/AtomDialog";
 import AtomToolbar from "../atoms/AtomToolbar";
@@ -19,7 +17,7 @@ import AtomDivider from "../atoms/AtomDivider";
 import AtomList from "../atoms/AtomList";
 import AtomListItem from "../atoms/AtomListItem";
 import AtomListItemText from "../atoms/AtomListItemText";
-
+import { useMediaQuery } from "@mui/material";
 const languageAndSub = [
   {
     language: "English",
@@ -254,15 +252,16 @@ const languageAndSub = [
     sub: "Tiếng Trung (Phồn thể)",
   },
 ];
-const SimpleDialog = (props) => {
-  const { onClose, selectedValue, open } = props;
-  const theme = useTheme();
-  const fullScreen = AtomUseMediaQuery(theme.breakpoints.down("sm"));
 
+const DialogLanguage = (props) => {
+  const { onClose, selectedValue, open } = props;
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const fullScreen = AtomUseMediaQuery(theme.breakpoints.down("sm"));
   const handleClose = () => {
     onClose(selectedValue);
   };
-
   const handleListItemClick = (value) => {
     onClose(value);
   };
@@ -276,7 +275,6 @@ const SimpleDialog = (props) => {
     // marginRight: theme.spacing(2),
     // marginLeft: 0,
     width: "100%",
-
     [theme.breakpoints.up("sm")]: {
       // marginLeft: theme.spacing(3),
       width: "auto",
@@ -308,17 +306,15 @@ const SimpleDialog = (props) => {
       <AtomDialog
         onClose={handleClose}
         open={open}
-        maxWidth="sm"
+        // fullWidth
+        // maxWidth="sm"
         // scroll="paper"
         sx={{
-          // overflow: "hidden",
-          // overflowY: "scroll",
-          scrollbarWidth: "none",
-          "&::-webkit-scrollbar": {
-            display: "none",
-            width: " 0 !important",
+          display: {
+            xs: "none",
+            sm: "block",
           },
-          // msOverflowStyle: "none",
+          // width: "100%",
         }}
       >
         {/* <ToolbarDialog /> */}
@@ -335,7 +331,6 @@ const SimpleDialog = (props) => {
             <AtomHighlightOffIcon fontSize="large" />
           </AtomStyleIconHover>
         </AtomToolbar>
-
         <AtomStyleDialogTitle
           sx={(theme) => ({
             fontSize: theme.spacing(2),
@@ -389,7 +384,6 @@ const SimpleDialog = (props) => {
           {/* </Search> */}
         </AtomBox>
         <AtomDivider variant="middle" />
-
         {/*  */}
         <AtomList>
           <AtomGrid
@@ -441,19 +435,20 @@ const SimpleDialog = (props) => {
           </AtomGrid>
         </AtomList>
       </AtomDialog>
-
-      {/* dialog màn hninhf nhỏ */}
+      {/* dialog màn hình nhỏ */}
       <AtomDialog
-        fullScreen={fullScreen}
+        fullScreen={isMobile}
         onClose={handleClose}
         open={open}
-        maxWidth="sm"
+        // fullWidth
+        // maxWidth="sm"
         // scroll="paper"
         sx={{
           display: {
-            xs: "flex",
+            xs: "block",
             md: "none",
           },
+          width: "100%",
         }}
       >
         {/* <> */}
@@ -466,12 +461,10 @@ const SimpleDialog = (props) => {
               />
             </AtomGrid>
           </AtomGrid>
-
           <AtomStyleIconHover size="large" edge="end" onClick={handleClose}>
             <AtomHighlightOffIcon fontSize="large" />
           </AtomStyleIconHover>
         </AtomToolbar>
-
         <AtomStyleDialogTitle
           sx={(theme) => ({
             fontSize: theme.spacing(2),
@@ -519,7 +512,6 @@ const SimpleDialog = (props) => {
           {/* </Search> */}
         </AtomBox>
         <AtomDivider variant="middle" />
-
         {/*  */}
         <AtomList>
           <AtomGrid
@@ -530,7 +522,7 @@ const SimpleDialog = (props) => {
             })}
           >
             {languageAndSub.map((languages, language) => (
-              <AtomGrid item key={language} xs={3}>
+              <AtomGrid item key={language} xs={6} sm={3}>
                 <AtomListItem
                   button
                   onClick={() => handleListItemClick(languages.language)}
@@ -546,6 +538,7 @@ const SimpleDialog = (props) => {
                       fontWeight: theme.typography.fontWeightBold,
                     })}
                   >
+                    {" "}
                     <AtomTypography
                       sx={(theme) => ({
                         color: theme.palette.text.primary,
@@ -574,5 +567,4 @@ const SimpleDialog = (props) => {
     </>
   );
 };
-
-export default SimpleDialog;
+export default DialogLanguage;

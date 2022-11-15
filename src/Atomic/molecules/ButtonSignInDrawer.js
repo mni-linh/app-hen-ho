@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import AtomBox from "../atoms/AtomBox";
 import AtomDialog from "../atoms/AtomDialog";
 import AtomDialogActions from "../atoms/AtomDialogActions";
@@ -21,175 +21,52 @@ import AtomVisibilityIcon from "../atoms/AtomVisibilityIcon";
 import AtomVisibilityOffIcon from "../atoms/AtomVisibilityOffIcon";
 import AtomWhatshotIcon from "../atoms/AtomWhatshotIcon";
 
-const DialogSignIn = () => {
-  const [openSignIn, setOpenSignIn] = React.useState(false);
+const ButtonSignInDrawer = () => {
   const [values, setValues] = React.useState({
     password: "",
     showPassword: false,
   });
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [show, setShow] = React.useState(false);
-  const [user, setUser] = React.useState(null);
+  // Thay đổi cách hiển thị mật khẩu
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+  const [openSignIn, setOpenSignIn] = React.useState(false);
 
-  useEffect(() => {
-    if (localStorage.getItem("user")) {
-      setUser(JSON.parse(localStorage.getItem("user")));
-    } else {
-      setUser([]);
-    }
-  }, []);
-
+  // Click chuột mở Dialog SignIn
   const handleSignIn = (bool) => {
     setOpenSignIn(bool);
   };
-
+  // Click chuột đóng Dialog SignIn
   const handleCloseSignIn = () => {
     handleSignIn(false);
   };
-
+  // Click chuột hiển thị mật khẩu
   const handleClickShowPassword = () => {
     setValues({
       ...values,
       showPassword: !values.showPassword,
     });
   };
-
+  // Click chuột ẩn mật khẩu
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
-  const handleLogin = () => {
-    let flag = false;
-    user?.map((item) => {
-      if (email === item.email && password === item.password) {
-        flag = true;
-        alert("Đăng nhập thành công");
-      }
-    });
-    return !flag && alert("Đăng nhập thất bại");
-  };
   return (
-    <>
-      {/* Dialog Sign In ở màn hình lớn */}
-      <AtomDialog open={openSignIn} onClose={handleCloseSignIn}>
-        <AtomToolbar>
-          <AtomGrid container justifyContent="center">
-            <AtomGrid item>
-              <AtomWhatshotIcon
-                fontSize="large"
-                sx={(theme) => ({ color: theme.palette.primary.main })}
-              />
-            </AtomGrid>
-          </AtomGrid>
-          <AtomIconHover
-            size="large"
-            edge="end"
-            onClick={handleCloseSignIn}
-            sx={(theme) => ({
-              position: "absolute",
-              right: theme.spacing(3.5),
-              top: theme.spacing(0),
-            })}
-          >
-            <AtomHighlightOffIcon fontSize="large" />
-          </AtomIconHover>
-        </AtomToolbar>
-        <AtomStyleDialogTitle>Đăng nhập</AtomStyleDialogTitle>
-        <AtomDivider variant="middle" />
-        <AtomDialogContent
-          sx={{
-            textAlign: "center",
-          }}
-        >
-          <AtomDialogContentText>
-            Khi bấm vào Đăng Nhập, bạn đồng ý với Điều khoản của chúng tôi. Tìm
-            hiểu về cách chúng tôi xử lý dữ liệu của bạn trong Chính sách Quyền
-            Riêng Tư và Chính sách Cookie của chúng tôi.
-          </AtomDialogContentText>
-          <AtomBox
-            component="form"
-            sx={(theme) => ({
-              "& .MuiTextField-root": {
-                margin: theme.spacing(1),
-                width: theme.spacing(50),
-              },
-            })}
-            noValidate
-            autoComplete="off"
-          >
-            {/* email */}
-            <AtomTextField
-              id="outlined-search"
-              label="Email Address *"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              autoFocus
-              vargiant="outlined"
-              margin="dense"
-            />
-            {/* <AtomTextField
-              id="outlined-password-input"
-              label="Password"
-              type="password"
-              value={password}
-              autoComplete="current-password"
-              onChange={(e) => setPassword(e.target.value)}
-              //
-            /> */}
-            {/* password */}
-            {/* Grid ở ngoài  */}
-
-            <AtomGrid item>
-              <AtomFormControl
-                sx={(theme) => ({
-                  margin: theme.spacing(1),
-                  width: theme.spacing(50),
-                })}
-                variant="outlined"
-              >
-                <AtomInputLabel htmlFor="outlined-adornment-password">
-                  Password *
-                </AtomInputLabel>
-                <AtomOutlinedInput
-                  margin="none"
-                  id="outlined-adornment-password"
-                  type={show ? "text" : "password"}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  endAdornment={
-                    <AtomInputAdornment position="end">
-                      <AtomIconButton
-                        aria-label="toggle password visibility"
-                        onClick={() => setShow(!show)}
-                        onMouseDown={handleMouseDownPassword}
-                        edge="end"
-                      >
-                        {values.showPassword ? (
-                          <AtomVisibilityIcon />
-                        ) : (
-                          <AtomVisibilityOffIcon />
-                        )}
-                      </AtomIconButton>
-                    </AtomInputAdornment>
-                  }
-                  label="Password *"
-                />
-              </AtomFormControl>
-            </AtomGrid>
-          </AtomBox>
-          <AtomDialogActions>
-            <AtomStyledButton variant="contained" onClick={() => handleLogin()}>
-              Đăng nhập
-            </AtomStyledButton>
-          </AtomDialogActions>
-        </AtomDialogContent>
-      </AtomDialog>
-      {/* Dialog Sign In ở màn hình nhỏ */}
+    <AtomBox
+      sx={{
+        flexGrow: 0,
+        alignSelf: "center",
+      }}
+    >
+      <AtomStyledButton
+        variant="contained"
+        sx={{ width: "100%" }}
+        onClick={() => {
+          handleSignIn(true);
+        }}
+      >
+        Đăng nhập
+      </AtomStyledButton>
       <AtomDialog
         fullScreen
         open={openSignIn}
@@ -251,8 +128,6 @@ const DialogSignIn = () => {
               id="outlined-search"
               label="Email Address *"
               type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
               autoFocus
               vargiant="outlined"
               margin="dense"
@@ -261,14 +136,11 @@ const DialogSignIn = () => {
               id="outlined-password-input"
               label="Password"
               type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
               autoComplete="current-password"
               //
             /> */}
             {/* password */}
             {/* Grid ở ngoài  */}
-
             <AtomGrid item>
               <AtomFormControl
                 sx={(theme) => ({
@@ -308,14 +180,12 @@ const DialogSignIn = () => {
             </AtomGrid>
           </AtomBox>
           <AtomDialogActions>
-            <AtomStyledButton variant="contained" onClick={() => handleLogin()}>
-              Đăng nhập
-            </AtomStyledButton>
+            <AtomStyledButton variant="contained">Đăng nhập</AtomStyledButton>
           </AtomDialogActions>
         </AtomDialogContent>
       </AtomDialog>
-    </>
+    </AtomBox>
   );
 };
 
-export default DialogSignIn;
+export default ButtonSignInDrawer;

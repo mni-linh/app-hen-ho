@@ -34,7 +34,12 @@ import AtomInputAdornment from "../atoms/AtomInputAdornment";
 import AtomVisibilityIcon from "../atoms/AtomVisibilityIcon";
 import AtomVisibilityOffIcon from "../atoms/AtomVisibilityOffIcon";
 import AtomDialogActions from "../atoms/AtomDialogActions";
-import DialogChangeLanguageDraw from "./DialogChangeLanguageDraw";
+import DialogChangeLanguageDraw from "./ButtonLanguageDraw";
+import ButtonSignInDrawer from "./ButtonSignInDrawer";
+import ButtonLanguageDraw from "./ButtonLanguageDraw";
+import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ExpansionPanel from "./ExpansionPanel ";
 const listExtend = [
   {
     text: "Sản phẩm",
@@ -42,6 +47,7 @@ const listExtend = [
   },
   {
     text: "Tìm hiểu",
+    extend: "",
   },
   {
     text: "An toàn",
@@ -77,7 +83,6 @@ const MenuListXs = () => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
   // Click chuột mở rộng List
   const handleClick = () => {
     setExtend(!extend);
@@ -184,7 +189,7 @@ const MenuListXs = () => {
                 fontWeight: theme.typography.fontWeightBold,
                 color: theme.palette.common.black,
                 textDecoration: "none",
-                fontSize: theme.spacing(5),
+                fontSize: theme.spacing(4),
                 display: { xs: "flex", md: "none" },
               })}
             >
@@ -198,189 +203,21 @@ const MenuListXs = () => {
           </AtomBox>
         </DrawerHeader>
         <AtomDivider />
-        {/* ////////////////////////////////Chỉnh logic sau//////////////////////////////////// */}
+        {/* ////////////////////////////////Chỉnh //////////////////////////////////// */}
+        <ExpansionPanel />
 
-        <AtomList
-          sx={{
-            width: "100%",
-            bgcolor: "background.paper",
-          }}
-          component="nav"
-          aria-labelledby="nested-list-subheader"
-        >
-          {listExtend.map((list, index) => (
-            <AtomListItem key={index}>
-              <AtomListItemButton onClick={handleClick}>
-                <AtomListItemText primary={listExtend[index].text} />
-                {extend ? <AtomIconExpandMore /> : <AtomExpandLess />}
-                {/* Sử dụng chẵn lẻ sau */}
-                {/* {index % 2 === 0 ? <ExpandMore /> : <AtomBox />} */}
-              </AtomListItemButton>
-            </AtomListItem>
-          ))}
+        {/* ////////////////////////////////Chỉnh //////////////////////////////////// */}
 
-          {/* {listExtend.map((list, index) => ( */}
-          <AtomCollapse in={!extend} timeout="auto" unmountOnExit>
-            <AtomList component="div" disablePadding>
-              <AtomListItemButton sx={{ paddingLeft: 4 }}>
-                <AtomListItemText primary={"Started"} />
-              </AtomListItemButton>
-            </AtomList>
-          </AtomCollapse>
-          {/* ))} */}
-        </AtomList>
         <AtomDivider />
-        {/* <AtomList> */}
         <AtomBox
           sx={(theme) => ({
             padding: theme.spacing(4),
             flexGrow: 1,
-            // position: "fixed",
-            // bottom: 0,
-            // right: 0,
-            // left: 0,
           })}
         >
-          <AtomBox
-            sx={{
-              flexGrow: 0,
-              alignSelf: "center",
-            }}
-          >
-            <AtomStyledButton
-              variant="contained"
-              sx={{ width: "100%" }}
-              onClick={() => {
-                handleSignIn(true);
-              }}
-            >
-              Đăng nhập
-            </AtomStyledButton>
-            <AtomDialog
-              fullScreen
-              open={openSignIn}
-              onClose={handleCloseSignIn}
-              sx={{
-                display: {
-                  xs: "flex",
-                  md: "none",
-                },
-                // backgroundColor: "red",
-              }}
-            >
-              <AtomToolbar>
-                <AtomGrid container justifyContent="center">
-                  <AtomGrid item>
-                    <AtomWhatshotIcon
-                      fontSize="large"
-                      sx={(theme) => ({ color: theme.palette.primary.main })}
-                    />
-                  </AtomGrid>
-                </AtomGrid>
-                <AtomIconHover
-                  size="large"
-                  edge="end"
-                  onClick={handleCloseSignIn}
-                  sx={(theme) => ({
-                    position: "absolute",
-                    right: theme.spacing(3.5),
-                    top: theme.spacing(0),
-                  })}
-                >
-                  <AtomHighlightOffIcon fontSize="large" />
-                </AtomIconHover>
-              </AtomToolbar>
-              <AtomStyleDialogTitle>Đăng nhập</AtomStyleDialogTitle>
-              <AtomDivider variant="middle" />
-              <AtomDialogContent
-                sx={{
-                  textAlign: "center",
-                }}
-              >
-                <AtomDialogContentText>
-                  Khi bấm vào Đăng Nhập, bạn đồng ý với Điều khoản của chúng
-                  tôi. Tìm hiểu về cách chúng tôi xử lý dữ liệu của bạn trong
-                  Chính sách Quyền Riêng Tư và Chính sách Cookie của chúng tôi.
-                </AtomDialogContentText>
-                <AtomBox
-                  component="form"
-                  sx={(theme) => ({
-                    "& .MuiTextField-root": {
-                      margin: theme.spacing(1),
-                      width: theme.spacing(50),
-                    },
-                  })}
-                  noValidate
-                  autoComplete="off"
-                >
-                  {/* email */}
-                  <AtomTextField
-                    id="outlined-search"
-                    label="Email Address *"
-                    type="email"
-                    autoFocus
-                    vargiant="outlined"
-                    margin="dense"
-                  />
-                  <AtomTextField
-                    id="outlined-password-input"
-                    label="Password"
-                    type="password"
-                    autoComplete="current-password"
-                    //
-                  />
-                  {/* password */}
-                  {/* Grid ở ngoài  */}
-
-                  <AtomGrid item>
-                    <AtomFormControl
-                      sx={(theme) => ({
-                        margin: theme.spacing(1),
-                        width: theme.spacing(50),
-                      })}
-                      variant="outlined"
-                    >
-                      <AtomInputLabel htmlFor="outlined-adornment-password">
-                        Password *
-                      </AtomInputLabel>
-                      <AtomOutlinedInput
-                        margin="none"
-                        id="outlined-adornment-password"
-                        type={values.showPassword ? "text" : "password"}
-                        value={values.password}
-                        onChange={handleChange("password")}
-                        endAdornment={
-                          <AtomInputAdornment position="end">
-                            <AtomIconButton
-                              aria-label="toggle password visibility"
-                              onClick={handleClickShowPassword}
-                              onMouseDown={handleMouseDownPassword}
-                              edge="end"
-                            >
-                              {values.showPassword ? (
-                                <AtomVisibilityIcon />
-                              ) : (
-                                <AtomVisibilityOffIcon />
-                              )}
-                            </AtomIconButton>
-                          </AtomInputAdornment>
-                        }
-                        label="Password *"
-                      />
-                    </AtomFormControl>
-                  </AtomGrid>
-                </AtomBox>
-                <AtomDialogActions>
-                  <AtomStyledButton variant="contained">
-                    Đăng nhập
-                  </AtomStyledButton>
-                </AtomDialogActions>
-              </AtomDialogContent>
-            </AtomDialog>
-          </AtomBox>
-          <DialogChangeLanguageDraw />
+          <ButtonSignInDrawer />
+          <ButtonLanguageDraw />
         </AtomBox>
-        {/* </AtomList> */}
       </AtomDrawer>
     </>
   );

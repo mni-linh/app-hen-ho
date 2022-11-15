@@ -128,9 +128,9 @@ const FooterInformation = () => {
           marginX: theme.spacing(3),
         })}
       >
-        <AtomGrid container columnSpacing={15}>
+        <AtomGrid container columnSpacing={3}>
           {footer.map((foot, index) => (
-            <AtomGrid item key={foot.title}>
+            <AtomGrid item key={foot.title} xs={4} sm={2}>
               <AtomTypography
                 sx={(theme) => ({
                   textTransform: "uppercase",

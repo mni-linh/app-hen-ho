@@ -1,6 +1,5 @@
 import React from "react";
 import AtomBox from "../atoms/AtomBox";
-import AtomButton from "../atoms/AtomButton";
 import AtomDialog from "../atoms/AtomDialog";
 import AtomDivider from "../atoms/AtomDivider";
 import AtomHighlightOffIcon from "../atoms/AtomHighlightOffIcon";
@@ -23,6 +22,9 @@ import AtomSearchIcon from "../atoms/AtomSearchIcon";
 import { alpha, styled } from "@mui/material/styles";
 import { Toolbar } from "@mui/material";
 import AtomStyleButtonLanguage from "../atoms/AtomStyleButtonLanguage";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+
 const languageAndSub = [
   {
     language: "English",
@@ -292,6 +294,8 @@ function SimpleDialog(props) {
   const handleListItemClick = (value) => {
     onClose(value);
   };
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     // <AtomBox
     //   sx={{
@@ -305,14 +309,14 @@ function SimpleDialog(props) {
     //   }}
     // >
     <AtomDialog
-      fullScreen
+      fullScreen={isMobile}
       onClose={handleClose}
       open={open}
-      maxWidth="md"
+      // maxWidth="md"
       scroll="paper"
       sx={{
         display: {
-          xs: "flex",
+          xs: "block",
           md: "none",
         },
       }}
@@ -401,7 +405,7 @@ function SimpleDialog(props) {
           })}
         >
           {languageAndSub.map((languages, language) => (
-            <AtomGrid item key={language} xs={3}>
+            <AtomGrid item key={language} xs={6} sm={3}>
               <AtomListItem
                 button
                 onClick={() => handleListItemClick(languages.language)}
@@ -452,7 +456,7 @@ SimpleDialog.propTypes = {
   selectedValue: PropTypes.string.isRequired,
 };
 
-const DialogChangeLanguageDraw = () => {
+const ButtonLanguageDraw = () => {
   const [open, setOpen] = React.useState(false);
   const [selectedValue, setSelectedValue] = React.useState(
     languageAndSub[55].language
@@ -492,4 +496,4 @@ const DialogChangeLanguageDraw = () => {
   );
 };
 
-export default DialogChangeLanguageDraw;
+export default ButtonLanguageDraw;
