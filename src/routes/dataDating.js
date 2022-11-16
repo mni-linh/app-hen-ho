@@ -13,7 +13,7 @@ const dataDating = [
   {
     path: "/learn-about",
     element: <LearnAbout />,
-    name: "Tìm hiểu về",
+    name: "Tìm hiểu",
   },
   {
     path: "/safe",

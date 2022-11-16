@@ -1,6 +1,7 @@
 import React from "react";
 import AtomBox from "../atoms/AtomBox";
-import ButtonSignUp from "../molecules/ButtonSignUp";
+import ButtonActionAccount from "../molecules/ButtonActionAccount";
+import ButtonSignUp from "../molecules/ButtonActionAccount";
 
 const BanerDating = () => {
   return (
@@ -17,7 +18,7 @@ const BanerDating = () => {
           height: "100%",
         }}
       />
-      <ButtonSignUp />
+      <ButtonActionAccount />
 
       <AtomBox />
     </div>

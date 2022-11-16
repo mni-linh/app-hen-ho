@@ -1,45 +1,26 @@
 import React from "react";
+
 import AtomBox from "../atoms/AtomBox";
 import AtomDrawer from "../atoms/AtomDrawer";
 import AtomIconButton from "../atoms/AtomIconButton";
 import AtomMenuIcon from "../atoms/AtomMenuIcon";
-import { styled } from "@mui/material/styles";
 import AtomToolbar from "../atoms/AtomToolbar";
 import AtomImageLogo from "../atoms/AtomImageLogo";
 import AtomTypography from "../atoms/AtomTypography";
 import AtomLink from "../atoms/AtomLink";
 import AtomStyleIconHover from "../atoms/AtomStyleIconHover";
-import AtomList from "../atoms/AtomList";
 import AtomHighlightOffIcon from "../atoms/AtomHighlightOffIcon";
 import AtomDivider from "../atoms/AtomDivider";
-import AtomListItem from "../atoms/AtomListItem";
-import AtomListItemButton from "../atoms/AtomListItemButton";
-import AtomListItemText from "../atoms/AtomListItemText";
-import AtomIconExpandMore from "../atoms/AtomIconExpandMore";
-import AtomExpandLess from "../atoms/AtomIconExpandLess";
-import AtomCollapse from "../atoms/AtomCollapse";
-import AtomStyledButton from "../atoms/AtomStyleButton";
-import AtomDialog from "../atoms/AtomDialog";
-import AtomWhatshotIcon from "../atoms/AtomWhatshotIcon";
-import AtomGrid from "../atoms/AtomGrid";
-import AtomIconHover from "../atoms/AtomIconHover";
-import AtomDialogContentText from "../atoms/AtomDialogContentText";
-import AtomDialogContent from "../atoms/AtomDialogContent";
-import AtomStyleDialogTitle from "../atoms/AtomStyleDialogTitle";
-import AtomTextField from "../atoms/AtomTextField";
-import AtomFormControl from "../atoms/AtomFormControl";
-import AtomInputLabel from "../atoms/AtomInputLabel";
-import AtomOutlinedInput from "../atoms/AtomOutlinedInput";
-import AtomInputAdornment from "../atoms/AtomInputAdornment";
-import AtomVisibilityIcon from "../atoms/AtomVisibilityIcon";
-import AtomVisibilityOffIcon from "../atoms/AtomVisibilityOffIcon";
-import AtomDialogActions from "../atoms/AtomDialogActions";
-import DialogChangeLanguageDraw from "./ButtonLanguageDraw";
+
 import ButtonSignInDrawer from "./ButtonSignInDrawer";
 import ButtonLanguageDraw from "./ButtonLanguageDraw";
-import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpansionPanel from "./ExpansionPanel ";
+
+import { darken, styled } from "@mui/material/styles";
+import ButtonDialogSignIn from "./Dialog/ButtonDialogSignIn";
+import AtomStyledButton from "../atoms/AtomStyleButton";
+import ButtonDialogLanguage from "./Dialog/ButtonDialogLanguage";
+import { grey } from "@mui/material/colors";
 const listExtend = [
   {
     text: "Sản phẩm",
@@ -66,7 +47,7 @@ const listExtend = [
     text: "Tải về",
   },
 ];
-const MenuListXs = () => {
+const MenuDrawer = () => {
   const drawerWidth = "100%";
   const [extend, setExtend] = React.useState(true);
   const [openSignIn, setOpenSignIn] = React.useState(false);
@@ -83,10 +64,7 @@ const MenuListXs = () => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  // Click chuột mở rộng List
-  const handleClick = () => {
-    setExtend(!extend);
-  };
+
   // Click chuột mở Dialog SignIn
   const handleSignIn = (bool) => {
     setOpenSignIn(bool);
@@ -119,6 +97,22 @@ const MenuListXs = () => {
     ...theme.mixins.toolbar,
     justifyContent: "flex-end",
   }));
+  const StyleButtonDialogLanguage = styled(ButtonDialogLanguage)(
+    ({ theme }) => ({
+      backgroundColor: "white",
+      "&:hover": {
+        backgroundColor: grey[200],
+      },
+      width: "100%",
+      height: theme.spacing(5.5),
+      borderRadius: "2.2rem",
+      // margin: "0 auto",
+      fontSize: theme.spacing(2),
+      color: grey[600],
+      textTransform: theme.typography.textTransform,
+      marginTop: theme.spacing(2),
+    })
+  );
   return (
     <>
       <AtomBox
@@ -147,6 +141,7 @@ const MenuListXs = () => {
           <AtomMenuIcon fontSize="large" />
         </AtomIconButton>
       </AtomBox>
+
       <AtomDrawer
         sx={{
           width: drawerWidth,
@@ -154,7 +149,6 @@ const MenuListXs = () => {
           "& .MuiDrawer-paper": {
             width: drawerWidth,
           },
-          overflowY: "hidden",
           display: {
             xs: "flex",
             md: "none",
@@ -167,16 +161,11 @@ const MenuListXs = () => {
         <DrawerHeader>
           <AtomToolbar
             disableGutters
-            sx={{ display: "flex", justifyContent: "space-between" }}
-            component="div"
+            sx={{
+              justifyContent: "space-between",
+            }}
           >
-            <AtomImageLogo
-              alt="logo"
-              src="/images/logoTinderLight.png"
-              sx={{
-                display: { xs: "flex", md: "none" },
-              }}
-            />
+            <AtomImageLogo alt="logo" src="/images/logoTinderLight.png" />
             {/* Chữ tinder */}
             <AtomTypography
               variant="h6"
@@ -184,13 +173,11 @@ const MenuListXs = () => {
               component={AtomLink}
               href="/"
               sx={(theme) => ({
-                marginRight: theme.spacing(2),
                 fontFamily: theme.typography.fontFamily,
                 fontWeight: theme.typography.fontWeightBold,
                 color: theme.palette.common.black,
                 textDecoration: "none",
                 fontSize: theme.spacing(4),
-                display: { xs: "flex", md: "none" },
               })}
             >
               tinder
@@ -202,25 +189,35 @@ const MenuListXs = () => {
             </AtomStyleIconHover>
           </AtomBox>
         </DrawerHeader>
+
         <AtomDivider />
-        {/* ////////////////////////////////Chỉnh //////////////////////////////////// */}
+
         <ExpansionPanel />
 
-        {/* ////////////////////////////////Chỉnh //////////////////////////////////// */}
-
         <AtomDivider />
+
+        {/* Đăng nhập - Ngôn ngữ */}
         <AtomBox
           sx={(theme) => ({
+            // position: "fixed",
+            bottom: theme.spacing(0),
+            left: theme.spacing(0),
+            right: theme.spacing(0),
             padding: theme.spacing(4),
-            flexGrow: 1,
           })}
         >
-          <ButtonSignInDrawer />
-          <ButtonLanguageDraw />
+          {/* <ButtonSignInDrawer /> */}
+          <ButtonDialogSignIn
+            sx={{
+              width: "100%",
+            }}
+          />
+          {/* <ButtonLanguageDraw /> */}
+          <ButtonDialogLanguage />
         </AtomBox>
       </AtomDrawer>
     </>
   );
 };
 
-export default MenuListXs;
+export default MenuDrawer;

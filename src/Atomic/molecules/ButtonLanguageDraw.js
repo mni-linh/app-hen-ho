@@ -19,10 +19,9 @@ import AtomStyleDialogTitle from "../atoms/AtomStyleDialogTitle";
 import AtomAutocomplete from "../atoms/AtomAutocomplete";
 import AtomTextField from "../atoms/AtomTextField";
 import AtomSearchIcon from "../atoms/AtomSearchIcon";
-import { alpha, styled } from "@mui/material/styles";
-import { Toolbar } from "@mui/material";
 import AtomStyleButtonLanguage from "../atoms/AtomStyleButtonLanguage";
 import { useTheme } from "@mui/material/styles";
+import { alpha, styled } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 const languageAndSub = [
@@ -275,12 +274,9 @@ const Search = styled("div")(({ theme }) => ({
   "&:hover": {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
-  // marginRight: theme.spacing(2),
-  // marginLeft: 0,
   width: "100%",
 
   [theme.breakpoints.up("sm")]: {
-    // marginLeft: theme.spacing(3),
     width: "auto",
   },
 }));

@@ -2,10 +2,12 @@ import React from "react";
 
 import PropTypes from "prop-types";
 
-import AtomBox from "../atoms/AtomBox";
-import AtomButton from "../atoms/AtomButton";
-import AtomPublicIcon from "../atoms/AtomPublicIcon";
-import DialogLanguage from "./DialogLanguage";
+import AtomButton from "../../atoms/AtomButton";
+import AtomPublicIcon from "../../atoms/AtomPublicIcon";
+import DialogLanguage from "../Dialog/DialogLanguage";
+import { useTheme } from "@mui/system";
+import AtomUseMediaQuery from "../../atoms/AtomUseMediaQuery";
+import { grey } from "@mui/material/colors";
 
 const languageAndSub = [
   {
@@ -248,7 +250,7 @@ DialogLanguage.propTypes = {
   selectedValue: PropTypes.string.isRequired,
 };
 
-const ButtonLanguage = () => {
+const ButtonDialogLanguage = () => {
   const [open, setOpen] = React.useState(false);
   const [selectedValue, setSelectedValue] = React.useState(
     languageAndSub[55].language
@@ -260,12 +262,15 @@ const ButtonLanguage = () => {
     setOpen(false);
     setSelectedValue(value);
   };
-
+  const theme = useTheme();
+  const isComputer = AtomUseMediaQuery(theme.breakpoints.up("sm"));
+  const isMobile = AtomUseMediaQuery(theme.breakpoints.down("sm"));
   return (
     // <AtomBox sm={{ flexGrow: 0 }}>
     <>
       {/* <AtomTooltip title="Change language"> */}
       {/* <AtomStack direction="row" spacing={2}> */}
+      {/* Màn hình máy tính */}
       <AtomButton
         startIcon={<AtomPublicIcon />}
         sx={(theme) => ({
@@ -274,6 +279,30 @@ const ButtonLanguage = () => {
           fontSize: theme.spacing(2),
           color: theme.typography.color,
           textTransform: theme.typography.textTransform,
+          display: isComputer ? "flex" : "none",
+        })}
+        onClick={handleClickOpen}
+      >
+        {selectedValue}
+      </AtomButton>
+      {/* Màn hình mobile */}
+      <AtomButton
+        startIcon={<AtomPublicIcon />}
+        sx={(theme) => ({
+          backgroundColor: "white",
+          "&:hover": {
+            backgroundColor: grey[200],
+          },
+          width: "55%",
+          height: theme.spacing(5.5),
+          borderRadius: "2.2rem",
+          margin: "0 auto",
+          fontSize: theme.spacing(2),
+          color: grey[600],
+          textTransform: theme.typography.textTransform,
+          marginTop: theme.spacing(2),
+          display: isMobile ? "flex" : "none",
+          // al
         })}
         onClick={handleClickOpen}
       >
@@ -288,4 +317,4 @@ const ButtonLanguage = () => {
   );
 };
 
-export default ButtonLanguage;
+export default ButtonDialogLanguage;

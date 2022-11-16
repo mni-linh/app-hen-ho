@@ -1,23 +1,24 @@
 import React from "react";
 import { useTheme, styled, alpha } from "@mui/material/styles";
-import AtomUseMediaQuery from "../atoms/AtomUseMediaQuery";
-import AtomDialog from "../atoms/AtomDialog";
-import AtomToolbar from "../atoms/AtomToolbar";
-import AtomGrid from "../atoms/AtomGrid";
-import AtomWhatshotIcon from "../atoms/AtomWhatshotIcon";
-import AtomStyleIconHover from "../atoms/AtomStyleIconHover";
-import AtomHighlightOffIcon from "../atoms/AtomHighlightOffIcon";
-import AtomStyleDialogTitle from "../atoms/AtomStyleDialogTitle";
-import AtomTypography from "../atoms/AtomTypography";
-import AtomBox from "../atoms/AtomBox";
-import AtomSearchIcon from "../atoms/AtomSearchIcon";
-import AtomAutocomplete from "../atoms/AtomAutocomplete";
-import AtomTextField from "../atoms/AtomTextField";
-import AtomDivider from "../atoms/AtomDivider";
-import AtomList from "../atoms/AtomList";
-import AtomListItem from "../atoms/AtomListItem";
-import AtomListItemText from "../atoms/AtomListItemText";
+
 import { useMediaQuery } from "@mui/material";
+import AtomUseMediaQuery from "../../atoms/AtomUseMediaQuery";
+import AtomToolbar from "../../atoms/AtomToolbar";
+import AtomGrid from "../../atoms/AtomGrid";
+import AtomWhatshotIcon from "../../atoms/AtomWhatshotIcon";
+import AtomHighlightOffIcon from "../../atoms/AtomHighlightOffIcon";
+import AtomStyleIconHover from "../../atoms/AtomStyleIconHover";
+import AtomStyleDialogTitle from "../../atoms/AtomStyleDialogTitle";
+import AtomTypography from "../../atoms/AtomTypography";
+import AtomDialog from "../../atoms/AtomDialog";
+import AtomBox from "../../atoms/AtomBox";
+import AtomSearchIcon from "../../atoms/AtomSearchIcon";
+import AtomAutocomplete from "../../atoms/AtomAutocomplete";
+import AtomTextField from "../../atoms/AtomTextField";
+import AtomList from "../../atoms/AtomList";
+import AtomDivider from "../../atoms/AtomDivider";
+import AtomListItem from "../../atoms/AtomListItem";
+import AtomListItemText from "../../atoms/AtomListItemText";
 const languageAndSub = [
   {
     language: "English",

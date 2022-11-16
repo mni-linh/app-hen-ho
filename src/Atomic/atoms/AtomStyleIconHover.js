@@ -1,5 +1,5 @@
-import { styled } from "@mui/material/styles"
-import AtomIconHover from "./AtomIconHover"
+import { styled } from "@mui/material/styles";
+import AtomIconHover from "./AtomIconHover";
 
 const AtomStyleIconHover = styled(AtomIconHover)(({ theme }) => ({
   position: "absolute",
@@ -7,4 +7,4 @@ const AtomStyleIconHover = styled(AtomIconHover)(({ theme }) => ({
   top: theme.spacing(0),
 }));
 
-export default AtomStyleIconHover
+export default AtomStyleIconHover;

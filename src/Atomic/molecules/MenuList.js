@@ -7,9 +7,8 @@ import AtomButton from "../atoms/AtomButton";
 
 import dataDating from "../../routes/dataDating";
 
-const MenuBar = () => {
+const MenuList = () => {
   const navigate = useNavigate();
-
   return (
     <AtomBox
       sx={{
@@ -27,14 +26,11 @@ const MenuBar = () => {
             navigate(`${page.path}`);
           }}
           sx={(theme) => ({
-            marginY: theme.spacing(2),
             color: theme.typography.color,
             "&:hover": {
               color: theme.palette.primary.main,
             },
-            display: "block",
-            fontSize: theme.spacing(2),
-            textAlign: "start",
+            fontSize: theme.spacing(2.3),
             lineHeight: theme.spacing(2.6),
             textTransform: theme.typography.textTransform,
           })}
@@ -46,4 +42,4 @@ const MenuBar = () => {
   );
 };
 
-export default MenuBar;
+export default MenuList;
