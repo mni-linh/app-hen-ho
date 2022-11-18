@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
-import AtomBox from '../atoms/AtomBox';
-import AtomImageLogo from '../atoms/AtomImageLogo';
-import AtomLink from '../atoms/AtomLink';
-import AtomTypography from '../atoms/AtomTypography';
+import AtomBox from "../atoms/Box/AtomBox";
+import AtomImageLogo from "../atoms/ImageLogo/AtomImageLogo";
+import AtomLink from "../atoms/Link/AtomLink";
+import AtomTypography from "../atoms/Typography/AtomTypography";
 
 const LogoApp = () => {
   return (
@@ -45,6 +45,6 @@ const LogoApp = () => {
       </AtomBox>
     </div>
   );
-}
+};
 
-export default LogoApp
+export default LogoApp;

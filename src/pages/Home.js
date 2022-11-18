@@ -3,8 +3,8 @@ import AppBar from "../Atomic/organisms/AppBar";
 import Footer from "../Atomic/organisms/Footer";
 import "swiper/css";
 import BanerDating from "../Atomic/organisms/BanerDating";
-import Comment from "../Atomic/organisms/Comment";
-import AtomBox from "../Atomic/atoms/AtomBox";
+import AtomBox from "../Atomic/atoms/Box/AtomBox";
+import CommentItem from "../Atomic/organisms/CommentItem";
 
 const Home = () => {
   return (
@@ -21,7 +21,7 @@ const Home = () => {
         <AppBar />
         <BanerDating />
       </AtomBox>
-      <Comment />
+      <CommentItem />
       <Footer />
     </>
   );

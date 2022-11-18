@@ -1,9 +1,9 @@
 import React from "react";
-import AtomContainer from "../atoms/AtomContainer";
-import AtomGrid from "../atoms/AtomGrid";
-import AtomImageApp from "../atoms/AtomImageApp";
-import AtomLink from "../atoms/AtomLink";
-import AtomTypography from "../atoms/AtomTypography";
+import AtomContainer from "../atoms/Container/AtomContainer";
+import AtomGrid from "../atoms/Grid/AtomGrid";
+import AtomImageApp from "../atoms/ImageApp/AtomImageApp";
+import AtomLink from "../atoms/Link/AtomLink";
+import AtomTypography from "../atoms/Typography/AtomTypography";
 
 const FooterApp = () => {
   return (
@@ -55,7 +55,6 @@ const FooterApp = () => {
           </AtomGrid>
         </AtomGrid>
       </AtomGrid>
-      {/* </AtomGrid> */}
     </AtomContainer>
   );
 };

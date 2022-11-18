@@ -1,28 +1,28 @@
 import { useTheme } from "@emotion/react";
 import { darken } from "@mui/material";
 import React from "react";
-import AtomBox from "../../atoms/AtomBox";
-import AtomDialog from "../../atoms/AtomDialog";
-import AtomDialogActions from "../../atoms/AtomDialogActions";
-import AtomDialogContent from "../../atoms/AtomDialogContent";
-import AtomDialogContentText from "../../atoms/AtomDialogContentText";
-import AtomDivider from "../../atoms/AtomDivider";
-import AtomFormControl from "../../atoms/AtomFormControl";
-import AtomGrid from "../../atoms/AtomGrid";
-import AtomHighlightOffIcon from "../../atoms/AtomHighlightOffIcon";
-import AtomIconButton from "../../atoms/AtomIconButton";
-import AtomIconHover from "../../atoms/AtomIconHover";
-import AtomInputAdornment from "../../atoms/AtomInputAdornment";
-import AtomInputLabel from "../../atoms/AtomInputLabel";
-import AtomOutlinedInput from "../../atoms/AtomOutlinedInput";
-import AtomStyledButton from "../../atoms/AtomStyleButton";
-import AtomStyleDialogTitle from "../../atoms/AtomStyleDialogTitle";
-import AtomTextField from "../../atoms/AtomTextField";
-import AtomToolbar from "../../atoms/AtomToolbar";
-import AtomUseMediaQuery from "../../atoms/AtomUseMediaQuery";
-import AtomVisibilityIcon from "../../atoms/AtomVisibilityIcon";
-import AtomVisibilityOffIcon from "../../atoms/AtomVisibilityOffIcon";
-import AtomWhatshotIcon from "../../atoms/AtomWhatshotIcon";
+import AtomBox from "../../atoms/Box/AtomBox";
+import AtomDialog from "../../atoms/Dialog/AtomDialog";
+import AtomDialogActions from "../../atoms/DialogActions/AtomDialogActions";
+import AtomDialogContent from "../../atoms/DialogContent/AtomDialogContent";
+import AtomDialogContentText from "../../atoms/DialogContentText/AtomDialogContentText";
+import AtomDivider from "../../atoms/Divider/AtomDivider";
+import AtomFormControl from "../../atoms/FormControl/AtomFormControl";
+import AtomGrid from "../../atoms/Grid/AtomGrid";
+import AtomHighlightOffIcon from "../../atoms/HighlightOffIcon/AtomHighlightOffIcon";
+import AtomIconButton from "../../atoms/IconButton/AtomIconButton";
+import AtomIconHover from "../../atoms/IconHover/AtomIconHover";
+import AtomInputAdornment from "../../atoms/InputAdornment/AtomInputAdornment";
+import AtomInputLabel from "../../atoms/InputLabel/AtomInputLabel";
+import AtomOutlinedInput from "../../atoms/OutlinedInput/AtomOutlinedInput";
+import AtomStyledButton from "../../atoms/StyleButton/AtomStyleButton";
+import AtomStyleDialogTitle from "../../atoms/StyleDialogTitle/AtomStyleDialogTitle";
+import AtomTextField from "../../atoms/TextField/AtomTextField";
+import AtomToolbar from "../../atoms/Toolbar/AtomToolbar";
+import AtomUseMediaQuery from "../../atoms/UseMediaQuery/AtomUseMediaQuery";
+import AtomVisibilityIcon from "../../atoms/VisibilityIcon/AtomVisibilityIcon";
+import AtomVisibilityOffIcon from "../../atoms/VisibilityOffIcon/AtomVisibilityOffIcon";
+import AtomWhatshotIcon from "../../atoms/WhatshotIcon/AtomWhatshotIcon";
 
 const ButtonDialogSignUp = () => {
   const [openSignUp, setOpenSignUp] = React.useState(false);
@@ -112,7 +112,11 @@ const ButtonDialogSignUp = () => {
         Tạo tài khoản
       </AtomStyledButton>
       {/* Dialog */}
-      <AtomDialog open={openSignUp} onClose={handleCloseSignUp}>
+      <AtomDialog
+        open={openSignUp}
+        onClose={handleCloseSignUp}
+        fullScreen={isMobile}
+      >
         <AtomToolbar>
           <AtomGrid container justifyContent="center">
             <AtomGrid item>

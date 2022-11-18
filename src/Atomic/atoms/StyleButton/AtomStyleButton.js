@@ -1,5 +1,5 @@
 import { darken, styled } from "@mui/material/styles";
-import AtomButton from "./AtomButton";
+import AtomButton from "../../atoms/Button/AtomButton";
 
 const AtomStyledButton = styled(AtomButton)(({ theme }) => ({
   textTransform: "capitalize",

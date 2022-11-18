@@ -1,8 +1,8 @@
 import React from "react";
-import AtomGrid from "../atoms/AtomGrid";
-import AtomImageApp from "../atoms/AtomImageApp";
-import AtomLink from "../atoms/AtomLink";
-import AtomTypography from "../atoms/AtomTypography";
+import AtomGrid from "../atoms/Grid/AtomGrid";
+import AtomImageApp from "../atoms/ImageApp/AtomImageApp";
+import AtomLink from "../atoms/Link/AtomLink";
+import AtomTypography from "../atoms/Typography/AtomTypography";
 
 const InstallAppXs = () => {
   return (

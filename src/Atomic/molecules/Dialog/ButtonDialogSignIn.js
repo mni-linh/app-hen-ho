@@ -1,33 +1,30 @@
 import React from "react";
-import AtomBox from "../../atoms/AtomBox";
-import AtomDialog from "../../atoms/AtomDialog";
-import AtomDialogActions from "../../atoms/AtomDialogActions";
-import AtomDialogContent from "../../atoms/AtomDialogContent";
-import AtomDialogContentText from "../../atoms/AtomDialogContentText";
-import AtomDivider from "../../atoms/AtomDivider";
-import AtomFormControl from "../../atoms/AtomFormControl";
-import AtomGrid from "../../atoms/AtomGrid";
-import AtomHighlightOffIcon from "../../atoms/AtomHighlightOffIcon";
-import AtomIconButton from "../../atoms/AtomIconButton";
-import AtomIconHover from "../../atoms/AtomIconHover";
-import AtomInputAdornment from "../../atoms/AtomInputAdornment";
-import AtomInputLabel from "../../atoms/AtomInputLabel";
-import AtomOutlinedInput from "../../atoms/AtomOutlinedInput";
-import AtomStyledButton from "../../atoms/AtomStyleButton";
-import AtomStyleDialogTitle from "../../atoms/AtomStyleDialogTitle";
-import AtomTextField from "../../atoms/AtomTextField";
-import AtomToolbar from "../../atoms/AtomToolbar";
-import AtomVisibilityIcon from "../../atoms/AtomVisibilityIcon";
-import AtomVisibilityOffIcon from "../../atoms/AtomVisibilityOffIcon";
-import AtomWhatshotIcon from "../../atoms/AtomWhatshotIcon";
+import AtomBox from "../../atoms/Box/AtomBox";
+import AtomDialog from "../../atoms/Dialog/AtomDialog";
+import AtomDialogActions from "../../atoms/DialogActions/AtomDialogActions";
+import AtomDialogContent from "../../atoms/DialogContent/AtomDialogContent";
+import AtomDialogContentText from "../../atoms/DialogContentText/AtomDialogContentText";
+import AtomDivider from "../../atoms/Divider/AtomDivider";
+import AtomFormControl from "../../atoms/FormControl/AtomFormControl";
+import AtomGrid from "../../atoms/Grid/AtomGrid";
+import AtomHighlightOffIcon from "../../atoms/HighlightOffIcon/AtomHighlightOffIcon";
+import AtomIconButton from "../../atoms/IconButton/AtomIconButton";
+import AtomIconHover from "../../../Atomic/atoms/IconHover/AtomIconHover";
+import AtomInputAdornment from "../../../Atomic/atoms/InputAdornment/AtomInputAdornment";
+import AtomInputLabel from "../../atoms/InputLabel/AtomInputLabel";
+import AtomOutlinedInput from "../../atoms/OutlinedInput/AtomOutlinedInput";
+import AtomStyledButton from "../../atoms/StyleButton/AtomStyleButton";
+import AtomStyleDialogTitle from "../../atoms/StyleDialogTitle/AtomStyleDialogTitle";
+import AtomTextField from "../../atoms/TextField/AtomTextField";
+import AtomToolbar from "../../atoms/Toolbar/AtomToolbar";
+import AtomVisibilityIcon from "../../atoms/VisibilityIcon/AtomVisibilityIcon";
+import AtomVisibilityOffIcon from "../../atoms/VisibilityOffIcon/AtomVisibilityOffIcon";
+import AtomWhatshotIcon from "../../atoms/WhatshotIcon/AtomWhatshotIcon";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { darken, useTheme } from "@mui/material/styles";
-import AtomStyleButtonSignIn from "../../atoms/AtomStyleButtonSignIn";
+import AtomStyleButtonSignIn from "../../atoms/StyleButtonSignIn/AtomStyleButtonSignIn";
 
 const ButtonDialogSignIn = () => {
-  const [open, setOpen] = React.useState(false);
-  ////////////
-
   const [openSignIn, setOpenSignIn] = React.useState(false);
   const [values, setValues] = React.useState({
     password: "",
@@ -50,13 +47,7 @@ const ButtonDialogSignIn = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
   // Click chuột mở Dialog SignIn
   const handleSignIn = (bool) => {
     setOpenSignIn(bool);

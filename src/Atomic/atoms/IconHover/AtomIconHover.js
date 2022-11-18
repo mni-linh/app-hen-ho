@@ -1,5 +1,5 @@
 import { styled } from "@mui/material/styles";
-import AtomIconButton from "./AtomIconButton";
+import AtomIconButton from "../IconButton/AtomIconButton";
 
 const AtomIconHover = styled(AtomIconButton)(({ theme }) => ({
   cursor: "pointer",

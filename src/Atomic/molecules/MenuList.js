@@ -2,10 +2,10 @@ import React from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import AtomBox from "../atoms/AtomBox";
-import AtomButton from "../atoms/AtomButton";
+import AtomBox from "../atoms/Box/AtomBox";
+import AtomButton from "../atoms/Button/AtomButton";
 
-import dataDating from "../../routes/dataDating";
+import dataDating from "../../routes";
 
 const MenuList = () => {
   const navigate = useNavigate();

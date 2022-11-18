@@ -1,5 +1,5 @@
 import { styled } from "@mui/material/styles";
-import AtomDialogTitle from "./AtomDialogTitle";
+import AtomDialogTitle from "../../atoms/DialogTitle/AtomDialogTitle";
 
 const AtomStyleDialogTitle = styled(AtomDialogTitle)(({ theme }) => ({
   textAlign: "center",

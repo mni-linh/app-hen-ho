@@ -1,6 +1,6 @@
 import { grey } from "@mui/material/colors";
-import { darken, styled } from "@mui/material/styles";
-import AtomButton from "./AtomButton";
+import { styled } from "@mui/material/styles";
+import AtomButton from "../../atoms/Button/AtomButton";
 
 const AtomStyleButtonSignIn = styled(AtomButton)(({ theme }) => ({
   fontFamily: theme.typography.fontFamily,

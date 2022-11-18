@@ -1,26 +1,23 @@
 import React from "react";
 
-import AtomBox from "../atoms/AtomBox";
-import AtomDrawer from "../atoms/AtomDrawer";
-import AtomIconButton from "../atoms/AtomIconButton";
-import AtomMenuIcon from "../atoms/AtomMenuIcon";
-import AtomToolbar from "../atoms/AtomToolbar";
-import AtomImageLogo from "../atoms/AtomImageLogo";
-import AtomTypography from "../atoms/AtomTypography";
-import AtomLink from "../atoms/AtomLink";
-import AtomStyleIconHover from "../atoms/AtomStyleIconHover";
-import AtomHighlightOffIcon from "../atoms/AtomHighlightOffIcon";
-import AtomDivider from "../atoms/AtomDivider";
+import { styled } from "@mui/material/styles";
 
-import ButtonSignInDrawer from "./ButtonSignInDrawer";
-import ButtonLanguageDraw from "./ButtonLanguageDraw";
+import AtomBox from "../atoms/Box/AtomBox";
+import AtomDrawer from "../atoms/Drawer/AtomDrawer";
+import AtomIconButton from "../atoms/IconButton/AtomIconButton";
+import AtomMenuIcon from "../atoms/MenuIcon/AtomMenuIcon";
+import AtomToolbar from "../atoms/Toolbar/AtomToolbar";
+import AtomImageLogo from "../atoms/ImageLogo/AtomImageLogo";
+import AtomTypography from "../atoms/Typography/AtomTypography";
+import AtomLink from "../atoms/Link/AtomLink";
+import AtomStyleIconHover from "../atoms/StyleIconHover/AtomStyleIconHover";
+import AtomHighlightOffIcon from "../atoms/HighlightOffIcon/AtomHighlightOffIcon";
+import AtomDivider from "../atoms/Divider/AtomDivider";
+
 import ExpansionPanel from "./ExpansionPanel ";
-
-import { darken, styled } from "@mui/material/styles";
 import ButtonDialogSignIn from "./Dialog/ButtonDialogSignIn";
-import AtomStyledButton from "../atoms/AtomStyleButton";
 import ButtonDialogLanguage from "./Dialog/ButtonDialogLanguage";
-import { grey } from "@mui/material/colors";
+
 const listExtend = [
   {
     text: "Sản phẩm",
@@ -49,12 +46,7 @@ const listExtend = [
 ];
 const MenuDrawer = () => {
   const drawerWidth = "100%";
-  const [extend, setExtend] = React.useState(true);
-  const [openSignIn, setOpenSignIn] = React.useState(false);
-  const [values, setValues] = React.useState({
-    password: "",
-    showPassword: false,
-  });
+
   const [open, setOpen] = React.useState(false);
   // Mở Drawer
   const handleDrawerOpen = () => {
@@ -65,29 +57,6 @@ const MenuDrawer = () => {
     setOpen(false);
   };
 
-  // Click chuột mở Dialog SignIn
-  const handleSignIn = (bool) => {
-    setOpenSignIn(bool);
-  };
-  // Click chuột đóng Dialog SignIn
-  const handleCloseSignIn = () => {
-    handleSignIn(false);
-  };
-  // Thay đổi cách hiển thị mật khẩu
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
-  // Click chuột hiển thị mật khẩu
-  const handleClickShowPassword = () => {
-    setValues({
-      ...values,
-      showPassword: !values.showPassword,
-    });
-  };
-  // Click chuột ẩn mật khẩu
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
   // style DrawerHeader
   const DrawerHeader = styled("div")(({ theme }) => ({
     display: "flex",
@@ -97,22 +66,6 @@ const MenuDrawer = () => {
     ...theme.mixins.toolbar,
     justifyContent: "flex-end",
   }));
-  const StyleButtonDialogLanguage = styled(ButtonDialogLanguage)(
-    ({ theme }) => ({
-      backgroundColor: "white",
-      "&:hover": {
-        backgroundColor: grey[200],
-      },
-      width: "100%",
-      height: theme.spacing(5.5),
-      borderRadius: "2.2rem",
-      // margin: "0 auto",
-      fontSize: theme.spacing(2),
-      color: grey[600],
-      textTransform: theme.typography.textTransform,
-      marginTop: theme.spacing(2),
-    })
-  );
   return (
     <>
       <AtomBox
@@ -199,7 +152,6 @@ const MenuDrawer = () => {
         {/* Đăng nhập - Ngôn ngữ */}
         <AtomBox
           sx={(theme) => ({
-            // position: "fixed",
             bottom: theme.spacing(0),
             left: theme.spacing(0),
             right: theme.spacing(0),

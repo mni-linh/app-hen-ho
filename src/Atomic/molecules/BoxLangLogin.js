@@ -1,5 +1,5 @@
 import React from "react";
-import AtomBox from "../atoms/AtomBox";
+import AtomBox from "../atoms/Box/AtomBox";
 import ButtonDialogSignIn from "./Dialog/ButtonDialogSignIn";
 import ButtonDialogLanguage from "./Dialog/ButtonDialogLanguage";
 

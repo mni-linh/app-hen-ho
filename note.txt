@@ -1,2 +1,0 @@
-- overflow hidden cho scroll của DialogChangleLanguage
-- thêm chú giải từng ngôn ngữ

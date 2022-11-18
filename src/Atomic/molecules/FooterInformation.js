@@ -1,16 +1,16 @@
 import React from "react";
-import AtomContainer from "../atoms/AtomContainer";
-import AtomFacebookIcon from "../atoms/AtomFacebookIcon";
-import AtomGrid from "../atoms/AtomGrid";
-import AtomInstagramIcon from "../atoms/AtomInstagramIcon";
+import AtomContainer from "../atoms/Container/AtomContainer";
+import AtomFacebookIcon from "../atoms/FacebookIcon/AtomFacebookIcon";
+import AtomGrid from "../atoms/Grid/AtomGrid";
+import AtomInstagramIcon from "../atoms/InstagramIcon/AtomInstagramIcon";
 
-import AtomMusicNoteIcon from "../atoms/AtomMusicNoteIcon";
-import AtomStack from "../atoms/AtomStack";
-import AtomStyleFooter from "../atoms/AtomStyleFooter";
-import AtomStyleLinkSoc from "../atoms/AtomStyleLinkSoc";
-import AtomTwitterIcon from "../atoms/AtomTwitterIcon";
-import AtomTypography from "../atoms/AtomTypography";
-import AtomYouTubeIcon from "../atoms/AtomYouTubeIcon";
+import AtomMusicNoteIcon from "../atoms/MusicNoteIcon/AtomMusicNoteIcon";
+import AtomStack from "../atoms/Stack/AtomStack";
+import AtomStyleFooter from "../atoms/StyleFooter/AtomStyleFooter";
+import AtomStyleLinkSoc from "../atoms/StyleLinkSoc/AtomStyleLinkSoc";
+import AtomTwitterIcon from "../atoms/TwitterIcon/AtomTwitterIcon";
+import AtomTypography from "../atoms/Typography/AtomTypography";
+import AtomYouTubeIcon from "../atoms/YouTubeIcon/AtomYouTubeIcon";
 
 const footer = [
   {

@@ -1,8 +1,8 @@
 import React from "react";
-import AtomContainer from "../atoms/AtomContainer";
-import AtomGrid from "../atoms/AtomGrid";
-import AtomStyleFooter from "../atoms/AtomStyleFooter";
-import AtomTypography from "../atoms/AtomTypography";
+import AtomContainer from "../atoms/Container/AtomContainer";
+import AtomGrid from "../atoms/Grid/AtomGrid";
+import AtomStyleFooter from "../atoms/StyleFooter/AtomStyleFooter";
+import AtomTypography from "../atoms/Typography/AtomTypography";
 
 const ShortFooter = () => {
   return (
