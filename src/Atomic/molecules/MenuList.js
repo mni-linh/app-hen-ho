@@ -6,6 +6,7 @@ import AtomBox from "../atoms/Box/AtomBox";
 import AtomButton from "../atoms/Button/AtomButton";
 
 import dataDating from "../../routes";
+import AtomTypography from "../atoms/Typography/AtomTypography";
 
 const MenuList = () => {
   const navigate = useNavigate();
@@ -26,13 +27,13 @@ const MenuList = () => {
             navigate(`${page.path}`);
           }}
           sx={(theme) => ({
-            color: theme.typography.color,
+            color: theme.palette.common.white,
             "&:hover": {
-              color: theme.palette.primary.main,
+              color: theme.palette.action.hover,
             },
-            fontSize: theme.spacing(2.3),
+            fontSize: theme.spacing(2),
             lineHeight: theme.spacing(2.6),
-            textTransform: theme.typography.textTransform,
+            textTransform: theme.typography.button.textTransform,
           })}
         >
           {page.name}

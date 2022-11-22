@@ -31,7 +31,7 @@ const LogoApp = () => {
             marginRight: theme.spacing(2),
             fontFamily: theme.typography.fontFamily,
             fontWeight: theme.typography.fontWeightBold,
-            color: theme.typography.color,
+            color: theme.palette.common.white,
             textDecoration: "none",
             fontSize: theme.spacing(5),
             display: {

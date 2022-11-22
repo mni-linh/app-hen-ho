@@ -27,6 +27,7 @@ import AtomStyleButtonSignIn from "../../atoms/StyleButtonSignIn/AtomStyleButton
 const ButtonDialogSignIn = () => {
   const [openSignIn, setOpenSignIn] = React.useState(false);
   const [values, setValues] = React.useState({
+    email: "",
     password: "",
     showPassword: false,
   });
@@ -57,6 +58,22 @@ const ButtonDialogSignIn = () => {
   const handleCloseSignIn = () => {
     handleSignIn(false);
   };
+
+  const handleClickSignIn = () => {
+    let users = JSON.parse(localStorage.getItem("user"));
+    let user = users.find((user) => user.email === values.email);
+    if (user) {
+      if (user.password === values.password) {
+        alert("Đăng nhập thành công");
+        handleCloseSignIn();
+      } else {
+        alert("Mật khẩu không đúng");
+      }
+    } else {
+      alert("Tài khoản không tồn tại");
+    }
+  };
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const isComputer = useMediaQuery(theme.breakpoints.up("md"));
@@ -70,9 +87,9 @@ const ButtonDialogSignIn = () => {
       {/* Nút Đăng nhập ở màn hình mobile */}
       <AtomStyleButtonSignIn
         variant="contained"
-        sx={{
+        sx={(theme) => ({
           width: "100%",
-          color: "white",
+          color: theme.palette.common.white,
           backgroundImage:
             "linear-gradient(212deg, rgba(253,38,122,1) 0%, rgba(255,96,54,1) 69%, rgba(255,68,88,1) 100%)",
           "&:hover": {
@@ -85,7 +102,7 @@ const ButtonDialogSignIn = () => {
             )} 100%)`,
           },
           display: isMobile ? "none" : "block",
-        }}
+        })}
         onClick={() => {
           handleSignIn(true);
         }}
@@ -100,15 +117,15 @@ const ButtonDialogSignIn = () => {
         }}
         sx={(theme) => ({
           fontSize: theme.spacing(2),
-          color: theme.palette.common.black,
-          fontWeight: theme.typography.fontWeightBold,
-          background: "rgb(216, 216, 216)",
+          color: theme.palette.common.white,
+          backgroundImage:
+            "linear-gradient(212deg, rgba(253,38,122,1) 0%, rgba(255,96,54,1) 69%, rgba(255,68,88,1) 100%)",
           "&:hover": {
-            background: `linear-gradient(180deg, ${darken(
-              "rgba(216, 216, 216, 1)",
+            background: `linear-gradient(212deg, ${darken(
+              "rgba(253, 38, 122, 1)",
               0.2
-            )} 57%, ${darken("rgba(255, 255, 255, 1)", 0.2)} 100%, ${darken(
-              "rgba(158, 158,158, 0.5)",
+            )} 0%, ${darken("rgba(255, 96, 54, 1)", 0.2)} 69%, ${darken(
+              "rgba(255, 68, 88, 1)",
               0.2
             )} 100%)`,
           },
@@ -182,6 +199,7 @@ const ButtonDialogSignIn = () => {
               autoFocus
               vargiant="outlined"
               margin="dense"
+              onChange={handleChange("email")}
             />
             {/* password */}
             <AtomGrid item>
@@ -223,7 +241,9 @@ const ButtonDialogSignIn = () => {
             </AtomGrid>
           </AtomBox>
           <AtomDialogActions>
-            <AtomStyledButton variant="contained">Đăng nhập</AtomStyledButton>
+            <AtomStyledButton onClick={handleClickSignIn} variant="contained">
+              Đăng nhập
+            </AtomStyledButton>
           </AtomDialogActions>
         </AtomDialogContent>
       </AtomDialog>

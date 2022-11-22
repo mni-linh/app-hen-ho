@@ -7,30 +7,30 @@ import AtomTypography from "../atoms/Typography/AtomTypography";
 
 const FooterApp = () => {
   return (
-    <AtomContainer maxWidth="xl">
+    <>
+      {/* <AtomContainer maxWidth="xl"> */}
       <AtomGrid
         container
         columnSpacing={3}
         sx={(theme) => ({
-          marginY: theme.spacing(2.6),
-          marginLeft: theme.spacing(0),
+          paddingY: theme.spacing(2),
+          paddingLeft: theme.spacing(2),
         })}
-        display="flex"
+        // display="flex"
         justifyContent="flex-start"
       >
         <AtomGrid
           item
+          justifyContent="space-between"
           sx={{
             alignSelf: "center",
-            display: "flex",
-            justifyContent: "space-between",
+            // display: "flex", ko đc để trong grid vì grid có sẵn r
           }}
         >
           <AtomTypography
-            sx={(theme) => ({
-              fontWeight: theme.typography.fontWeightBold,
-              fontSize: theme.spacing(2.5),
-            })}
+            // fontSize: theme.spacing(2.5), body1 body2
+            variant="h6"
+            // fontWeight: theme.typography.fontWeightBold,
           >
             TẢI ỨNG DỤNG!
           </AtomTypography>
@@ -55,7 +55,8 @@ const FooterApp = () => {
           </AtomGrid>
         </AtomGrid>
       </AtomGrid>
-    </AtomContainer>
+      {/* </AtomContainer> */}
+    </>
   );
 };
 

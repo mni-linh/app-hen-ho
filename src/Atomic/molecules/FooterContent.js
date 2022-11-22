@@ -5,22 +5,23 @@ import AtomTypography from "../atoms/Typography/AtomTypography";
 
 const FooterContent = () => {
   return (
-    <AtomContainer
-      maxWidth="xl"
-      sx={(theme) => ({
-        marginY: theme.spacing(2),
-      })}
-    >
+    <>
+      {/* <AtomContainer
+        maxWidth="xl"
+        sx={(theme) => ({
+          marginY: theme.spacing(2),
+        })}
+      > */}
       <AtomGrid
         container
         rowSpacing={2}
         sx={(theme) => ({
-          margin: "auto",
-          width: "98%",
+          paddingX: theme.spacing(2),
+          paddingY: theme.spacing(2),
         })}
       >
         <AtomGrid item>
-          <AtomTypography sx={(theme) => ({ fontSize: theme.spacing(1.7) })}>
+          <AtomTypography variant="caption">
             Gửi những ai còn độc thân: Nếu bạn đang tìm kiếm người yêu, muốn bắt
             đầu hẹn hò, hay chỉ đơn giản là muốn có thêm bạn, bạn cần có mặt
             trên Tinder. Với hơn 55 tỷ lượt tương hợp thành công, Tinder chính
@@ -35,7 +36,7 @@ const FooterContent = () => {
           </AtomTypography>
         </AtomGrid>
         <AtomGrid item>
-          <AtomTypography sx={(theme) => ({ fontSize: theme.spacing(1.7) })}>
+          <AtomTypography variant="caption">
             Sẽ luôn có điều gì đó phù hợp cho mọi người trên Tinder. Bạn muốn có
             một mối quan hệ? Sẽ có. Bạn muốn tìm thêm bạn bè? Cũng sẽ có. Bạn
             mới tới ký túc xá và muốn trải nghiệm học đại học của mình tuyệt
@@ -47,7 +48,8 @@ const FooterContent = () => {
           </AtomTypography>
         </AtomGrid>
       </AtomGrid>
-    </AtomContainer>
+      {/* </AtomContainer> */}
+    </>
   );
 };
 

@@ -64,7 +64,6 @@ const ButtonSignInDrawer = () => {
     >
       <AtomStyledButton
         variant="contained"
-        sx={{ width: "100%" }}
         onClick={() => {
           handleSignIn(true);
         }}

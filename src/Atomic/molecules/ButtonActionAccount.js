@@ -25,12 +25,14 @@ const ButtonActionAccount = () => {
         {/* Quẹt Phải */}
         <AtomGrid item>
           <AtomTypography
+            variant="h1"
+            gutterBottom={true}
             sx={(theme) => ({
-              color: theme.palette.primary.contrastText,
+              color: theme.palette.common.white,
               fontWeight: theme.typography.fontWeightBold,
               margin: "0 auto",
               [theme.breakpoints.up("xs")]: {
-                fontSize: theme.spacing(8),
+                // fontSize: theme.spacing(8),
                 display: "flex",
                 justifyContent: "center",
                 fontStyle: "italic",

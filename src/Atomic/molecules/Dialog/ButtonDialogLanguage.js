@@ -8,6 +8,7 @@ import DialogLanguage from "../Dialog/DialogLanguage";
 import { useTheme } from "@mui/system";
 import { grey } from "@mui/material/colors";
 import languageAndSub from "../../../CDN/languages";
+import { styled } from "@mui/material";
 
 const ButtonDialogLanguage = () => {
   const [open, setOpen] = React.useState(false);
@@ -21,6 +22,21 @@ const ButtonDialogLanguage = () => {
     setOpen(false);
     setSelectedValue(value);
   };
+  const AtomStyleBtnChooseLang = styled(AtomButton)(({ theme }) => ({
+    backgroundColor: "white",
+    "&:hover": {
+      backgroundColor: grey[500],
+    },
+    width: "55%",
+    height: theme.spacing(5.5),
+    borderRadius: "2.2rem",
+    margin: "0 auto",
+    fontSize: theme.spacing(2),
+    // color: grey[600],
+    textTransform: theme.typography.textTransform,
+    marginTop: theme.spacing(2),
+    display: isMobile ? "flex" : "none",
+  }));
   const theme = useTheme();
   const isComputer = AtomUseMediaQuery(theme.breakpoints.up("sm"));
   const isMobile = AtomUseMediaQuery(theme.breakpoints.down("sm"));
@@ -36,8 +52,18 @@ const ButtonDialogLanguage = () => {
           marginRight: theme.spacing(3),
           padding: theme.spacing(2),
           fontSize: theme.spacing(2),
-          color: theme.typography.color,
-          textTransform: theme.typography.textTransform,
+          color: theme.palette.common.white,
+          [theme.breakpoints.down("md")]: {
+            backgroundColor: grey[400],
+            borderRadius: theme.spacing(20),
+            width: theme.spacing(33),
+            margin: "0 auto",
+            height: theme.spacing(6),
+            "&:hover": {
+              backgroundColor: grey[500],
+            },
+          },
+          textTransform: theme.typography.button.textTransform,
           display: isComputer ? "flex" : "none",
         })}
         onClick={handleClickOpen}
@@ -45,7 +71,7 @@ const ButtonDialogLanguage = () => {
         {selectedValue}
       </AtomButton>
       {/* Màn hình mobile */}
-      <AtomButton
+      <AtomStyleBtnChooseLang
         startIcon={<AtomPublicIcon />}
         sx={(theme) => ({
           backgroundColor: "white",
@@ -57,7 +83,7 @@ const ButtonDialogLanguage = () => {
           borderRadius: "2.2rem",
           margin: "0 auto",
           fontSize: theme.spacing(2),
-          color: grey[600],
+          color: theme.palette.common.white,
           textTransform: theme.typography.textTransform,
           marginTop: theme.spacing(2),
           display: isMobile ? "flex" : "none",
@@ -65,7 +91,7 @@ const ButtonDialogLanguage = () => {
         onClick={handleClickOpen}
       >
         {selectedValue}
-      </AtomButton>
+      </AtomStyleBtnChooseLang>
       <DialogLanguage
         selectedValue={selectedValue}
         open={open}

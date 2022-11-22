@@ -22,8 +22,8 @@ import AtomVisibilityIcon from "../atoms/AtomVisibilityIcon";
 import AtomVisibilityOffIcon from "../atoms/AtomVisibilityOffIcon";
 import AtomWhatshotIcon from "../atoms/AtomWhatshotIcon";
 import AtomStyleDialogTitle from "../atoms/AtomStyleDialogTitle";
-
-import { grey } from "@mui/material/colors";
+import WhatshotIcon from "@mui/icons-material/Whatshot";
+import { grey, pink } from "@mui/material/colors";
 
 const ButtonSignIn = () => {
   const [openSignIn, setOpenSignIn] = React.useState(false);
@@ -120,10 +120,7 @@ const ButtonSignIn = () => {
         <AtomToolbar>
           <AtomGrid container justifyContent="center">
             <AtomGrid item>
-              <AtomWhatshotIcon
-                fontSize="large"
-                sx={(theme) => ({ color: theme.palette.primary.main })}
-              />
+              <WhatshotIcon fontSize="large" sx={{ color: pink[500] }} />
             </AtomGrid>
           </AtomGrid>
           <AtomIconHover
@@ -234,10 +231,7 @@ const ButtonSignIn = () => {
         <AtomToolbar>
           <AtomGrid container justifyContent="center">
             <AtomGrid item>
-              <AtomWhatshotIcon
-                fontSize="large"
-                sx={(theme) => ({ color: theme.palette.primary.main })}
-              />
+              <AtomWhatshotIcon fontSize="large" sx={{ color: pink[500] }} />
             </AtomGrid>
           </AtomGrid>
           <AtomIconHover

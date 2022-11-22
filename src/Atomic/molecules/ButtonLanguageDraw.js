@@ -240,7 +240,10 @@ const ButtonLanguageDraw = () => {
       }}
     >
       <AtomTooltip title="Change language">
-        <AtomStack direction="row">
+        <AtomStack
+          direction="row"
+          sx={(theme) => ({ color: theme.palette.common.white })}
+        >
           <AtomStyleButtonLanguage
             startIcon={<AtomPublicIcon />}
             onClick={handleClickOpen}

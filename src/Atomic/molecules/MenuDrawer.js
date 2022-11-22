@@ -78,7 +78,6 @@ const MenuDrawer = () => {
         }}
       >
         <AtomIconButton
-          color="inherit"
           aria-label="open drawer"
           edge="end"
           onClick={handleDrawerOpen}
@@ -88,6 +87,7 @@ const MenuDrawer = () => {
             top: theme.spacing(0),
             alignSelf: "center",
             ...(open && { display: "none" }),
+            color: theme.palette.common.menu,
           })}
           size="large"
         >
@@ -128,7 +128,7 @@ const MenuDrawer = () => {
               sx={(theme) => ({
                 fontFamily: theme.typography.fontFamily,
                 fontWeight: theme.typography.fontWeightBold,
-                color: theme.palette.common.black,
+                color: theme.palette.common.titleDraw,
                 textDecoration: "none",
                 fontSize: theme.spacing(4),
               })}

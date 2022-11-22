@@ -21,8 +21,23 @@ const Home = () => {
         <AppBar />
         <BanerDating />
       </AtomBox>
-      <CommentItem />
-      <Footer />
+      <AtomBox
+        sx={(theme) => ({
+          padding: theme.spacing(2),
+          [theme.breakpoints.up("sx")]: {
+            paddingX: theme.spacing(4),
+          },
+          [theme.breakpoints.up("md")]: {
+            paddingX: theme.spacing(5),
+          },
+          [theme.breakpoints.up("lg")]: {
+            paddingX: theme.spacing(10),
+          },
+        })}
+      >
+        <CommentItem />
+        <Footer />
+      </AtomBox>
     </>
   );
 };

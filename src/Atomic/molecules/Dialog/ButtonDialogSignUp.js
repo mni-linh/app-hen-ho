@@ -1,6 +1,7 @@
 import { useTheme } from "@emotion/react";
 import { darken } from "@mui/material";
 import React from "react";
+import { json } from "react-router-dom";
 import AtomBox from "../../atoms/Box/AtomBox";
 import AtomDialog from "../../atoms/Dialog/AtomDialog";
 import AtomDialogActions from "../../atoms/DialogActions/AtomDialogActions";
@@ -52,18 +53,17 @@ const ButtonDialogSignUp = () => {
     event.preventDefault();
   };
   const handleRegister = () => {
-    if (localStorage.getItem("user") === null) {
-      localStorage.setItem(
-        "user",
-        JSON.stringify({ email: values.email, password: values.password })
-      );
+    if (localStorage.getItem("user")) {
+      let user = JSON.parse(localStorage.getItem("user"));
+      user?.push({ email: values.email, password: values.password });
+      localStorage.setItem("user", JSON.stringify(user));
       setOpenSignUp(false);
     } else {
-      let user = JSON.parse(localStorage.getItem("user"));
+      let user = [];
       user.push({ email: values.email, password: values.password });
       localStorage.setItem("user", JSON.stringify(user));
+      setOpenSignUp(false);
     }
-    window.location.reload();
   };
 
   const theme = useTheme();
@@ -80,6 +80,7 @@ const ButtonDialogSignUp = () => {
         sx={(theme) => ({
           fontSize: theme.spacing(2),
           display: isComputer ? "flex" : "none",
+          color: theme.palette.common.white,
         })}
       >
         Tạo tài khoản
@@ -217,6 +218,9 @@ const ButtonDialogSignUp = () => {
           <AtomDialogActions>
             <AtomStyledButton
               onClick={() => handleRegister()}
+              // onClick={() => {
+              //   console.log(values);
+              // }}
               variant="contained"
             >
               Đăng ký

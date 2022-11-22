@@ -3,9 +3,9 @@ import { styled } from "@mui/material/styles";
 import AtomLink from "../Link/AtomLink";
 
 const AtomStyleLinkSoc = styled(AtomLink)(({ theme }) => ({
-  color: grey[800],
+  color: theme.palette.common.icon,
   "&:hover": {
-    color: theme.palette.secondary.main,
+    color: theme.palette.action.hover,
   },
 }));
 
