@@ -7,9 +7,16 @@ import LogoApp from "../molecules/LogoApp";
 import BoxLangLogin from "../molecules/BoxLangLogin";
 import MenuDrawer from "../molecules/MenuDrawer";
 import MenuList from "../molecules/MenuList";
+import AtomIconButton from "../atoms/IconButton/AtomIconButton";
+import SettingsIcon from "@mui/icons-material/Settings";
+import { Menu } from "@mui/material";
+import AtomBrightness4Icon from "../atoms/Brightness4Icon/AtomBrightness4";
+
+const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
 const AppBar = () => {
   const [open, setOpen] = React.useState(false);
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
   return (
     <>
@@ -29,6 +36,17 @@ const AppBar = () => {
           <MenuList />
           {/* List menu + drawer(màn hình nhỏ) */}
           <MenuDrawer />
+          {/* setting */}
+          <AtomIconButton
+            aria-controls="simple-menu"
+            aria-haspopup="true"
+            aria-label="Open to show settings"
+            title="Open to show settings"
+            color="inherit"
+          >
+            <AtomBrightness4Icon />
+          </AtomIconButton>
+
           {/* Button ngôn ngữ + Đăng nhập (màn hình lớn)*/}
           <BoxLangLogin />
         </AtomToolbar>

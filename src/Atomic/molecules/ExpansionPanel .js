@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { styled } from "@mui/system";
-import { grey } from "@mui/material/colors";
 
 import AtomBox from "../atoms/Box/AtomBox";
 import AtomAccordion from "../atoms/Accordion/AtomAccordion";
@@ -8,14 +7,13 @@ import AtomList from "../atoms/List/AtomList";
 import AtomListItem from "../atoms/ListItem/AtomListItem";
 import AtomListItemText from "../atoms/ListItemText/AtomListItemText";
 import AtomListItemButton from "../atoms/ListItemButton/AtomListItemButton";
+import AtomAccordionDetails from "../atoms/AccordionDetails/AtomAccordionDetails";
+import AtomAccordionSummary from "../atoms/AccordionSummary/AtomAccordionSummary";
+import AtomTypography from "../atoms/Typography/AtomTypography";
+import AtomExpandMoreIcon from "../atoms/ExpandMoreIcon/AtomExpandMoreIcon";
 
-import AccordionDetails from "@mui/material/AccordionDetails";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import { ExpandMore } from "@mui/icons-material";
 import menu from "../../CDN/menu";
 import itemMenu1 from "../../CDN/itemMenu1";
-import AtomTypography from "../atoms/Typography/AtomTypography";
-import AtomDivider from "../atoms/Divider/AtomDivider";
 import itemMenu2 from "../../CDN/itemMenu2";
 
 // Style cho LinkList thay thế vai trò <a>
@@ -48,7 +46,7 @@ const StyleAtomListItemButton = styled(AtomListItemButton)(({ theme }) => ({
   },
 }));
 // style AccordionSummary
-const StyleAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
+const StyleAccordionSummary = styled(AtomAccordionSummary)(({ theme }) => ({
   backgroundColor: theme.palette.background.row,
   "&:hover": {
     color: theme.palette.action.hover,
@@ -74,13 +72,13 @@ const ExpansionPanel = () => {
               expanded={expandedPanel === item.id}
               onChange={handleAccordionChange(item.id)}
             >
-              <StyleAccordionSummary expandIcon={<ExpandMore />}>
+              <StyleAccordionSummary expandIcon={<AtomExpandMoreIcon />}>
                 <LinkList href={item.linkName}>
                   <StyleTypographyContent>{item.name}</StyleTypographyContent>
                 </LinkList>
               </StyleAccordionSummary>
 
-              <AccordionDetails>
+              <AtomAccordionDetails>
                 {/* câu điều kiện để xác định panel nào thì hiển thị nhưng list item nào */}
                 {item.numList === "1" ? (
                   <AtomList>
@@ -103,7 +101,7 @@ const ExpansionPanel = () => {
                     ))}
                   </AtomList>
                 )}
-              </AccordionDetails>
+              </AtomAccordionDetails>
             </AccordionStyle>
           ) : (
             <AccordionStyle elevation={0} expanded={expandedPanel === item.id}>

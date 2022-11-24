@@ -19,16 +19,10 @@ import comments from "../../CDN/slides";
 const CommentItem = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const isComputer = useMediaQuery(theme.breakpoints.up("sm"));
-  const isEqua = (isMobile && 1) || (isComputer && 3);
+  // const isComputer = useMediaQuery(theme.breakpoints.up("sm"));
+  // const isEqua = (isMobile && 1) || (isComputer && 3);
   return (
     <>
-      {/* <AtomContainer
-        maxWidth="xl"
-        sx={{
-          display: isEqua,
-        }}
-      > */}
       <Swiper
         breakpoints={{
           600: {
@@ -48,7 +42,6 @@ const CommentItem = () => {
         {comments.map((comment) => (
           <SwiperSlide key={comment.id}>
             <AtomCard
-              // elevation
               sx={(theme) => ({
                 height: theme.spacing(32),
                 marginX: theme.spacing(2),
@@ -112,7 +105,6 @@ const CommentItem = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      {/* </AtomContainer> */}
     </>
   );
 };

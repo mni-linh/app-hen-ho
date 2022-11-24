@@ -14,10 +14,10 @@ const LogoApp = () => {
           alt="logo"
           src="/images/logoTinder.png"
           sx={{
-            display: {
-              xs: "flex",
-              md: "flex",
-            },
+            // display: {
+            //   xs: "flex",
+            //   md: "flex",
+            // },
             alignSelf: "center",
           }}
         />
@@ -34,10 +34,10 @@ const LogoApp = () => {
             color: theme.palette.common.white,
             textDecoration: "none",
             fontSize: theme.spacing(5),
-            display: {
-              xs: "flex",
-              md: "flex",
-            },
+            // display: {
+            //   xs: "flex",
+            //   md: "flex",
+            // },
           })}
         >
           tinder

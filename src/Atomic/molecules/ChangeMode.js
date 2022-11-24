@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const ChangeMode = () => {
-  return (
-    <div>
-      abc
-    </div>
-  )
-}
+  return <div></div>;
+};
 
-export default ChangeMode
+export default ChangeMode;

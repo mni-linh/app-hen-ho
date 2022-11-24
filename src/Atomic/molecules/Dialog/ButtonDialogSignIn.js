@@ -150,7 +150,7 @@ const ButtonDialogSignIn = () => {
             <AtomGrid item>
               <AtomWhatshotIcon
                 fontSize="large"
-                sx={(theme) => ({ color: theme.palette.primary.main })}
+                sx={(theme) => ({ color: theme.palette.common.logo })}
               />
             </AtomGrid>
           </AtomGrid>

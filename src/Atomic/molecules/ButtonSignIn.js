@@ -22,7 +22,6 @@ import AtomVisibilityIcon from "../atoms/AtomVisibilityIcon";
 import AtomVisibilityOffIcon from "../atoms/AtomVisibilityOffIcon";
 import AtomWhatshotIcon from "../atoms/AtomWhatshotIcon";
 import AtomStyleDialogTitle from "../atoms/AtomStyleDialogTitle";
-import WhatshotIcon from "@mui/icons-material/Whatshot";
 import { grey, pink } from "@mui/material/colors";
 
 const ButtonSignIn = () => {
@@ -120,7 +119,7 @@ const ButtonSignIn = () => {
         <AtomToolbar>
           <AtomGrid container justifyContent="center">
             <AtomGrid item>
-              <WhatshotIcon fontSize="large" sx={{ color: pink[500] }} />
+              <AtomWhatshotIcon fontSize="large" sx={{ color: pink[500] }} />
             </AtomGrid>
           </AtomGrid>
           <AtomIconHover
@@ -281,17 +280,6 @@ const ButtonSignIn = () => {
               vargiant="outlined"
               margin="dense"
             />
-            {/* <AtomTextField
-              id="outlined-password-input"
-              label="Password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              autoComplete="current-password"
-              //
-            /> */}
-            {/* password */}
-            {/* Grid ở ngoài  */}
 
             <AtomGrid item>
               <AtomFormControl

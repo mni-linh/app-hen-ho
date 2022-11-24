@@ -1,19 +1,22 @@
-import { ThemeProvider, createTheme, useTheme } from "@mui/material/styles";
-import { CssBaseline } from "@mui/material";
 import * as React from "react";
-import RoutesDating from "./routes/RoutesDating";
-import { amber, grey, deepOrange, pink, red } from "@mui/material/colors";
+import { ThemeProvider, createTheme, useTheme } from "@mui/material/styles";
 import theme from "./CustomTheme";
-import AtomIconButton from "./Atomic/atoms/IconButton/AtomIconButton";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
+import { grey, red } from "@mui/material/colors";
+import { CssBaseline } from "@mui/material";
+
+import RoutesDating from "./routes/RoutesDating";
+
 import AtomBox from "./Atomic/atoms/Box/AtomBox";
+import AtomIconButton from "./Atomic/atoms/IconButton/AtomIconButton";
+import AtomBrightness4Icon from "./Atomic/atoms/Brightness4Icon/AtomBrightness4";
+import AtomBrightness7Icon from "./Atomic/atoms/Brightness7Icon/Brightness7Icon";
 
 // const darkTheme = createTheme({
 //   palette: {
 //     mode: "dark",
 //   },
 // });
+
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
 function MyApp() {
@@ -26,22 +29,22 @@ function MyApp() {
         width: "100%",
         alignItems: "center",
         justifyContent: "center",
-        bgcolor: "background.default",
+        backgroundColor: "background.default",
         color: "text.primary",
         borderRadius: 1,
-        p: 3,
+        padding: 3,
       }}
     >
       {theme.palette.mode} mode
       <AtomIconButton
-        sx={{ ml: 1 }}
+        sx={{ marginLeft: 1 }}
         onClick={colorMode.toggleColorMode}
         color="inherit"
       >
         {theme.palette.mode === "dark" ? (
-          <Brightness7Icon />
+          <AtomBrightness7Icon />
         ) : (
-          <Brightness4Icon />
+          <AtomBrightness4Icon />
         )}
       </AtomIconButton>
     </AtomBox>
@@ -80,10 +83,12 @@ const App = () => {
                   icon: grey[800],
                   menu: grey[50],
                   white: "#fff",
+                  logo: red[500],
                 },
                 background: {
                   paper: grey[200],
                   row: grey[400],
+                  itemLang: grey[400],
                 },
                 divider: grey[400],
                 text: {
@@ -97,21 +102,23 @@ const App = () => {
                 action: {
                   hover: red[500],
                 },
-                divider: grey[200],
-                background: {
-                  paper: grey[900],
-                  default: grey[900],
-                },
-                text: {
-                  primary: "#fff",
-                  secondary: grey[200],
-                },
                 common: {
                   white: "#fff",
                   title: grey[50],
                   titleDraw: grey[200],
                   icon: grey[50],
                   menu: grey[50],
+                  logo: red[500],
+                },
+                background: {
+                  paper: grey[900],
+                  default: grey[900],
+                  itemLang: grey[400],
+                },
+                divider: grey[200],
+                text: {
+                  primary: "#fff",
+                  secondary: grey[200],
                 },
               }),
         },
