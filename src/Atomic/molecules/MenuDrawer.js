@@ -17,6 +17,7 @@ import AtomDivider from "../atoms/Divider/AtomDivider";
 import ExpansionPanel from "./ExpansionPanel ";
 import ButtonDialogSignIn from "./Dialog/ButtonDialogSignIn";
 import ButtonDialogLanguage from "./Dialog/ButtonDialogLanguage";
+import ChangeMode from "./ChangeMode";
 
 const listExtend = [
   {
@@ -166,6 +167,8 @@ const MenuDrawer = () => {
           />
           {/* <ButtonLanguageDraw /> */}
           <ButtonDialogLanguage />
+          {/* button change mode */}
+          <ChangeMode />
         </AtomBox>
       </AtomDrawer>
     </>

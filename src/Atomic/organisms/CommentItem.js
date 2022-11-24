@@ -53,17 +53,6 @@ const CommentItem = () => {
                 height: theme.spacing(32),
                 marginX: theme.spacing(2),
                 marginY: theme.spacing(4),
-
-                // boxShadow:
-                //   theme.spacing(0.5) +
-                //   " " +
-                //   theme.spacing(0.5) +
-                //   " " +
-                //   theme.spacing(0.5) +
-                //   " " +
-                //   theme.spacing(0.5) +
-                //   " " +
-                //   "#e5e5e5",
                 borderRadius: theme.spacing(2),
               })}
             >

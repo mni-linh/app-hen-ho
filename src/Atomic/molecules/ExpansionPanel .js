@@ -13,8 +13,10 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import { ExpandMore } from "@mui/icons-material";
 import menu from "../../CDN/menu";
-import itemMenu from "../../CDN/itemMenu";
+import itemMenu1 from "../../CDN/itemMenu1";
 import AtomTypography from "../atoms/Typography/AtomTypography";
+import AtomDivider from "../atoms/Divider/AtomDivider";
+import itemMenu2 from "../../CDN/itemMenu2";
 
 // Style cho LinkList thay thế vai trò <a>
 const LinkList = styled("a")(({ theme }) => ({
@@ -30,6 +32,7 @@ const LinkList = styled("a")(({ theme }) => ({
 const AccordionStyle = styled(AtomAccordion)(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
 }));
+// style Typography
 const StyleTypographyContent = styled(AtomTypography)(({ theme }) => ({
   color: theme.palette.common.titleDraw,
   fontWeight: theme.typography.fontWeightBold,
@@ -37,12 +40,14 @@ const StyleTypographyContent = styled(AtomTypography)(({ theme }) => ({
     color: theme.palette.action.hover,
   },
 }));
+// style ListItemButton
 const StyleAtomListItemButton = styled(AtomListItemButton)(({ theme }) => ({
   "&:hover": {
     backgroundColor: theme.palette.background.paper,
     color: theme.palette.action.hover,
   },
 }));
+// style AccordionSummary
 const StyleAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
   backgroundColor: theme.palette.background.row,
   "&:hover": {
@@ -54,119 +59,63 @@ const ExpansionPanel = () => {
   const [expandedPanel, setExpandedPanel] = useState(false);
 
   const handleAccordionChange = (panel) => (event, isExpanded) => {
-    console.log({ event, isExpanded });
+    // console.log({ event, isExpanded });
     setExpandedPanel(isExpanded ? panel : false);
   };
+  // const [expanded, setExpanded] = React.useState(false);
   return (
     <>
-      <AtomBox sx={(theme) => ({ padding: theme.spacing(1) })}>
-        {/* #1 */}
-        <AccordionStyle
-          elevation={0}
-          expanded={expandedPanel === "panel1"}
-          onChange={handleAccordionChange("panel1")}
-        >
-          <StyleAccordionSummary expandIcon={<ExpandMore />}>
-            <LinkList href="https://tinder.com/vi/about">
-              <StyleTypographyContent>Tìm hiểu</StyleTypographyContent>
-            </LinkList>
-          </StyleAccordionSummary>
+      {menu.map((item) => (
+        <AtomBox key={item.id} sx={(theme) => ({ padding: theme.spacing(1) })}>
+          {/* câu điều kiện để xác định panel có dropdown hay là không*/}
+          {item.expand === "yes" ? (
+            <AccordionStyle
+              elevation={0}
+              expanded={expandedPanel === item.id}
+              onChange={handleAccordionChange(item.id)}
+            >
+              <StyleAccordionSummary expandIcon={<ExpandMore />}>
+                <LinkList href={item.linkName}>
+                  <StyleTypographyContent>{item.name}</StyleTypographyContent>
+                </LinkList>
+              </StyleAccordionSummary>
 
-          <AccordionDetails>
-            <AtomList>
-              <AtomListItem>
-                <StyleAtomListItemButton href="https://tinder.com/vi/feature/stand-out">
-                  <AtomListItemText primary="Tính năng cao cấp" />
-                </StyleAtomListItemButton>
-              </AtomListItem>
-              <AtomListItem>
-                <StyleAtomListItemButton href="https://tinder.com/vi/feature/subscription-tiers">
-                  <AtomListItemText primary="Các Cấp Gói Đăng Ký" />
-                </StyleAtomListItemButton>
-              </AtomListItem>
-              <AtomListItem>
-                <StyleAtomListItemButton href="https://tinder.com/vi/swipe-night/season-2">
-                  <AtomListItemText primary="Swipe Night" />
-                </StyleAtomListItemButton>
-              </AtomListItem>
-            </AtomList>
-          </AccordionDetails>
-        </AccordionStyle>
-        {/* #2 */}
-        <AccordionStyle
-          elevation={0}
-          expanded
-          onChange={handleAccordionChange("panel2")}
-        >
-          <StyleAccordionSummary>
-            <LinkList href="https://tinder.com/vi/about">
-              <StyleTypographyContent>Sản phẩm</StyleTypographyContent>
-            </LinkList>
-          </StyleAccordionSummary>
-        </AccordionStyle>
-        {/* #3 */}
-        <AccordionStyle
-          elevation={0}
-          expanded={expandedPanel === "panel3"}
-          onChange={handleAccordionChange("panel3")}
-        >
-          <StyleAccordionSummary expandIcon={<ExpandMore />}>
-            <LinkList href="https://policies.tinder.com/safety?lang=vi">
-              <StyleTypographyContent>An toàn</StyleTypographyContent>
-            </LinkList>
-          </StyleAccordionSummary>
-
-          <AccordionDetails>
-            <AtomList>
-              <AtomListItem>
-                <StyleAtomListItemButton href="https://policies.tinder.com/community-guidelines?lang=vi">
-                  <AtomListItemText primary="Quy tắc Cộng đồng" />
-                </StyleAtomListItemButton>
-              </AtomListItem>
-              <AtomListItem>
-                <StyleAtomListItemButton href="https://policies.tinder.com/safety?lang=vi">
-                  <AtomListItemText primary="Bí quyết An toàn" />
-                </StyleAtomListItemButton>
-              </AtomListItem>
-              <AtomListItem>
-                <StyleAtomListItemButton href="https://policies.tinder.com/safety-and-policy?lang=vi">
-                  <AtomListItemText primary="An toàn & Chính sách" />
-                </StyleAtomListItemButton>
-              </AtomListItem>
-              <AtomListItem>
-                <StyleAtomListItemButton href="https://policies.tinder.com/security?lang=vi">
-                  <AtomListItemText primary="Bảo Mật" />
-                </StyleAtomListItemButton>
-              </AtomListItem>
-            </AtomList>
-          </AccordionDetails>
-        </AccordionStyle>
-        {/* #4 */}
-        <AccordionStyle
-          elevation={0}
-          expanded
-          onChange={handleAccordionChange("panel4")}
-        >
-          <StyleAccordionSummary>
-            <LinkList href="https://www.help.tinder.com/hc?utm_source=web">
-              <StyleTypographyContent>Hỗ trợ</StyleTypographyContent>
-            </LinkList>
-          </StyleAccordionSummary>
-        </AccordionStyle>
-        {/* #5 */}
-        <AccordionStyle
-          elevation={0}
-          expanded
-          onChange={handleAccordionChange("panel5")}
-        >
-          <StyleAccordionSummary>
-            <LinkList href="https://tinder.com/vi/download">
-              {" "}
-              <StyleTypographyContent>Tải về </StyleTypographyContent>
-            </LinkList>
-          </StyleAccordionSummary>
-        </AccordionStyle>
-      </AtomBox>
+              <AccordionDetails>
+                {/* câu điều kiện để xác định panel nào thì hiển thị nhưng list item nào */}
+                {item.numList === "1" ? (
+                  <AtomList>
+                    {itemMenu1.map((i) => (
+                      <AtomListItem key={i.id}>
+                        <StyleAtomListItemButton href={i.itemTitle.itemLink}>
+                          <AtomListItemText primary={i.itemTitle.itemName} />
+                        </StyleAtomListItemButton>
+                      </AtomListItem>
+                    ))}
+                  </AtomList>
+                ) : (
+                  <AtomList>
+                    {itemMenu2.map((idx) => (
+                      <AtomListItem key={idx.id}>
+                        <StyleAtomListItemButton href={idx.itemTitle.itemLink}>
+                          <AtomListItemText primary={idx.itemTitle.itemName} />
+                        </StyleAtomListItemButton>
+                      </AtomListItem>
+                    ))}
+                  </AtomList>
+                )}
+              </AccordionDetails>
+            </AccordionStyle>
+          ) : (
+            <AccordionStyle elevation={0} expanded={expandedPanel === item.id}>
+              <StyleAccordionSummary>
+                <LinkList href={item.linkName}>
+                  <StyleTypographyContent>{item.name}</StyleTypographyContent>
+                </LinkList>
+              </StyleAccordionSummary>
+            </AccordionStyle>
+          )}
+        </AtomBox>
+      ))}
     </>
   );
 };
